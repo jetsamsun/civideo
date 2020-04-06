@@ -24,7 +24,7 @@
 	<script src="/template/default/js/jquery.bootstrap.js" type="text/javascript"></script>
 
 	<!--  Plugin for the Wizard -->
-	<script src="/template/default/js/material-bootstrap-wizard.js"></script>   
+	<script src="/template/default/js/material-bootstrap-wizard.js"></script>
 
 	<!--  More information about jquery.validate here: http://jqueryvalidation.org/	 -->
 	<script src="/template/default/js/jquery.validate.min.js"></script>
