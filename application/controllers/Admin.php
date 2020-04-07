@@ -1,13 +1,13 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Dashboard extends CI_Controller {
+class Admin extends CI_Controller {
 	public function __construct(){
         parent::__construct();
         $this->load->model('model');
         session_start();
 
         if(!isset($_SESSION["userinfo"]) && $this->router->method != 'login') {
-            header("Location:".site_url('admin/dashboard/login'));
+            header("Location:".site_url('admin/login'));
         }
     }
 
@@ -208,7 +208,7 @@ class Dashboard extends CI_Controller {
                 $res = $this->db->query($sql)->row_array();
                 $total = $res['num'];
                 $pages = ceil($total / $limit);  //页数
-                $url = site_url('admin/dashboard/transaction');
+                $url = site_url('admin/transaction');
 
                 $query = $this->db
                     ->select('paylogs.*, payment.sprovider_text, payment.gateway_text')
@@ -226,7 +226,7 @@ class Dashboard extends CI_Controller {
                 $res = $this->db->query($sql)->row_array();
                 $total = $res['num'];
                 $pages = ceil($total / $limit);  //页数
-                $url = site_url('admin/dashboard/transaction');
+                $url = site_url('admin/transaction');
 
                 $query = $this->db
                     ->select('paylogs.*, payment.sprovider_text, payment.gateway_text')
@@ -286,7 +286,7 @@ class Dashboard extends CI_Controller {
                 $res = $this->db->query($sql)->row_array();
                 $total = $res['num'];
                 $pages = ceil($total / $limit);  //页数
-                $url = site_url('admin/dashboard/withdraw');
+                $url = site_url('admin/withdraw');
 
                 $query = $this->db
                     ->where('domain', $_SESSION['userinfo']['sub_domain'])
@@ -300,7 +300,7 @@ class Dashboard extends CI_Controller {
                 $res = $this->db->query($sql)->row_array();
                 $total = $res['num'];
                 $pages = ceil($total / $limit);  //页数
-                $url = site_url('admin/dashboard/withdraw');
+                $url = site_url('admin/withdraw');
 
                 $query = $this->db
                     ->where('domain', $_SESSION['userinfo']['sub_domain'])

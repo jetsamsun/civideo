@@ -46,7 +46,7 @@
   <div class="lyear-login">
     <div class="login-center">
       <div class="login-header text-center">
-        <a href="<?php echo site_url('chinese/index');?>"> <img alt="light year admin" src="<?php echo $this->options['site_logo']; ?>" width="180px"> </a>
+        <a href="<?php echo site_url('home/index');?>"> <img alt="light year admin" src="<?php echo $this->options['site_logo']; ?>" width="180px"> </a>
       </div>
       <form action="javascript:void(0);" method="post">
         <div class="form-group has-feedback feedback-left">
@@ -63,7 +63,7 @@
             <span class="mdi mdi-check-all form-control-feedback" aria-hidden="true"></span>
           </div>
           <div class="col-xs-5">
-            <img src="<?php echo site_url('chinese/captcha')?>" class="pull-right" id="captcha" style="cursor: pointer;" onclick="refresh_captcha()" title="点击刷新" alt="captcha">
+            <img src="<?php echo site_url('home/captcha')?>" class="pull-right" id="captcha" style="cursor: pointer;" onclick="refresh_captcha()" title="点击刷新" alt="captcha">
           </div>
         </div>
         <div class="form-group">
@@ -86,7 +86,7 @@
         });
 
         function refresh_captcha() {
-            $.post("<?php echo site_url('chinese/captcha')?>",{},function (ret) {
+            $.post("<?php echo site_url('home/captcha')?>",{},function (ret) {
                 $("#captcha").attr('src',ret);
             });
         }

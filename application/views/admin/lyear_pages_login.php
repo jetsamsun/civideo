@@ -46,7 +46,7 @@
   <div class="lyear-login">
     <div class="login-center">
       <div class="login-header text-center">
-        <a href="<?php echo site_url('admin/dashboard/index');?>"> <img alt="light year admin" src="/assets/images/logo-sidebar.png"> </a>
+        <a href="<?php echo site_url('admin/index');?>"> <img alt="light year admin" src="/assets/images/logo-sidebar.png"> </a>
       </div>
       <form action="#!" method="post">
         <div class="form-group has-feedback feedback-left">
@@ -67,7 +67,7 @@
           </div>
         </div>
         <div class="form-group">
-          <button class="btn btn-block btn-primary" type="button" onclick="location.href='<?php echo site_url("dashboard/index");?>'">立即登录</button>
+          <button class="btn btn-block btn-primary" type="button" onclick="location.href='<?php echo site_url("admin/index");?>'">立即登录</button>
         </div>
       </form>
       <hr>

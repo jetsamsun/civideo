@@ -19,7 +19,7 @@
                                 <h2>提示! 页面没找到</h2>
                                 <p>当前你要访问的页面不存在, 或临时不可用,请重试.</p>
 
-                                <a href="index.html" class="btn">返回首页</a>
+                                <a href="<?php echo site_url('home/index');?>" class="btn">返回首页</a>
                             </div>
                             <br><br><br>
                         </div>

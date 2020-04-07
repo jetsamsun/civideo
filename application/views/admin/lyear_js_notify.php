@@ -54,7 +54,7 @@ lightyear.loading('hide');  // 隐藏</code></pre>
                   </tr>
                   <tr>
                     <td>$icon</td>
-                    <td>图标，例如：'mdi-emoticon-happy'，具体参考<a href="<?php echo site_url('admin/dashboard/lyear_ui_icons');?>">图标</a> </td>
+                    <td>图标，例如：'mdi-emoticon-happy'，具体参考<a href="<?php echo site_url('admin/lyear_ui_icons');?>">图标</a> </td>
                   </tr>
                   <tr>
                     <td>$from</td>

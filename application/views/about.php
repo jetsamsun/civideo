@@ -15,7 +15,7 @@
                     <div class="col-12 text-center">
                         <h1 class="page-title">关于我们</h1>
                         <ul class="breadcrumb">
-                            <li><a href="<?php echo site_url('chinese/index');?>">网站首页</a></li>
+                            <li><a href="<?php echo site_url('home/index');?>">网站首页</a></li>
                             <li class="current"><span>关于我们</span></li>
                         </ul>
                     </div>
@@ -151,7 +151,7 @@
                             <p class="color--white lh-1pt5">有关帐户与财务的问题,请随时与我们联络.</p>
                         </div>
                         <div class="col-md-4 text-md-right text-center">
-                            <a href="<?php echo site_url('chinese/contact');?>" class="btn btn-outline btn-white btn-brw-2 btn-hover-1">联络我们</a>
+                            <a href="<?php echo site_url('home/contact');?>" class="btn btn-outline btn-white btn-brw-2 btn-hover-1">联络我们</a>
                         </div>
                     </div>
                 </div>

@@ -25,7 +25,7 @@
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-toolbar clearfix">
-                                <form class="pull-right search-bar" method="get" action="<?php echo site_url('admin/dashboard/withdraw')?>" role="form">
+                                <form class="pull-right search-bar" method="get" action="<?php echo site_url('admin/withdraw')?>" role="form">
                                     <div class="input-group">
                                         <div class="input-group-btn">
                                             <input type="hidden" name="search_field" id="search-field" value="tradeno">
@@ -168,7 +168,7 @@
         $('#myModal').modal();
     });
     $('.confirm').on('click',function () {
-        $.post("<?php echo site_url('admin/dashboard/withdraw')?>?op=del",{ids:$('.tid').val()},function (ret) {
+        $.post("<?php echo site_url('admin/withdraw')?>?op=del",{ids:$('.tid').val()},function (ret) {
             if(ret.code===0) {
                 lightyear.loading('show');  // 显示
                 setTimeout(function() {

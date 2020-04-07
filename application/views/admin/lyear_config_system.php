@@ -24,9 +24,9 @@
           <div class="col-lg-12">
             <div class="card">
               <ul class="nav nav-tabs page-tabs">
-                <li> <a href="<?php echo site_url('admin/dashboard/lyear_pages_config');?>">基本</a> </li>
+                <li> <a href="<?php echo site_url('admin/lyear_pages_config');?>">基本</a> </li>
                 <li class="active"> <a href="#!">系统</a> </li>
-                <li> <a href="<?php echo site_url('admin/dashboard/lyear_config_upload');?>">上传</a> </li>
+                <li> <a href="<?php echo site_url('admin/lyear_config_upload');?>">上传</a> </li>
               </ul>
               <div class="tab-content">
                 <div class="tab-pane active">

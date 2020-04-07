@@ -1,5 +1,5 @@
 //! moment.js locale configuration
-//! locale : traditional chinese (zh-tw)
+//! locale : traditional home (zh-tw)
 //! author : Ben : https://github.com/ben-lin
 
 (function (global, factory) {

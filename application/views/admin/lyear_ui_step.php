@@ -20,7 +20,7 @@
 
       <div class="container-fluid">
         <div class="alert alert-info" role="alert">
-          实际应用中，给a标签加上 <code>data-toggle="tab"</code> ，可查看<a href="<?php echo site_url('admin/dashboard/lyear_pages_guide');?>">表单向导</a>。
+          实际应用中，给a标签加上 <code>data-toggle="tab"</code> ，可查看<a href="<?php echo site_url('admin/lyear_pages_guide');?>">表单向导</a>。
         </div>
         <div class="row">
           <div class="col-lg-12">

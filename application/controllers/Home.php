@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Chinese extends CI_Controller {
+class Home extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -48,6 +48,11 @@ class Chinese extends CI_Controller {
     public function about()
     {
         $this->load->view('about');
+    }
+
+    public function detail()
+    {
+        $this->load->view('detail');
     }
 
     public function contact()

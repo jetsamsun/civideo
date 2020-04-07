@@ -14,7 +14,7 @@
                     <div class="col-12 text-center">
                         <h1 class="page-title">收付服务</h1>
                         <ul class="breadcrumb">
-                            <li><a href="<?php echo site_url('chinese/index');?>">网站首页</a></li>
+                            <li><a href="<?php echo site_url('home/index');?>">网站首页</a></li>
                             <li class="current"><span>收付服务</span></li>
                         </ul>
                     </div>

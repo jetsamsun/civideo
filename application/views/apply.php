@@ -15,7 +15,7 @@
                     <div class="col-12 text-center">
                         <h1 class="page-title">申请平台</h1>
                         <ul class="breadcrumb">
-                            <li><a href="<?php echo site_url('chinese/index');?>">网站首页</a></li>
+                            <li><a href="<?php echo site_url('home/index');?>">网站首页</a></li>
                             <li class="current"><span>申请平台</span></li>
                         </ul>
                     </div>
@@ -164,7 +164,7 @@
 		}
 	
 		
-		$.post("<?php echo site_url('chinese/apply');?>",{
+		$.post("<?php echo site_url('home/apply');?>",{
 			email:email,
 			username:username,
 			contact:contact,

@@ -97,7 +97,7 @@
         let web_site_description = $('#web_site_description').val();
         let web_site_js = $('#web_site_js').val();
 
-        $.post("<?php site_url('admin/dashboard/set');?>",{
+        $.post("<?php site_url('admin/set');?>",{
             web_site_domain:web_site_domain,
             web_site_title:web_site_title,
             web_site_addr:web_site_addr,

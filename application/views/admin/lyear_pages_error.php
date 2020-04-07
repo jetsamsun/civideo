@@ -33,7 +33,7 @@ body{
     <div class="error-body text-center">
       <h1>404</h1>
       <h4>很抱歉，但是那个页面看起来已经不存在了。</h4>
-      <a href="<?php echo site_url('admin/dashboard/index');?>" class="btn btn-primary ">返回首页</a>
+      <a href="<?php echo site_url('admin/index');?>" class="btn btn-primary ">返回首页</a>
     </div>
   </div>
 </section>

@@ -77,7 +77,7 @@
 
 <script>
     $("button[type=submit]").on("click",function () {
-        let url = '<?php echo site_url('admin/dashboard/profile'); ?>';
+        let url = '<?php echo site_url('admin/profile'); ?>';
         let email = $("input[name=email]").val();
         let telegram = $("input[name=telegram]").val();
 

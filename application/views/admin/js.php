@@ -10,7 +10,7 @@
 
 <script>
     $(".login").on("click",function () {
-        let url = '<?php echo site_url("admin/dashboard/login");?>';
+        let url = '<?php echo site_url("admin/login");?>';
         let username = $("input[name=username]").val();
         let password = $("input[name=password]").val();
         let captcha = $("input[name=captcha]").val();
@@ -27,7 +27,7 @@
                     lightyear.loading('hide');  // 隐藏
                     lightyear.notify(ret.msg+'，页面即将自动跳转~', 'success', 2000);
                     setTimeout(function() {
-                        window.location.href='<?php echo site_url("admin/dashboard/index");?>';
+                        window.location.href='<?php echo site_url("admin/index");?>';
                     }, 500);
                 }, 500);
             } else {
@@ -37,12 +37,12 @@
     });
 
     $(".logout").on("click",function () {
-        let url = '<?php echo site_url("admin/dashboard/logout");?>';
+        let url = '<?php echo site_url("admin/logout");?>';
         $.post(url,{}, function (ret) {
             if(ret.code === 0) {
                 lightyear.notify(ret.msg+'，页面即将自动跳转~', 'warning', 2000);
                 setTimeout(function() {
-                    window.location.href='<?php echo site_url("admin/dashboard/login");?>';
+                    window.location.href='<?php echo site_url("admin/login");?>';
                 }, 500);
             } else {
                 lightyear.notify(ret.msg, 'danger', 2000);

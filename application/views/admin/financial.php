@@ -102,7 +102,7 @@
 
 <script>
     $("button[type=submit]").on("click",function () {
-        let url = '<?php echo site_url('admin/dashboard/financial'); ?>';
+        let url = '<?php echo site_url('admin/financial'); ?>';
         let foreign = $("input[name=foreign]").is(':checked');
         let deposit = $("select[name=bank]").val();
         let branch = $("input[name=sub_branch]").val();

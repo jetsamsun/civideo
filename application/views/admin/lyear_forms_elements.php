@@ -221,7 +221,7 @@
               <div class="card-header"><h4>普通表单</h4></div>
               <div class="card-body">
                 
-                <form action="<?php echo site_url('admin/dashboard/lyear_forms_elements');?>" method="post" onsubmit="return false;">
+                <form action="<?php echo site_url('admin/lyear_forms_elements');?>" method="post" onsubmit="return false;">
                   <div class="form-group">
                     <label for="example-nf-email">邮箱</label>
                     <input class="form-control" type="email" id="example-nf-email" name="example-nf-email" placeholder="请输入邮箱..">
@@ -242,7 +242,7 @@
               <div class="card-header"><h4>内联表单</h4></div>
               <div class="card-body">
                 
-                <form class="form-inline" action="<?php echo site_url('admin/dashboard/lyear_forms_elements');?>" method="post" onsubmit="return false;">
+                <form class="form-inline" action="<?php echo site_url('admin/lyear_forms_elements');?>" method="post" onsubmit="return false;">
                   <div class="form-group">
                     <label class="sr-only" for="example-if-email">邮箱</label>
                     <input class="form-control" type="email" id="example-if-email" name="example-if-email" placeholder="请输入邮箱..">
@@ -263,7 +263,7 @@
               <div class="card-header"><h4>水平排列的表单</h4></div>
               <div class="card-body">
                 
-                <form class="form-horizontal" action="<?php echo site_url('admin/dashboard/lyear_forms_elements');?>" method="post" onsubmit="return false;">
+                <form class="form-horizontal" action="<?php echo site_url('admin/lyear_forms_elements');?>" method="post" onsubmit="return false;">
                   <div class="form-group">
                     <label class="col-md-3 control-label" for="example-hf-email">邮箱</label>
                     <div class="col-md-7">
@@ -290,7 +290,7 @@
               <div class="card-header"><h4>输入框大小</h4></div>
               <div class="card-body">
                 
-                <form action="<?php echo site_url('admin/dashboard/lyear_forms_elements');?>" method="post" onsubmit="return false;">
+                <form action="<?php echo site_url('admin/lyear_forms_elements');?>" method="post" onsubmit="return false;">
                   <div class="form-group">
                     <label for="example-input-small">偏小输入框</label>
                     <input class="form-control input-sm" type="text" id="example-input-small" name="example-input-small" placeholder=".input-sm">
@@ -419,7 +419,7 @@
               <div class="card-header"><h4>输入框组</h4></div>
               <div class="card-body">
 
-                <form action="<?php echo site_url('admin/dashboard/lyear_forms_elements');?>" method="post" onsubmit="return false;">
+                <form action="<?php echo site_url('admin/lyear_forms_elements');?>" method="post" onsubmit="return false;">
                   <div class="input-group m-b-10">
                     <span class="input-group-addon" id="basic-addon1">@</span>
                     <input type="text" class="form-control" placeholder="用户名" aria-describedby="basic-addon1">

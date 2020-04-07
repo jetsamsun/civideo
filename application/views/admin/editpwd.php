@@ -58,7 +58,7 @@
 
 <script>
     $("button[type=submit]").on("click",function () {
-        let url = '<?php echo site_url('admin/dashboard/editpwd'); ?>';
+        let url = '<?php echo site_url('admin/editpwd'); ?>';
         let oldpwd = $("input[name=oldpwd]").val();
         let newpwd = $("input[name=newpwd]").val();
         let renewpwd = $("input[name=confirmpwd]").val();
@@ -80,7 +80,7 @@
                     lightyear.loading('hide');  // 隐藏
                     lightyear.notify(ret.msg, 'success', 3000);
                     setTimeout(function() {
-                        window.location.href="<?php echo site_url('admin/dashboard/login'); ?>";
+                        window.location.href="<?php echo site_url('admin/login'); ?>";
                     }, 1000);
                 }, 1000);
             } else {

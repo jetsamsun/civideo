@@ -14,7 +14,7 @@
                     <div class="footer-widget">
                         <div class="newsletter-form-widget">
                             <p>订阅最新资讯邮件</p>
-                            <form action="<?php echo site_url('chinese/contact');?>" method="post" name="mc-embedded-subscribe-form" class="newsletter-form mc-form">
+                            <form action="<?php echo site_url('home/contact');?>" method="post" name="mc-embedded-subscribe-form" class="newsletter-form mc-form">
                                 <input type="email" name="newsletter_email" class="newsletter-form__input" placeholder="Enter Your Email">
                                 <button type="submit" class="newsletter-form__btn">我要订阅</button>
                             </form>
@@ -36,10 +36,11 @@
                         <h3 class="widget-title mb--35 mb-sm--20">页面</h3>
                         <div class="footer-widget">
                             <ul class="footer-menu">
-                                <li><a href="<?php echo site_url('chinese/index');?>">首页</a></li>
-                                <li><a href="<?php echo site_url('chinese/service');?>">收付服务</a></li>
-                                <li><a href="<?php echo site_url('chinese/about');?>">关于我们</a></li>
-                                <li><a href="<?php echo site_url('chinese/contact');?>">联络我们</a></li>
+                                <li><a href="<?php echo site_url('home/index');?>">首页</a></li>
+                                <li><a href="<?php echo site_url('home/service');?>">电影</a></li>
+                                <li><a href="<?php echo site_url('home/about');?>">电视剧</a></li>
+                                <li><a href="<?php echo site_url('home/contact');?>">综艺</a></li>
+                                <li><a href="<?php echo site_url('home/apply');?>">动漫</a></li>
                             </ul>
                         </div>
                     </div>
@@ -95,7 +96,7 @@
         <nav class="offcanvas-navigation">
             <ul class="offcanvas-menu">
                 <li class="menu-item-has-children active">
-                    <a href="<?php echo site_url('chinese/index');?>">
+                    <a href="<?php echo site_url('home/index');?>">
                         <span class="mm-text">首页</span>
                     </a>
                     <!--<ul class="sub-menu">-->
@@ -112,29 +113,29 @@
                     <!--</ul>-->
                 </li>
                 <li>
-                    <a href="<?php echo site_url('chinese/service');?>">
+                    <a href="<?php echo site_url('home/service');?>">
                         <span class="mm-text">收付服务</span>
                     </a>
                 </li>
                 <li>
-                    <a href="<?php echo site_url('chinese/about');?>">
+                    <a href="<?php echo site_url('home/about');?>">
                         <span class="mm-text">关于我们</span>
                     </a>
                 </li>
                 <li>
-                    <a href="<?php echo site_url('chinese/contact');?>">
+                    <a href="<?php echo site_url('home/contact');?>">
                         <span class="mm-text">联络我们</span>
                     </a>
                 </li>
 
                 <li class="menu-item-has-children">
-                    <a href="<?php echo site_url('chinese/apply');?>">
+                    <a href="<?php echo site_url('home/apply');?>">
                         <span class="mm-text">申请平台</span>
                     </a>
                 </li>
 
                 <li class="menu-item-has-children">
-                    <a href="<?php echo site_url('admin/dashboard/index');?>">
+                    <a href="<?php echo site_url('admin/index');?>">
                         <span class="mm-text">会员中心</span>
                     </a>
                 </li>

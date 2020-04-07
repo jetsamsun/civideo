@@ -142,7 +142,7 @@
         }
 
 
-        $.post("<?php echo site_url('admin/dashboard/withdraw')?>?op=apply",{amount:amount},function (ret) {
+        $.post("<?php echo site_url('admin/withdraw')?>?op=apply",{amount:amount},function (ret) {
             if(ret.code===0) {
                 lightyear.loading('show');  // 显示
                 setTimeout(function() {
