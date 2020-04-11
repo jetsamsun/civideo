@@ -2,7 +2,7 @@
 
     <!-- logo -->
     <div id="logo" class="sidebar-header">
-        <a href="<?php echo site_url('home/index');?>"><img style="margin-top: 10px; margin-bottom: 8px;" alt="light year admin" src="<?php echo $this->options['site_logo']; ?>" height="50px"></a>
+        <a href="<?php echo site_url('home/index');?>"><img style="margin-top: 10px; margin-bottom: 8px;" alt="light year admin" src="<?php echo $this->configs['site_logo']; ?>" height="50px"></a>
     </div>
     <div class="lyear-layout-sidebar-scroll">
 

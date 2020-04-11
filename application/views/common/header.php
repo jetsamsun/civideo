@@ -15,6 +15,11 @@
 
     <!-- style css -->
     <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!-- style css -->
+    <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/css/materialdesignicons.min.css" rel="stylesheet">
+    <link href="/assets/css/style.min.css" rel="stylesheet">
 </head>
 
 <body>

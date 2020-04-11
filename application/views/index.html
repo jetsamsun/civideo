@@ -1,0 +1,1807 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" href="./static/css/stui_block.css" type="text/css">
+    <link rel="stylesheet" href="./static/css/stui_default.css" type="text/css">
+    <link rel="stylesheet" href="./static/css/iconfont.css" type="text/css">
+    <link rel="stylesheet" href="./static/css/aui.css" type="text/css">
+    <script type="text/javascript" src="./static/js/jquery.min.js"></script>
+    <script type="text/javascript" src="./static/js/stui_default.js"></script>
+    <script type="text/javascript" src="./static/js/stui_block.js"></script>
+    <script type="text/javascript" src="./static/js/submit_res.js"></script>
+    <script type="text/javascript" src="./static/js/font_1486157_6uw53bh8p6l.js"></script>
+    <!--[if lt IE 9]>
+<script src="/style/html5shiv/3.7.2/html5shiv.min.js"></script>
+<script src="/style/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+    <style type="text/css">
+        body {
+            background-repeat: repeat;
+            background-size: inherit;
+            background-attachment: fixed;
+            background-position: center center;
+            background: url();
+        }
+        
+        .stui-header__logo .logo {
+            display: block;
+            width: 150px;
+            height: 50px;
+            background: url(/images/logo.png) no-repeat;
+            background-position: 50% 50%;
+            background-size: cover;
+        }
+        
+        @media (max-width:767px) {
+            body:before {
+                background: url() center 0 no-repeat;
+                background-attachment: fixed;
+                background-size: cover;
+            }
+            .stui-header__top {
+                min-height: 50px;
+            }
+            .stui-header__logo {
+                margin-top: 10px;
+                margin-left: 10px;
+            }
+        }
+        
+        @media (max-width: 1023px) {
+            .stui-header__logo .logo {
+                width: 90px;
+                height: 30px;
+                background: url(/images/logo.png) no-repeat;
+                background-position: 50% 50%;
+                background-size: cover;
+            }
+        }
+    </style>
+    <style type="text/css">
+        .stui-header__top {
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 100%);
+        }
+        
+        .stui-header__top.headroom--not-top {
+            background: #292838;
+        }
+    </style>
+
+    <script charset="utf-8" src="./static/js/ab77b6ea7f3fbf79.js"></script>
+    <title>极速影视 - 在线免费高清电影！</title>
+    <meta name="keywords" content="电影,视频大全,在线高清电影,付费电影,免费电影,剧集,电影,在线观看,VIP高清电影直播">
+    <meta name="description" content="极速影视，是专门做剧集,电影等在线播放服务，本页面提供电影的相关内容。">
+</head>
+
+<body style="padding: 0;" sip-shortcut-listen="true">
+    <div id="wrap" class="flex-wrap flex-vertical">
+        <div id="main" class="flex-con">
+            <!--head-->
+            <header class="stui-header__top clearfix top-fixed headroom--not-bottom top-fixed-up headroom--top" id="header-top">
+                <div class="container">
+                    <div class="row">
+                        <div class="stui-header_bd clearfix">
+                            <div class="stui-header__logo">
+                                <a class="logo" href="http://127.0.0.1/index.html" alt="{{站点名称}}"></a>
+                            </div>
+                            <ul class="stui-header__menu">
+                                <li class="active"><a href="{{.Site_url}}">首页</a></li>
+                                <!--重点分类推荐开始-->
+                                <li class=" hidden-xs"><a href="http://127.0.0.1/movie.html">电影</a></li>
+                                <!--重点分类推荐结束-->
+                                <li><a href="javascript:;">更多 <i class="icon iconfont icon-moreunfold"></i></a>
+                                    <ul class="dropdown">
+                                        <!--其它分类开始-->
+                                        <li class=""><a href="http://127.0.0.1/movie.html">电影</a></li>
+                                        <!--其它分类结束-->
+                                    </ul>
+                                </li>
+                            </ul>
+                            <script type="text/javascript" src="./static/js/jquery.autocomplete.js"></script>
+                            <!--搜索开始-->
+                            <div class="stui-header__search">
+                                <input type="text" id="wd" name="wd" class="mac_wd form-control" value="" placeholder="输入明星、影片关键词" onkeydown="if(event.keyCode==13){submi.click()}">
+                                <button class="submit" id="submi" type="submit" onclick="submit()"><i class="icon iconfont icon-search"></i></button>
+                                <a class="search-close visible-xs" href="javascript:;"><i class="icon iconfont icon-close"></i></a>
+                            </div>
+                            <!--搜索结束-->
+                            <!--顶部右边菜单开始-->
+                            <ul class="stui-header__user">
+                                <li>
+                                    <a href="http://127.0.0.1/ucenter/login.php" title="账户"><i class="icon iconfont icon-account"></i></a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;"><i class="icon iconfont icon-clock"></i></a>
+                                    <div class="dropdown">
+                                        <h5 class="margin-0 text-muted">
+                                            <a class="historyclean text-muted pull-right" href="http://127.0.0.1/">清空</a>播放记录
+                                        </h5>
+                                        <ul class="history clearfix" id="stui_history">
+                                            <li class="top-line"><a href="http://127.0.0.1/vod/tv/Q4ptaH7lSz8nN3.html" title="锦衣之下"><span class="pull-right text-red">1</span>锦衣之下</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li class="hidden-xs">
+                                    <a href="http://127.0.0.1/book.html" title="留言板"><i class="icon iconfont icon-comments"></i></a>
+                                </li>
+                                <li class="hidden-xs">
+                                    <a href="http://127.0.0.1/app.html" title="APP下载"><i class="icon iconfont icon-icondownload"></i></a>
+                                </li>
+                                <li class="visible-xs">
+                                    <a class="open-search" href="javascript:;"><i class="icon iconfont icon-search"></i></a>
+                                </li>
+                            </ul>
+                            <!--顶部右边菜单结束-->
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <!--此处处理更多分类的选中状态开始-->
+            <script type="text/javascript">
+                $(".stui-header__user li,.stui-header__menu li").click(function() {
+                    $(this).find(".dropdown").toggle();
+                });
+                $(".open-search").click(function() {
+                    var Seacrh = $(".stui-header__search");
+                    Seacrh.addClass("active").siblings().hide();
+                    Seacrh.find(".form-control").focus();
+                    $(".search-close").click(function() {
+                        Seacrh.removeClass("active").siblings().show();
+                    });
+                });
+            </script>
+            <!--此处处理更多分类的选中状态结束-->
+            <!--head-->
+            <!-- 幻灯片 -->
+            <div id="banner" data-ride="carousel" class="stui-banner carousel slide">
+                <a class="carousel-control left" href="http://127.0.0.1/#banner" data-slide="prev"><i class="icon iconfont icon-back"></i></a>
+                <a class="carousel-control right" href="http://127.0.0.1/#banner" data-slide="next"><i class="icon iconfont icon-more"></i></a>
+                <div class="carousel-inner">
+                    <!--循环开始,请保持3个-->
+                    <div class="item stui-banner__item">
+                        <a class="stui-banner__pic" href="http://127.0.0.1/seacher-%E6%88%91%E6%9D%A5%E8%87%AA%E5%8C%97%E4%BA%AC%E4%B9%8B%E9%93%81%E9%94%85%E7%82%96%E5%A4%A7%E9%B9%85.html" alt="我来自北京之铁锅炖大鹅" style="background: url(//liangcang-material.alicdn.com/prod/upload/7bc46f7fef3640bcbbe7fcc060708b0d.jpg?x-oss-process=image/resize,w_1664/interlace,1/quality,Q_80/sharpen,100) rgba(98,71,136,0) no-repeat; background-position: center center; background-size: cover; display: block; width: 100%; height: 100%;"
+                            title="我来自北京之铁锅炖大鹅"></a>
+                    </div>
+                    <div class="item stui-banner__item">
+                        <a class="stui-banner__pic" href="http://127.0.0.1/seacher-%E4%B9%A1%E6%9D%91%E7%88%B1%E6%83%8512.html" alt="乡村爱情12" style="background: url(//liangcang-material.alicdn.com/prod/upload/ef985baa196d49fa9776bb763666e54d.jpg?x-oss-process=image/resize,w_1664/interlace,1/quality,Q_80/sharpen,100) rgba(98,71,136,0) no-repeat; background-position: center center; background-size: cover; display: block; width: 100%; height: 100%;"
+                            title="乡村爱情12"></a>
+                    </div>
+                    <div class="item stui-banner__item">
+                        <a class="stui-banner__pic" href="http://127.0.0.1/seacher-%E5%A4%A7%E6%98%8E%E9%A3%8E%E5%8D%8E.html" alt="大明风华" style="background: url(//liangcang-material.alicdn.com/prod/upload/aba84ae736f34a13a487e5e242edadaa.jpg?x-oss-process=image/resize,w_1664/interlace,1/quality,Q_80/sharpen,100) rgba(98,71,136,0) no-repeat; background-position: center center; background-size: cover; display: block; width: 100%; height: 100%;"
+                            title="大明风华"></a>
+                    </div>
+                    <div class="item stui-banner__item active">
+                        <a class="stui-banner__pic" href="http://127.0.0.1/seacher-%E4%BA%91%E5%8D%97%E8%99%AB%E8%B0%B7%E4%B9%8B%E7%8C%AE%E7%8E%8B%E4%BC%A0%E8%AF%B4.html" alt="云南虫谷之献王传说" style="background: url(//liangcang-material.alicdn.com/prod/upload/3e1b31b652114d3f8a5c3ec8963616e8.jpg?x-oss-process=image/resize,w_1664/interlace,1/quality,Q_80/sharpen,100) rgba(98,71,136,0) no-repeat; background-position: center center; background-size: cover; display: block; width: 100%; height: 100%;"
+                            title="云南虫谷之献王传说"></a>
+                    </div>
+
+                </div>
+                <div class="stui-banner__switch clearfix hidden-sm hidden-xs">
+                    <div class="container">
+                        <div class="row">
+                            <ul class="carousel-indicators">
+                                <li data-target="#banner" data-slide-to="0" class=""><span class="stui-vodlist__thumb" data-original="//liangcang-material.alicdn.com/prod/upload/7bc46f7fef3640bcbbe7fcc060708b0d.jpg?x-oss-process=image/resize,w_1664/interlace,1/quality,Q_80/sharpen,100" style="background: url(//liangcang-material.alicdn.com/prod/upload/7bc46f7fef3640bcbbe7fcc060708b0d.jpg?x-oss-process=image/resize,w_1664/interlace,1/quality,Q_80/sharpen,100) no-repeat; padding-top: 45%; background-position: 50% 50%; background-size: cover;"
+                                        title="我来自北京之铁锅炖大鹅"></span></li>
+                                <li data-target="#banner" data-slide-to="1" class=""><span class="stui-vodlist__thumb" data-original="//liangcang-material.alicdn.com/prod/upload/ef985baa196d49fa9776bb763666e54d.jpg?x-oss-process=image/resize,w_1664/interlace,1/quality,Q_80/sharpen,100" style="background: url(//liangcang-material.alicdn.com/prod/upload/ef985baa196d49fa9776bb763666e54d.jpg?x-oss-process=image/resize,w_1664/interlace,1/quality,Q_80/sharpen,100) no-repeat; padding-top: 45%; background-position: 50% 50%; background-size: cover;"
+                                        title="乡村爱情12"></span></li>
+                                <li data-target="#banner" data-slide-to="2" class=""><span class="stui-vodlist__thumb" data-original="//liangcang-material.alicdn.com/prod/upload/aba84ae736f34a13a487e5e242edadaa.jpg?x-oss-process=image/resize,w_1664/interlace,1/quality,Q_80/sharpen,100" style="background: url(//liangcang-material.alicdn.com/prod/upload/aba84ae736f34a13a487e5e242edadaa.jpg?x-oss-process=image/resize,w_1664/interlace,1/quality,Q_80/sharpen,100) no-repeat; padding-top: 45%; background-position: 50% 50%; background-size: cover;"
+                                        title="大明风华"></span></li>
+                                <li data-target="#banner" data-slide-to="3" class="active"><span class="stui-vodlist__thumb" data-original="//liangcang-material.alicdn.com/prod/upload/3e1b31b652114d3f8a5c3ec8963616e8.jpg?x-oss-process=image/resize,w_1664/interlace,1/quality,Q_80/sharpen,100" style="background: url(//liangcang-material.alicdn.com/prod/upload/3e1b31b652114d3f8a5c3ec8963616e8.jpg?x-oss-process=image/resize,w_1664/interlace,1/quality,Q_80/sharpen,100) no-repeat; padding-top: 45%; background-position: 50% 50%; background-size: cover;"
+                                        title="云南虫谷之献王传说"></span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <style type="text/css">
+                .stui-banner__pic {
+                    padding-top: 29%;
+                    background-position: center center !important;
+                }
+                
+                @media (max-width:1023px) {
+                    .stui-banner__pic {
+                        padding-top: 45%;
+                        background-position: 50% 50% !important;
+                        background-size: cover !important;
+                    }
+                }
+                
+                @media (max-width:767px) {
+                    .stui-banner__pic {
+                        padding-top: 55%;
+                        background-position: 50% 50% !important;
+                        background-size: cover !important;
+                    }
+                }
+            </style>
+            <!-- 幻灯片 -->
+            <!-- 筛选出分类 -->
+            <div class="stui-pannel stui-pannel-screen hidden-sm hidden-xs clearfix" style="margin-bottom: 0;">
+                <div class="stui-pannel-box">
+                    <div class="container">
+                        <div class="row">
+                            <ul class="stui-index__screen col-pd clearfix">
+                                <!--筛选分类循环开始,不要超4个-->
+                                <li class="type-slide m-bottom-line">
+                                    <a href="http://127.0.0.1/movie.html"><dt>电<br>    影</dt></a>
+                                    <!--筛选分类子类循环开始,不要超6个-->
+                                    <a href="http://127.0.0.1/movie_103____rankhot_1.html">喜剧</a>
+                                    <a href="http://127.0.0.1/movie_100____rankhot_1.html">爱情</a>
+                                    <a href="http://127.0.0.1/movie_106____rankhot_1.html">动作</a>
+                                    <a href="http://127.0.0.1/movie_102____rankhot_1.html">恐怖</a>
+                                    <a href="http://127.0.0.1/movie_104____rankhot_1.html">科幻</a>
+                                    <a href="http://127.0.0.1/movie_112____rankhot_1.html">剧情</a>
+                                    <!--筛选分类子类循环结束,不要超6个-->
+                                </li>
+                                <!--筛选分类循环结束,不要超4个-->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 筛选 -->
+            <!-- 公告start -->
+            <div class="stui-pannel-bg clearfix" style="background-color: #ff6600;">
+                <div class="clearfix">
+                    <div class="container stui-pannel_hd">
+                        <div class="stui-pannel__head clearfix">
+                            <li class="active">
+                                <table border="0" width="100%">
+                                    <tbody>
+                                        <tr>
+                                            <td width="22" height="22">
+                                                <img src="./static/image/notice.png" width="22" height="22">
+                                            </td>
+                                            <td width="12" height="22"></td>
+                                            <td><strong><marquee scrollamount="6" direction="left" align="Middle" style="padding-right:20px;color:#fff;">公告：欢迎光临极速影院，建议手机安装app观看，为了本站的收入，广告是必不可少的，请点击一下广告！让本站走的更远！</marquee></strong></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </li>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 公告end -->
+            <div class="container">
+                <div class="row">
+                    <!--推荐电影开始-->
+                    <div class="stui-pannel stui-pannel-bg clearfix">
+                        <ul class="stui-vodlist clearfix">
+                        </ul>
+                    </div>
+                    <div class="stui-pannel stui-pannel-bg clearfix">
+                        <div class="stui-pannel-box">
+                            <div class="stui-pannel_hd">
+                                <div class="stui-pannel__head active bottom-line clearfix">
+                                    <h3 class="title">
+                                        <svg class="iconm" aria-hidden="true"><use xlink:href="#icon-remen"></use></svg> 热播推荐
+                                    </h3>
+                                    <a class="more text-muted pull-right" href="http://127.0.0.1/movie_____rankhot_1.html">更多 <i class="icon iconfont icon-more"></i></a>
+                                </div>
+                            </div>
+                            <div class="stui-pannel_bd clearfix">
+                                <ul class="stui-vodlist clearfix">
+                                    <!--第一个大图开始-->
+                                    <li class="col-lg-4 col-md-4 col-sm-3 col-xs-3 hidden-md hidden-sm hidden-xs">
+                                        <div class="stui-vodlist__box stui-vodlist__bg">
+                                            <a class="stui-vodlist__thumb active first lazyload" href="http://127.0.0.1/vod/m/fafoaBH5RnbATR.html" title="沉睡魔咒2" data-original="http://p5.qhimg.com/d/dy_9ec4066793e535f407f24c640be68dff.jpg" style="padding-top: 176%; background-image: url(&quot;http://p5.qhimg.com/d/dy_9ec4066793e535f407f24c640be68dff.jpg&quot;);"><span class="play hidden-xs"></span><span class="pic-tag pic-tag-h">HOT</span></a>
+                                            <div class="stui-vodlist__detail active">
+                                                <h4 class="title text-overflow"><a href="http://127.0.0.1/vod/m/fafoaBH5RnbATR.html" title="">沉睡魔咒2</a></h4>
+                                                <p class="text text-overflow visible-lg"><span class="text-muted"></span>主演：安吉丽娜·朱莉 艾丽·范宁 米歇尔·菲佛 萨姆·赖利 艾德·斯克林</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <!--第一个大图结束-->
+                                    <!--占位而已,无实际作用start-->
+                                    <li class="col-lg-7 col-md-5 col-sm-3 col-xs-3 hidden-lg hidden-md">
+                                        <div class="stui-vodlist__box stui-vodlist__bg">
+                                            &nbsp;
+                                        </div>
+                                    </li>
+                                    <!--占位而已,无实际作用end-->
+                                    <!--最多10个-->
+                                    <li class="col-lg-7 col-md-5 col-sm-3 col-xs-3 ">
+                                        <div class="stui-vodlist__box stui-vodlist__bg">
+                                            <a class="stui-vodlist__thumb active lazyload" href="vod/m/hKTkYxH5R0X5UR.html" title="我和我的祖国" data-original="http://p1.qhimg.com/d/dy_4936608bcff738d1abee32b4567ee5bd.jpg"><span class="play hidden-xs"></span><span class="pic-tag pic-tag-h">7.8</span></span><span class="pic-tag pic-tag-b">2019</span></a>
+                                            <div class="stui-vodlist__detail active">
+                                                <h4 class="title text-overflow"><a href="vod/m/hKTkYxH5R0X5UR.html" title="我和我的祖国">我和我的祖国</a></h4>
+                                            </div>
+                                        </div>
+                                    </li>
+
+                                    <!--最多10个-->
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!--推荐电影结束-->
+                    <!--抢先看-->
+                    <div class="stui-pannel stui-pannel-bg clearfix">
+                        <ul class="stui-vodlist clearfix">
+                        </ul>
+                    </div>
+                    <div class="stui-pannel stui-pannel-bg clearfix">
+                        <div class="stui-pannel-box">
+                            <div class="stui-pannel_hd">
+                                <div class="stui-pannel__head active bottom-line clearfix">
+                                    <a class="more text-muted pull-right" href="http://127.0.0.1/cx.html">更多 <i class="icon iconfont icon-more"></i></a>
+                                    <h3 class="title">
+                                        <svg class="iconm" aria-hidden="true"><use xlink:href="#icon-play"></use></svg>
+                                        <a href="http://127.0.0.1/cx.html">影视尝鲜</a></h3>
+                                </div>
+                            </div>
+                            <div class="stui-pannel_bd clearfix">
+                                <ul class="stui-vodlist clearfix">
+                                    <li class="col-md-7 col-sm-3 col-xs-3 ">
+                                        <div class="stui-vodlist__box stui-vodlist__bg">
+                                            <a class="stui-vodlist__thumb lazyload" href="http://127.0.0.1/cxplay/35291.html" title="新世界" data-original="https://img.sokoyo-rj.com/tuku/upload/vod/2020-01-13/202001131578924465.png">
+                                                <span class="play hidden-xs"></span>
+                                                <span class="pic-tag pic-tag-b">2020</span>
+                                            </a>
+                                            <div class="stui-vodlist__detail active">
+                                                <h4 class="title text-overflow"><a href="http://127.0.0.1/cxplay/35291.html" title="新世界">新世界</a></h4>
+                                                <p class="text text-overflow text-muted hidden-xs">主演：孙红雷 / 张鲁一 / 尹昉 / 万茜 / 李纯 / 胡静 / 秦汉 / 赵峥 / 张瑶 / 张晔子</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!--抢先看-->
+                    <!--MV-->
+                    <div class="stui-pannel stui-pannel-bg clearfix">
+                        <div class="stui-pannel-box">
+                            <div class="stui-pannel_hd">
+                                <div class="stui-pannel__head active bottom-line clearfix">
+                                    <a class="more text-muted pull-right" href="http://127.0.0.1/mv.html">更多 <i class="icon iconfont icon-more"></i></a>
+                                    <h3 class="title">
+                                        <svg class="iconm" aria-hidden="true"><use xlink:href="#icon-mv"></use></svg>
+                                        <a href="http://127.0.0.1/fun.html">音乐MV</a></h3>
+                                </div>
+                            </div>
+                            <div class="stui-pannel_bd clearfix">
+                                <ul class="stui-vodlist clearfix">
+                                    <li class="col-md-6 col-sm-4 col-xs-3">
+                                        <div class="stui-vodlist__box stui-vodlist__bg">
+                                            <a class="stui-vodlist__thumb1 lazyload" href="http://127.0.0.1/mvplay/Ly92LnlvdWt1LmNvbS92X3Nob3cvaWRfWE5EZ3pPRFkwTnpZNC5odG1s.html" title="Humanoids 练习室版" data-original="https://vthumb.ykimg.com/0542070852EC31CB6A0A3F42D141D300" style="background-image: url(&quot;https://vthumb.ykimg.com/0542070852EC31CB6A0A3F42D141D300&quot;);">
+                                                <span class="play hidden-xs"></span>
+                                                <span class="pic-tag pic-tag-b">时长：03:35</span></a>
+                                            <div class="stui-vodlist__detail active">
+                                                <h4 class="title text-overflow"><a href="http://127.0.0.1/mvplay/Ly92LnlvdWt1LmNvbS92X3Nob3cvaWRfWE5EZ3pPRFkwTnpZNC5odG1s.html" title="Humanoids 练习室版">Humanoids 练习室版</a></h4>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!--MV-->
+                    <!--电影-->
+                    <div class="stui-pannel stui-pannel-bg clearfix">
+                        <ul class="stui-vodlist clearfix">
+                        </ul>
+                    </div>
+                    <div class="stui-pannel stui-pannel-bg clearfix">
+                        <div class="stui-pannel-box">
+                            <!--顶部开始-->
+                            <div class="stui-pannel_hd">
+                                <div class="stui-pannel__head active bottom-line clearfix">
+                                    <a class="more text-muted pull-right" href="http://127.0.0.1/movie.html">更多 <i class="icon iconfont icon-more"><i></a>
+                                    <h3 class="title">
+                                        <svg class="iconm" aria-hidden="true"><use xlink:href="#icon-movie"></use></svg>
+                                        <a href="http://127.0.0.1/movie_____createtime_1.html">最新电影</a></h3>
+                                    <ul class="nav nav-text pull-right hidden-sm hidden-xs">
+                                        <li><a href="http://127.0.0.1/movie___10__rankhot_1.html" class="text-muted">华语强档</a> <span class="split-line"></span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!--顶部结束-->
+                            <div class="stui-pannel_bd clearfix">
+                                <!--左边占位8开始-->
+                                <div class="col-lg-wide-8 col-xs-1 padding-0">
+                                    <ul class="stui-vodlist clearfix">
+                                        <!--最多10个-->
+                                        <li class="col-md-6 col-sm-4 col-xs-3">
+                                            <div class="stui-vodlist__box stui-vodlist__bg">
+                                                <a class="stui-vodlist__thumb lazyload img-shadow" href="http://127.0.0.1/vod/m/f6fnZRH5S0r3UR.html" title="豹子头林冲之山神庙" alt="$name" data-original="http://p7.qhimg.com/d/dy_5d3557757e18eacbe017cc20afd30e3a." style="background-image: url(&quot;http://p7.qhimg.com/d/dy_5d3557757e18eacbe017cc20afd30e3a.&quot;);">
+                                                    <span class="play hidden-xs"></span><span class="pic-tag pic-tag-b">2020</span>
+                                                </a>
+                                                <div class="stui-vodlist__detail active">
+                                                    <h4 class="title text-overflow">
+                                                        <a href="http://127.0.0.1/vod/m/f6fnZRH5S0r3UR.html" title="豹子头林冲之山神庙">豹子头林冲之山神庙</a>
+                                                        <p class="text text-overflow text-muted hidden-xs">主演：文东俊 薛祺 鲍丹 孙煌辰 须乾</p>
+                                                    </h4>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <!--最多10个-->
+                                    </ul>
+                                </div>
+                                <!--左边占位8结束-->
+                                <div class="col-lg-wide-2 hidden-md hidden-sm hidden-xs">
+                                    <div class="stui-pannel_bd clearfix">
+                                        <div class="stui-pannel__head">
+                                            <a class="more text-muted pull-right" href="http://127.0.0.1/movie.html">更多 <i class="icon iconfont icon-more"></i></a>
+                                            <h3 class="title"><svg class="iconm" aria-hidden="true"><use xlink:href="#icon-bang"></use></svg>影视排行</h3>
+                                        </div>
+                                    </div>
+                                    <div class="stui-pannel_bd clearfix">
+                                        <ul class="stui-vodlist__text active col-pd clearfix">
+                                            <!--最多10个-->
+                                            <li class="col-xs-1 padding-0"><a class="text-overflow" href="http://127.0.0.1/vod/m/fqLqaRH4S0r1TR.html" title="唐人街探案3"><span class="am-badge am-round pull-left">1</span><span class="text-muted pull-right">17.2万</span><em class="text-red"></em>&nbsp;唐人街探案3</a></li>
+                                            <!--最多10个-->
+                                        </ul>
+                                    </div>
+                                    <div class="stui-pannel_bd">
+                                        <div class="stui-pannel__head clearfix">
+                                            <a class="more text-muted pull-right" href="http://127.0.0.1/movie.html">更多 <i class="icon iconfont icon-more"></i></a>
+                                            <h3 class="title"><svg class="iconm" aria-hidden="true"><use xlink:href="#icon-shoucang-"></use></svg>电影筛选</h3>
+                                        </div>
+                                    </div>
+                                    <div class="stui-pannel_bd col-pd">
+                                        <ul class="stui-vodlist__screen clearfix">
+                                            <!--最多12-->
+                                            <li><a href="http://127.0.0.1/movie_103____rankhot_1.html" title="喜剧">喜剧</a></li>
+                                        </ul>
+                                        <ul class="stui-vodlist__screen top-line-dot clearfix">
+                                            <!--最多12-->
+                                            <li><a href="http://127.0.0.1/movie__2019___rankhot_1.html" title="2019">2019</a></li>
+                                            <li><a href="http://127.0.0.1/movie__other___rankhot_1.html" title="更早">更早</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--电影-->
+                    <!--娱乐-->
+                    <div class="stui-pannel stui-pannel-bg clearfix">
+                        <ul class="stui-vodlist clearfix">
+                        </ul>
+                    </div>
+                    <div class="stui-pannel stui-pannel-bg clearfix">
+                        <div class="stui-pannel-box">
+                            <div class="stui-pannel_hd">
+                                <div class="stui-pannel__head active bottom-line clearfix">
+                                    <a class="more text-muted pull-right" href="http://127.0.0.1/yule.html">更多 <i class="icon iconfont icon-more"></i></a>
+                                    <h3 class="title">
+                                        <svg class="iconm" aria-hidden="true"><use xlink:href="#icon-news"></use></svg>
+                                        <a href="http://127.0.0.1/yule.html">娱乐资讯</a></h3>
+                                </div>
+                            </div>
+                            <div class="stui-pannel_bd clearfix">
+                                <ul class="stui-vodlist clearfix">
+                                    <!--最多7个-->
+                                    <li class="col-md-7 col-sm-2 col-xs-3 ">
+                                        <div class="stui-vodlist__box stui-vodlist__bg">
+                                            <a class="stui-vodlist__thumb lazyload" href="http://127.0.0.1/fplay/Ly92LnlvdWt1LmNvbS92X3Nob3cvaWRfWE5EVXhNak01TWpBeE5nPT0uaHRtbA==.html" title="一起剧会吧" data-original="http://r1.ykimg.com/051600005D50C455ADA7B28A3B089BE7" style="background-image: url(&quot;http://r1.ykimg.com/051600005D50C455ADA7B28A3B089BE7&quot;);">
+                                                <span class="play hidden-xs"></span>
+                                                <span class="pic-tag pic-tag-b">一起剧会吧</span></a>
+                                            <div class="stui-vodlist__detail active">
+                                                <h4 class="title text-overflow"><a href="http://127.0.0.1/fplay/Ly92LnlvdWt1LmNvbS92X3Nob3cvaWRfWE5EVXhNak01TWpBeE5nPT0uaHRtbA==.html" title="一起剧会吧">一起剧会吧</a></h4>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <!--最多7个-->
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!--娱乐-->
+
+                    <!--合作-->
+                    <div class="stui-pannel stui-pannel-bg clearfix hidden-sm hidden-xs">
+                        <div class="stui-pannel-box">
+                            <div class="stui-pannel_hd">
+                                <div class="stui-pannel__head active bottom-line clearfix">
+                                    <h3 class="title">
+                                        <svg class="iconm" aria-hidden="true"><use xlink:href="#icon-hezuo"></use></svg> 合作伙伴
+                                    </h3>
+                                </div>
+                            </div>
+                            <div class="stui-pannel_bd clearfix">
+                                <ul class="stui-link__pic clearfix">
+                                    <li class="col-md-7 col-sm-4 col-xs-3">
+                                        <a href="http://v.qq.com/" target="_blank" title=""> <img src="./static/image/qq.png"> </a>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!--合作-->
+                    <!--友链-->
+                    <div class="stui-pannel stui-pannel-bg clearfix">
+                        <ul class="stui-vodlist clearfix">
+                        </ul>
+                    </div>
+                    <div class="stui-pannel stui-pannel-bg clearfix">
+                        <div class="stui-pannel-box">
+                            <div class="stui-pannel_hd">
+                                <div class="stui-pannel__head active bottom-line clearfix">
+                                    <h3 class="title">
+                                        <svg class="iconm" aria-hidden="true"><use xlink:href="#icon-link"></use></svg> 友情链接
+                                    </h3>
+                                </div>
+                            </div>
+                            <div class="stui-pannel_bd clearfix">
+                                <div class="col-xs-1">
+                                    <ul class="stui-link__text clearfix">
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--友链-->
+                </div>
+            </div>
+            <div class="stui-foot clearfix">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-pd text-center masked">
+                            <p>本网站内容收集于互联网，极速影视不承担任何由于内容的合法性及健康性所引起的争议和法律责任<br> Copyright ©&nbsp; 极速影视 版权所有</p>
+                            <p class="text-center"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--底部开始-->
+        <div id="footer" class="border-t hidden-lg hidden-md">
+            <ul class="flex-wrap" style="font-weight:bold">
+                <a class="flex-con paiban active" href="http://127.0.0.1/index.html">
+                    <li onclick="randomSwitchBtn(this);">首页</li>
+                </a>
+                <a class="flex-con paiban " href="http://127.0.0.1/cx.html">
+                    <li onclick="randomSwitchBtn(this);">抢先</li>
+                </a>
+                <a class="flex-con paiban " href="http://127.0.0.1/hall.html">
+                    <li onclick="randomSwitchBtn(this);">大厅</li>
+                </a>
+                <a class="flex-con paiban " href="http://127.0.0.1/fuli.html">
+                    <li onclick="randomSwitchBtn(this);">福利</li>
+                </a>
+                <a class="flex-con paiban " href="http://127.0.0.1/ucenter">
+                    <li onclick="randomSwitchBtn(this);">我的</li>
+                </a>
+            </ul>
+        </div>
+        <!--底部漂浮菜单开始-->
+        <ul class="stui-extra clearfix">
+            <li><a class="backtop" href="javascript:scroll(0,0)" style="display: none;"><i class="icon iconfont icon-less"></i></a></li>
+            <li class="visible-xs"><a class="open-share" href="javascript:;"><i class="icon iconfont icon-share"></i></a></li>
+            <li class="hidden-xs"><span><i class="icon iconfont icon-qrcode"></i></span>
+                <div class="sideslip">
+                    <div class="col-pd  text-center">
+                        <img width="150" height="150" class="qrcode" src="#">
+                        <p class="text-center font-12">扫码用手机访问</p>
+                    </div>
+                </div>
+            </li>
+            <li title="会员中心"><a class="open-share" href="http://127.0.0.1/ucenter"><i class="icon iconfont icon-smile"></i></a></li>
+            <li><a href="http://127.0.0.1/book.html"><i class="icon iconfont icon-comments"></i></a></li>
+        </ul>
+        <!--底部漂浮菜单结束-->
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div style="position:absolute;left:expression(1-900);top:expression(3-999);"> </div>
+
+    <script language="javascript" type="text/javascript">
+        document.write("<div style=\"position: absolute; top: -993px;left: -985px;\">")
+    </script>
+    <div style="position: absolute; top: -993px;left: -985px;">
+
+
+        <a href="http://1gh.cc/">极速影视</a>
+        <a href="http://8gh.cc/">极速改机型</a>
+
+
+        <script language="javascript" type="text/javascript">
+            document.write("<\/div>")
+        </script>
+    </div>
+    <div id="download_plus_animation"></div>
+</body>
+
+</html>

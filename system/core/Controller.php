@@ -65,7 +65,7 @@ class CI_Controller {
 	 */
 	public $load;
 
-    public $options;
+    public $configs;
 
 	/**
 	 * Class constructor
@@ -89,13 +89,13 @@ class CI_Controller {
 		log_message('info', 'Controller Class Initialized');
 
 		$this->load->model('model');
-        $query = $this->db->get('options')->result_array();
+        $query = $this->db->get('configs')->result_array();
 
         $ret = [];
         foreach ($query as $v) {
             $ret[$v['key']] = $v['value'];
         }
-        $this->options = $ret;
+        $this->configs = $ret;
 	}
 
 	// --------------------------------------------------------------------

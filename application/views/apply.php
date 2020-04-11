@@ -57,7 +57,7 @@
                                     <label>意向子域名*</label> :<span>
                                     	<input type="text" name="con_sub" id="con_sub" class="form__input mb--5" placeholder="cool">
                                     	.<select name="fee">
-                                    		<option class="m-domain" value="0"><?php echo config_item('site_domain'); ?></option>
+                                    		<option class="m-domain" value="0"><?php echo $this->configs['site_domain']; ?></option>
                                         </select></span><br>
                                     <label>站点名称*</label> :<input type="text" name="site_name" id="site_name" class="form__input mb--30" placeholder="站点名称">
                                     <label>站点地址*</label> :<input type="text" name="con_site" id="con_site" class="form__input mb--30" placeholder="http://wwww.google.com">

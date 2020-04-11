@@ -20,7 +20,7 @@
                 <div class="row">
                     <div class="col-12 text-center">
                         <h1 class="page-title">影片详情</h1>
-                        <ul class="breadcrumb">
+                        <ul class="breadcrumb" style="background-color: transparent;">
                             <li><a href="<?php echo site_url('home/index');?>">网站首页</a></li>
                             <li class="current"><span>影片详情</span></li>
                         </ul>
@@ -35,118 +35,72 @@
             <section class="skill-area mb--9pt3 mb-md--8pt9">
                 <div class="container">
                     <h2 class="text-uppercase mb--25"></h2>
-                    <h5 class="text-uppercase mb--25">当前位置：首页>最新电影>喜剧片>逐梦雨人</h5>
+                    <h5 class="text-uppercase mb--25">当前位置：首页><?php echo $detail['type_txt']; ?>><?php echo $detail['cat_txt']; ?>><?php echo $detail['Name']; ?></h5>
                     <div class="row">
                         <div class="col-lg-3 mb-md--38">
                             <div class="heading mb--30">
-                                <img src="https://cdn.aqdstatic.com:966/88ys/upload/vod/2020-04/158614920204175579.jpg" alt="" class="">
+                                <img src="<?php
+                                if(empty($detail['Image_big'])) {
+                                    echo '/assets/images/no.jpg';
+                                } else {
+                                    if(strpos($detail['Image_big'], 'http://') !== false || strpos($detail['Image_big'], 'https://') !== false)
+                                        echo $detail['Image_big'];
+                                    else
+                                        echo $this->configs['img_url'] . $detail['Image_big'];
+                                }
+                                ?>" alt="" class="">
                             </div>
                         </div>
                         <div class="col-lg-9 mb-md--38">
                             <div class="heading mb--30">
-                                <p class="h-35">片名：逐梦雨人</p>
+                                <p class="h-35">片名：<?php echo $detail['Name']; ?></p>
                                 <p class="h-35">状态：HD</p>
-                                <p class="h-35">主演：罗茜·佩雷兹,埃里克·罗伯茨,亚伦·费希尔,埃伦托兰,凯瑟琳·科廷,保罗·舒尔茨,唐尼尔·罗林斯</p>
-                                <p class="h-35">相关：没有与《逐梦雨人》相关的影片</p>
-                                <p class="h-35">类型：电影 喜剧片</p>
-                                <p class="h-35">导演：亚伦·费希尔</p>
-                                <p class="h-35">地区：美国</p>
-                                <p class="h-35">语言：英语</p>
-                                <p class="h-35">年份：2020</p>
-                                <p class="h-35">剧情简介：如果你相信自己，任何事情都是可能的。本杰明·格拉斯（导演亚伦·费舍尔饰演）拥有强迫症、边缘人格和情感障碍等等缺陷。在埃伦·托兰饰演的角色帮助下，克服障碍最终找到真爱。《逐梦雨人》电影于2020年04月06号由88影视网收集自网络发布，同时提供在线观看服务。</p>
+                                <p class="h-35">主演：<?php echo $detail['actors_txt']; ?></p>
+                                <p class="h-35">类型：<?php echo $detail['type_txt']; ?>&nbsp;&nbsp;<?php echo $detail['cat_txt']; ?></p>
+                                <p class="h-35">导演：<?php echo $detail['directors_txt']; ?></p>
+                                <p class="h-35">地区：<?php echo $detail['country_txt']; ?></p>
+                                <p class="h-35">年份：<?php echo $detail['Year']; ?></p>
+                                <p class="h-35">标签：<?php echo $detail['tags_txt']; ?></p>
+                                <p class="h-35">剧情简介：<?php echo $detail['Content']; ?></p>
                             </div>
                         </div>
                     </div>
 
                     <div style="margin-top: -10px;">
-                        <p style="font-weight: bold">在线观看列表</p>
-                        <a href=" http://clusterctl.xyz/video/product/20200316/u3XXhQ81/360/mmm.m3u8 " class="btn" target="_blank">HD高清</a>
-                        <h1 class="" style="margin-bottom: 50px;"></h1>
+                        <?php foreach ($episodes as $rate=>$episode) {  ?>
+                            <div class="" style="margin-bottom: 15px;">
+                            <p>在线播放【<?php echo $rate; ?>p】</p>
+                            <?php foreach ($episode as $k=>$v) {  ?>
+                            <a href="<?php echo site_url('home/player');?>?id=<?php echo $v['Id'];?>" class="btn btn-defalut" style="margin: 3px;" ><?php echo $v['Title']; ?></a>
+                            <?php } ?>
+                            </div>
+                        <?php } ?>
+
                     </div>
+                    <br/>
 
 
                     <div class="heading">
                         <h2 class="mb--18">你也可能喜欢以下影片：</h2>
                     </div>
                     <div class="row">
-                        <div class="col-lg-2 col-md-6">
-                            <div class="feature feature-style-2">
-                                <div class="feature__icon">
-                                    <span class="icon icon-box icon-outline">
-                                        <i class="ion-ios-lightbulb-outline"></i>
-                                    </span>
-                                </div>
-                                <div class="feature__info">
-                                    <h3 class="feature__title">得到新点子</h3>
-                                    <p class="feature__desc">有想法就行动,因为我们天生就是行动派.机会不是等出来,是你我创造出来的</p>
-                                </div>
+                        <?php foreach ($rand as $v) {  ?>
+                            <div class="col-lg-2 col-md-6" style="margin-bottom: 15px;">
+                                <a href="<?php echo site_url('home/detail');?>?id=<?php echo $v['Id'];?>" class="mainmenu__link">
+                                    <img src="<?php
+                                    if(empty($v['Image_big'])) {
+                                        echo '/assets/images/no.jpg';
+                                    } else {
+                                        if(strpos($v['Image_big'], 'http://') !== false || strpos($v['Image_big'], 'https://') !== false)
+                                            echo $v['Image_big'];
+                                        else
+                                            echo $this->configs['img_url'] . $v['Image_big'];
+                                    }
+                                    ?>" alt="" class="">
+                                    <p class="feature__desc"><?php echo $v['Name']; ?></p>
+                                </a>
                             </div>
-                        </div>
-                        <div class="col-lg-2 col-md-6">
-                            <div class="feature feature-style-2">
-                                <div class="feature__icon">
-                                    <span class="icon icon-box icon-outline">
-                                        <i class="ion-magnet"></i>
-                                    </span>
-                                </div>
-                                <div class="feature__info">
-                                    <h3 class="feature__title">制定运营计划</h3>
-                                    <p class="feature__desc">够IN,够HIGH的站点内容,让用户沉迷其中不可自拨.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-2 col-md-6">
-                            <div class="feature feature-style-2">
-                                <div class="feature__icon">
-                                    <span class="icon icon-box icon-outline">
-                                        <i class="ion-pie-graph"></i>
-                                    </span>
-                                </div>
-                                <div class="feature__info">
-                                    <h3 class="feature__title">扩展你的业务</h3>
-                                    <p class="feature__desc">提供一站式的收付款平台,解决流量变现的关键瓶颈.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-2 col-md-6">
-                            <div class="feature feature-style-2">
-                                <div class="feature__icon">
-                                    <span class="icon icon-box icon-outline">
-                                        <i class="ion-pie-graph"></i>
-                                    </span>
-                                </div>
-                                <div class="feature__info">
-                                    <h3 class="feature__title">扩展你的业务</h3>
-                                    <p class="feature__desc">提供一站式的收付款平台,解决流量变现的关键瓶颈.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-2 col-md-6">
-                            <div class="feature feature-style-2">
-                                <div class="feature__icon">
-                                    <span class="icon icon-box icon-outline">
-                                        <i class="ion-pie-graph"></i>
-                                    </span>
-                                </div>
-                                <div class="feature__info">
-                                    <h3 class="feature__title">扩展你的业务</h3>
-                                    <p class="feature__desc">提供一站式的收付款平台,解决流量变现的关键瓶颈.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-2 col-md-6">
-                            <div class="feature feature-style-2">
-                                <div class="feature__icon">
-                                    <span class="icon icon-box icon-outline">
-                                        <i class="ion-pie-graph"></i>
-                                    </span>
-                                </div>
-                                <div class="feature__info">
-                                    <h3 class="feature__title">扩展你的业务</h3>
-                                    <p class="feature__desc">提供一站式的收付款平台,解决流量变现的关键瓶颈.</p>
-                                </div>
-                            </div>
-                        </div>
+                        <?php } ?>
                     </div>
                 </div>
             </section>
@@ -161,7 +115,7 @@
                             <p class="color--white lh-1pt5">有关帐户与财务的问题,请随时与我们联络.</p>
                         </div>
                         <div class="col-md-4 text-md-right text-center">
-                            <a href="<?php echo site_url('home/contact');?>" class="btn btn-outline btn-white btn-brw-2 btn-hover-1">联络我们</a>
+                            <a href="<?php echo site_url('home/contact');?>" class="btn btn-dark">联络我们</a>
                         </div>
                     </div>
                 </div>

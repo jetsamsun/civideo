@@ -40,19 +40,19 @@ class Notify extends CI_Controller {
         $log = $this->db->get_where("paylogs",array('tradeno'=>$tradeno))->row_array();
         if($log && $log['status']==0) {
             $this->db->where('tradeno', $tradeno)->update('paylogs', array('status' => 1));
-            $site = $this->db->get_where("site", array('sub_domain' => $log['domain']))->row_array();
+            $site = $this->db->get_where("user", array('sub_domain' => $log['domain']))->row_array();
             $update = array(
                 'his_amout' => $site['his_amout'] + $log['total'],
                 'balance' => $site['balance'] + $log['total'] - $log['fee'],
                 'fee_amout' => $site['fee_amout'] + $log['fee'],
                 'pay_num' => $site['pay_num'] + 1,
             );
-            $this->db->where('id', $site['id'])->update("site", $update);
+            $this->db->where('id', $site['id'])->update("user", $update);
 
 
             $msg = '你有一笔订单已支付成功';
             if(strpos($site['notify'], 'telegram')!==false) {
-                $url = 'https://api.telegram.org/bot'.$this->options['telegram_token'].'/sendMessage?chat_id='.$site['telegram'].'&text='.$msg;
+                $url = 'https://api.telegram.org/bot'.$this->configs['telegram_token'].'/sendMessage?chat_id='.$site['telegram'].'&text='.$msg;
                 $ch = curl_init();
                 curl_setopt($ch, CURLOPT_URL, $url);
                 curl_setopt($ch, CURLOPT_POST, TRUE);

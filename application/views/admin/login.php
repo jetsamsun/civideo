@@ -46,7 +46,7 @@
   <div class="lyear-login">
     <div class="login-center">
       <div class="login-header text-center">
-        <a href="<?php echo site_url('home/index');?>"> <img alt="light year admin" src="<?php echo $this->options['site_logo']; ?>" width="180px"> </a>
+        <a href="<?php echo site_url('home/index');?>"> <img alt="light year admin" src="<?php echo $this->configs['site_logo']; ?>" width="180px"> </a>
       </div>
       <form action="javascript:void(0);" method="post">
         <div class="form-group has-feedback feedback-left">
@@ -72,7 +72,7 @@
       </form>
       <hr>
       <footer class="col-sm-12 text-center">
-        <p class="m-b-0">Copyright © 2019. All right reserved</p>
+        <p class="m-b-0">Copyright © <?php echo date('Y'); ?>. All right reserved</p>
       </footer>
     </div>
   </div>

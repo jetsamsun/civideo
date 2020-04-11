@@ -19,7 +19,7 @@ class Admin extends CI_Controller {
             $end = strtotime($v.' 23:59:59');
 
             $sub_domain = $_SESSION["userinfo"]['sub_domain'];
-            $sql = "select sum(total) num from paylogs where domain='$sub_domain' and status=1 and datetime between $start and $end;";
+            $sql = "select sum(total) num from app_paylogs where domain='$sub_domain' and status=1 and datetime between $start and $end;";
             $res = $this->db->query($sql)->row_array();
 
             $bars[substr($v, 5)] = $res['num'];
@@ -33,7 +33,7 @@ class Admin extends CI_Controller {
             $end = strtotime($v.'-'.$days.' 23:59:59');
 
             $sub_domain = $_SESSION["userinfo"]['sub_domain'];
-            $sql = "select sum(total) num from paylogs where domain='$sub_domain' and status=1 and datetime between $start and $end;";
+            $sql = "select sum(total) num from app_paylogs where domain='$sub_domain' and status=1 and datetime between $start and $end;";
             $res = $this->db->query($sql)->row_array();
 
             $lines[$v] = $res['num'];
@@ -51,7 +51,7 @@ class Admin extends CI_Controller {
                 echo json_encode(array('code' => -1, 'msg' => '验证码错误'));
                 return ;
             }
-            $query = $this->db->get_where('site',array('name'=>$_POST['username'],'pass'=>md5($_POST['password'])));
+            $query = $this->db->get_where('user',array('name'=>$_POST['username'],'pass'=>md5($_POST['password'])));
             $userinfo = $query->row_array();
             if($userinfo) {
                 if($userinfo['status']!=1) {
@@ -76,9 +76,9 @@ class Admin extends CI_Controller {
             $update['notify'] = $_POST['notify'];
 
             $this->db->where('id', $_SESSION['userinfo']['id']);
-            $this->db->update('site', $update);
+            $this->db->update('user', $update);
 
-            $query = $this->db->get_where('site',array('id'=>$_SESSION['userinfo']['id']));
+            $query = $this->db->get_where('user',array('id'=>$_SESSION['userinfo']['id']));
             $userinfo = $query->row_array();
             $_SESSION["userinfo"] = $userinfo;
 
@@ -92,14 +92,14 @@ class Admin extends CI_Controller {
     }
     public function editpwd(){
         if(IS_POST) {
-            $query = $this->db->get_where('site',array('name'=>$_SESSION['userinfo']['name'],'pass'=>md5($_POST['oldpwd'])));
+            $query = $this->db->get_where('user',array('name'=>$_SESSION['userinfo']['name'],'pass'=>md5($_POST['oldpwd'])));
             $userinfo = $query->row_array();
             if(!$userinfo) {
                 echo json_encode(array('code'=>-1, 'msg'=>'验证密码失败'));
             } else {
                 $update['pass'] = md5($_POST['newpwd']);
                 $this->db->where('id', $_SESSION['userinfo']['id']);
-                $this->db->update('site', $update);
+                $this->db->update('user', $update);
                 unset($_SESSION["userinfo"]);
 
                 echo json_encode(array('code'=>0, 'msg'=>'密码修改成功，请重新登录'));
@@ -125,9 +125,9 @@ class Admin extends CI_Controller {
             $update['site_name'] = $_POST['web_site_title'];
 
             $this->db->where('sub_domain', $_POST['web_site_domain']);
-            $this->db->update('site', $update);
+            $this->db->update('user', $update);
 
-            $query = $this->db->get_where('site',array('sub_domain'=>$_POST['web_site_domain']));
+            $query = $this->db->get_where('user',array('sub_domain'=>$_POST['web_site_domain']));
             $userinfo = $query->row_array();
             $_SESSION["userinfo"] = $userinfo;
 
@@ -146,9 +146,9 @@ class Admin extends CI_Controller {
             $update['bank'] = json_encode(array('deposit'=>$_POST['deposit'],'branch'=>$_POST['branch'],'account'=>$_POST['account'],'address'=>$_POST['address']));
 
             $this->db->where('id', $_SESSION['userinfo']['id']);
-            $this->db->update('site', $update);
+            $this->db->update('user', $update);
 
-            $query = $this->db->get_where('site',array('id'=>$_SESSION['userinfo']['id']));
+            $query = $this->db->get_where('user',array('id'=>$_SESSION['userinfo']['id']));
             $userinfo = $query->row_array();
             $_SESSION["userinfo"] = $userinfo;
 
@@ -203,7 +203,7 @@ class Admin extends CI_Controller {
             if(isset($_GET['search_field']) && !empty($_GET['keyword'])) {
                 $field = $_GET['search_field'];
                 $keyword = '%'.$_GET['keyword'].'%';
-                $sql = "select count(*) num from paylogs where domain='$sub_domain' and $field like '$keyword'";
+                $sql = "select count(*) num from app_paylogs where domain='$sub_domain' and $field like '$keyword'";
 
                 $res = $this->db->query($sql)->row_array();
                 $total = $res['num'];
@@ -221,7 +221,7 @@ class Admin extends CI_Controller {
                     ->get()
                     ->result_array();
             } else {
-                $sql = "select count(*) num from paylogs where domain='$sub_domain'";
+                $sql = "select count(*) num from app_paylogs where domain='$sub_domain'";
 
                 $res = $this->db->query($sql)->row_array();
                 $total = $res['num'];
@@ -281,7 +281,7 @@ class Admin extends CI_Controller {
             if(isset($_GET['search_field']) && !empty($_GET['keyword'])) {
                 $field = $_GET['search_field'];
                 $keyword = '%'.$_GET['keyword'].'%';
-                $sql = "select count(*) num from withdraw where domain='$sub_domain' and $field like '$keyword'";
+                $sql = "select count(*) num from app_withdraw where domain='$sub_domain' and $field like '$keyword'";
 
                 $res = $this->db->query($sql)->row_array();
                 $total = $res['num'];
@@ -295,7 +295,7 @@ class Admin extends CI_Controller {
                     ->get('withdraw', $limit, $offset)
                     ->result_array();
             } else {
-                $sql = "select count(*) num from withdraw where domain='$sub_domain'";
+                $sql = "select count(*) num from app_withdraw where domain='$sub_domain'";
 
                 $res = $this->db->query($sql)->row_array();
                 $total = $res['num'];

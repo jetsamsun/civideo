@@ -65,242 +65,23 @@
                         <hr class="delimeter mb--22">
                     </div>
                     <div class="row">
-                        <div class="col-lg-2 col-md-6">
-                            <a href="<?php echo site_url('home/detail');?>" class="mainmenu__link">
-                            <div class="feature feature-style-2">
-                                <div class="feature__icon">
-                                    <img src="http://clusterctl.xyz/video/product/20200323/8CjSJNGD/360/cover.jpg" alt="" class="">
-                                </div>
-                                <div class="feature__info">
-                                    <h3 class="feature__title">得到新点子</h3>
-                                    <p class="feature__desc">【天然素人】缺少streams字段问题</p>
-                                </div>
-                            </div>
+                        <?php foreach ($hot as $v) {  ?>
+                        <div class="col-lg-2 col-md-6" style="margin-bottom: 15px;">
+                            <a href="<?php echo site_url('home/detail');?>?id=<?php echo $v['Id'];?>" class="mainmenu__link">
+                                <img src="<?php
+                                if(empty($v['Image_big'])) {
+                                    echo '/assets/images/no.jpg';
+                                } else {
+                                    if(strpos($v['Image_big'], 'http://') !== false || strpos($v['Image_big'], 'https://') !== false)
+                                        echo $v['Image_big'];
+                                    else
+                                        echo $this->configs['img_url'] . $v['Image_big'];
+                                }
+                                ?>" alt="" class="">
+                                <p class="feature__desc"><?php echo $v['Name']; ?></p>
                             </a>
                         </div>
-                        <div class="col-lg-2 col-md-6">
-                            <div class="feature feature-style-2">
-                                <div class="feature__icon">
-                                    <span class="icon icon-box icon-outline">
-                                        <i class="ion-magnet"></i>
-                                    </span>
-                                </div>
-                                <div class="feature__info">
-                                    <h3 class="feature__title">制定运营计划</h3>
-                                    <p class="feature__desc">够IN,够HIGH的站点内容,让用户沉迷其中不可自拨.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-2 col-md-6">
-                            <div class="feature feature-style-2">
-                                <div class="feature__icon">
-                                    <span class="icon icon-box icon-outline">
-                                        <i class="ion-pie-graph"></i>
-                                    </span>
-                                </div>
-                                <div class="feature__info">
-                                    <h3 class="feature__title">扩展你的业务</h3>
-                                    <p class="feature__desc">提供一站式的收付款平台,解决流量变现的关键瓶颈.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-2 col-md-6">
-                            <div class="feature feature-style-2">
-                                <div class="feature__icon">
-                                    <span class="icon icon-box icon-outline">
-                                        <i class="ion-pie-graph"></i>
-                                    </span>
-                                </div>
-                                <div class="feature__info">
-                                    <h3 class="feature__title">扩展你的业务</h3>
-                                    <p class="feature__desc">提供一站式的收付款平台,解决流量变现的关键瓶颈.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-2 col-md-6">
-                            <div class="feature feature-style-2">
-                                <div class="feature__icon">
-                                    <span class="icon icon-box icon-outline">
-                                        <i class="ion-pie-graph"></i>
-                                    </span>
-                                </div>
-                                <div class="feature__info">
-                                    <h3 class="feature__title">扩展你的业务</h3>
-                                    <p class="feature__desc">提供一站式的收付款平台,解决流量变现的关键瓶颈.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-2 col-md-6">
-                            <div class="feature feature-style-2">
-                                <div class="feature__icon">
-                                    <span class="icon icon-box icon-outline">
-                                        <i class="ion-pie-graph"></i>
-                                    </span>
-                                </div>
-                                <div class="feature__info">
-                                    <h3 class="feature__title">扩展你的业务</h3>
-                                    <p class="feature__desc">提供一站式的收付款平台,解决流量变现的关键瓶颈.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-2 col-md-6">
-                            <div class="feature feature-style-2">
-                                <div class="feature__icon">
-                                    <span class="icon icon-box icon-outline">
-                                        <i class="ion-ios-lightbulb-outline"></i>
-                                    </span>
-                                </div>
-                                <div class="feature__info">
-                                    <h3 class="feature__title">得到新点子</h3>
-                                    <p class="feature__desc">有想法就行动,因为我们天生就是行动派.机会不是等出来,是你我创造出来的</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-2 col-md-6">
-                            <div class="feature feature-style-2">
-                                <div class="feature__icon">
-                                    <span class="icon icon-box icon-outline">
-                                        <i class="ion-magnet"></i>
-                                    </span>
-                                </div>
-                                <div class="feature__info">
-                                    <h3 class="feature__title">制定运营计划</h3>
-                                    <p class="feature__desc">够IN,够HIGH的站点内容,让用户沉迷其中不可自拨.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-2 col-md-6">
-                            <div class="feature feature-style-2">
-                                <div class="feature__icon">
-                                    <span class="icon icon-box icon-outline">
-                                        <i class="ion-pie-graph"></i>
-                                    </span>
-                                </div>
-                                <div class="feature__info">
-                                    <h3 class="feature__title">扩展你的业务</h3>
-                                    <p class="feature__desc">提供一站式的收付款平台,解决流量变现的关键瓶颈.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-2 col-md-6">
-                            <div class="feature feature-style-2">
-                                <div class="feature__icon">
-                                    <span class="icon icon-box icon-outline">
-                                        <i class="ion-pie-graph"></i>
-                                    </span>
-                                </div>
-                                <div class="feature__info">
-                                    <h3 class="feature__title">扩展你的业务</h3>
-                                    <p class="feature__desc">提供一站式的收付款平台,解决流量变现的关键瓶颈.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-2 col-md-6">
-                            <div class="feature feature-style-2">
-                                <div class="feature__icon">
-                                    <span class="icon icon-box icon-outline">
-                                        <i class="ion-pie-graph"></i>
-                                    </span>
-                                </div>
-                                <div class="feature__info">
-                                    <h3 class="feature__title">扩展你的业务</h3>
-                                    <p class="feature__desc">提供一站式的收付款平台,解决流量变现的关键瓶颈.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-2 col-md-6">
-                            <div class="feature feature-style-2">
-                                <div class="feature__icon">
-                                    <span class="icon icon-box icon-outline">
-                                        <i class="ion-pie-graph"></i>
-                                    </span>
-                                </div>
-                                <div class="feature__info">
-                                    <h3 class="feature__title">扩展你的业务</h3>
-                                    <p class="feature__desc">提供一站式的收付款平台,解决流量变现的关键瓶颈.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-2 col-md-6">
-                            <div class="feature feature-style-2">
-                                <div class="feature__icon">
-                                    <span class="icon icon-box icon-outline">
-                                        <i class="ion-ios-lightbulb-outline"></i>
-                                    </span>
-                                </div>
-                                <div class="feature__info">
-                                    <h3 class="feature__title">得到新点子</h3>
-                                    <p class="feature__desc">有想法就行动,因为我们天生就是行动派.机会不是等出来,是你我创造出来的</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-2 col-md-6">
-                            <div class="feature feature-style-2">
-                                <div class="feature__icon">
-                                    <span class="icon icon-box icon-outline">
-                                        <i class="ion-magnet"></i>
-                                    </span>
-                                </div>
-                                <div class="feature__info">
-                                    <h3 class="feature__title">制定运营计划</h3>
-                                    <p class="feature__desc">够IN,够HIGH的站点内容,让用户沉迷其中不可自拨.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-2 col-md-6">
-                            <div class="feature feature-style-2">
-                                <div class="feature__icon">
-                                    <span class="icon icon-box icon-outline">
-                                        <i class="ion-pie-graph"></i>
-                                    </span>
-                                </div>
-                                <div class="feature__info">
-                                    <h3 class="feature__title">扩展你的业务</h3>
-                                    <p class="feature__desc">提供一站式的收付款平台,解决流量变现的关键瓶颈.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-2 col-md-6">
-                            <div class="feature feature-style-2">
-                                <div class="feature__icon">
-                                    <span class="icon icon-box icon-outline">
-                                        <i class="ion-pie-graph"></i>
-                                    </span>
-                                </div>
-                                <div class="feature__info">
-                                    <h3 class="feature__title">扩展你的业务</h3>
-                                    <p class="feature__desc">提供一站式的收付款平台,解决流量变现的关键瓶颈.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-2 col-md-6">
-                            <div class="feature feature-style-2">
-                                <div class="feature__icon">
-                                    <span class="icon icon-box icon-outline">
-                                        <i class="ion-pie-graph"></i>
-                                    </span>
-                                </div>
-                                <div class="feature__info">
-                                    <h3 class="feature__title">扩展你的业务</h3>
-                                    <p class="feature__desc">提供一站式的收付款平台,解决流量变现的关键瓶颈.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-2 col-md-6">
-                            <div class="feature feature-style-2">
-                                <div class="feature__icon">
-                                    <span class="icon icon-box icon-outline">
-                                        <i class="ion-pie-graph"></i>
-                                    </span>
-                                </div>
-                                <div class="feature__info">
-                                    <h3 class="feature__title">扩展你的业务</h3>
-                                    <p class="feature__desc">提供一站式的收付款平台,解决流量变现的关键瓶颈.</p>
-                                </div>
-                            </div>
-                        </div>
+                        <?php } ?>
                     </div>
                 </div>
             </section>
@@ -314,242 +95,23 @@
                         <hr class="delimeter mb--22">
                     </div>
                     <div class="row">
-                        <div class="col-lg-2 col-md-6">
-                            <div class="feature feature-style-2">
-                                <div class="feature__icon">
-                                    <span class="icon icon-box icon-outline">
-                                        <i class="ion-ios-lightbulb-outline"></i>
-                                    </span>
-                                </div>
-                                <div class="feature__info">
-                                    <h3 class="feature__title">得到新点子</h3>
-                                    <p class="feature__desc">有想法就行动,因为我们天生就是行动派.机会不是等出来,是你我创造出来的</p>
-                                </div>
+                        <?php foreach ($movie as $v) {  ?>
+                            <div class="col-lg-2 col-md-6" style="margin-bottom: 15px;">
+                                <a href="<?php echo site_url('home/detail');?>?id=<?php echo $v['Id'];?>" class="mainmenu__link">
+                                    <img src="<?php
+                                    if(empty($v['Image_big'])) {
+                                        echo '/assets/images/no.jpg';
+                                    } else {
+                                        if(strpos($v['Image_big'], 'http://') !== false || strpos($v['Image_big'], 'https://') !== false)
+                                            echo $v['Image_big'];
+                                        else
+                                            echo $this->configs['img_url'] . $v['Image_big'];
+                                    }
+                                    ?>" alt="" class="">
+                                    <p class="feature__desc"><?php echo $v['Name']; ?></p>
+                                </a>
                             </div>
-                        </div>
-                        <div class="col-lg-2 col-md-6">
-                            <div class="feature feature-style-2">
-                                <div class="feature__icon">
-                                    <span class="icon icon-box icon-outline">
-                                        <i class="ion-magnet"></i>
-                                    </span>
-                                </div>
-                                <div class="feature__info">
-                                    <h3 class="feature__title">制定运营计划</h3>
-                                    <p class="feature__desc">够IN,够HIGH的站点内容,让用户沉迷其中不可自拨.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-2 col-md-6">
-                            <div class="feature feature-style-2">
-                                <div class="feature__icon">
-                                    <span class="icon icon-box icon-outline">
-                                        <i class="ion-pie-graph"></i>
-                                    </span>
-                                </div>
-                                <div class="feature__info">
-                                    <h3 class="feature__title">扩展你的业务</h3>
-                                    <p class="feature__desc">提供一站式的收付款平台,解决流量变现的关键瓶颈.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-2 col-md-6">
-                            <div class="feature feature-style-2">
-                                <div class="feature__icon">
-                                    <span class="icon icon-box icon-outline">
-                                        <i class="ion-pie-graph"></i>
-                                    </span>
-                                </div>
-                                <div class="feature__info">
-                                    <h3 class="feature__title">扩展你的业务</h3>
-                                    <p class="feature__desc">提供一站式的收付款平台,解决流量变现的关键瓶颈.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-2 col-md-6">
-                            <div class="feature feature-style-2">
-                                <div class="feature__icon">
-                                    <span class="icon icon-box icon-outline">
-                                        <i class="ion-pie-graph"></i>
-                                    </span>
-                                </div>
-                                <div class="feature__info">
-                                    <h3 class="feature__title">扩展你的业务</h3>
-                                    <p class="feature__desc">提供一站式的收付款平台,解决流量变现的关键瓶颈.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-2 col-md-6">
-                            <div class="feature feature-style-2">
-                                <div class="feature__icon">
-                                    <span class="icon icon-box icon-outline">
-                                        <i class="ion-pie-graph"></i>
-                                    </span>
-                                </div>
-                                <div class="feature__info">
-                                    <h3 class="feature__title">扩展你的业务</h3>
-                                    <p class="feature__desc">提供一站式的收付款平台,解决流量变现的关键瓶颈.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-2 col-md-6">
-                            <div class="feature feature-style-2">
-                                <div class="feature__icon">
-                                    <span class="icon icon-box icon-outline">
-                                        <i class="ion-ios-lightbulb-outline"></i>
-                                    </span>
-                                </div>
-                                <div class="feature__info">
-                                    <h3 class="feature__title">得到新点子</h3>
-                                    <p class="feature__desc">有想法就行动,因为我们天生就是行动派.机会不是等出来,是你我创造出来的</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-2 col-md-6">
-                            <div class="feature feature-style-2">
-                                <div class="feature__icon">
-                                    <span class="icon icon-box icon-outline">
-                                        <i class="ion-magnet"></i>
-                                    </span>
-                                </div>
-                                <div class="feature__info">
-                                    <h3 class="feature__title">制定运营计划</h3>
-                                    <p class="feature__desc">够IN,够HIGH的站点内容,让用户沉迷其中不可自拨.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-2 col-md-6">
-                            <div class="feature feature-style-2">
-                                <div class="feature__icon">
-                                    <span class="icon icon-box icon-outline">
-                                        <i class="ion-pie-graph"></i>
-                                    </span>
-                                </div>
-                                <div class="feature__info">
-                                    <h3 class="feature__title">扩展你的业务</h3>
-                                    <p class="feature__desc">提供一站式的收付款平台,解决流量变现的关键瓶颈.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-2 col-md-6">
-                            <div class="feature feature-style-2">
-                                <div class="feature__icon">
-                                    <span class="icon icon-box icon-outline">
-                                        <i class="ion-pie-graph"></i>
-                                    </span>
-                                </div>
-                                <div class="feature__info">
-                                    <h3 class="feature__title">扩展你的业务</h3>
-                                    <p class="feature__desc">提供一站式的收付款平台,解决流量变现的关键瓶颈.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-2 col-md-6">
-                            <div class="feature feature-style-2">
-                                <div class="feature__icon">
-                                    <span class="icon icon-box icon-outline">
-                                        <i class="ion-pie-graph"></i>
-                                    </span>
-                                </div>
-                                <div class="feature__info">
-                                    <h3 class="feature__title">扩展你的业务</h3>
-                                    <p class="feature__desc">提供一站式的收付款平台,解决流量变现的关键瓶颈.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-2 col-md-6">
-                            <div class="feature feature-style-2">
-                                <div class="feature__icon">
-                                    <span class="icon icon-box icon-outline">
-                                        <i class="ion-pie-graph"></i>
-                                    </span>
-                                </div>
-                                <div class="feature__info">
-                                    <h3 class="feature__title">扩展你的业务</h3>
-                                    <p class="feature__desc">提供一站式的收付款平台,解决流量变现的关键瓶颈.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-2 col-md-6">
-                            <div class="feature feature-style-2">
-                                <div class="feature__icon">
-                                    <span class="icon icon-box icon-outline">
-                                        <i class="ion-ios-lightbulb-outline"></i>
-                                    </span>
-                                </div>
-                                <div class="feature__info">
-                                    <h3 class="feature__title">得到新点子</h3>
-                                    <p class="feature__desc">有想法就行动,因为我们天生就是行动派.机会不是等出来,是你我创造出来的</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-2 col-md-6">
-                            <div class="feature feature-style-2">
-                                <div class="feature__icon">
-                                    <span class="icon icon-box icon-outline">
-                                        <i class="ion-magnet"></i>
-                                    </span>
-                                </div>
-                                <div class="feature__info">
-                                    <h3 class="feature__title">制定运营计划</h3>
-                                    <p class="feature__desc">够IN,够HIGH的站点内容,让用户沉迷其中不可自拨.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-2 col-md-6">
-                            <div class="feature feature-style-2">
-                                <div class="feature__icon">
-                                    <span class="icon icon-box icon-outline">
-                                        <i class="ion-pie-graph"></i>
-                                    </span>
-                                </div>
-                                <div class="feature__info">
-                                    <h3 class="feature__title">扩展你的业务</h3>
-                                    <p class="feature__desc">提供一站式的收付款平台,解决流量变现的关键瓶颈.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-2 col-md-6">
-                            <div class="feature feature-style-2">
-                                <div class="feature__icon">
-                                    <span class="icon icon-box icon-outline">
-                                        <i class="ion-pie-graph"></i>
-                                    </span>
-                                </div>
-                                <div class="feature__info">
-                                    <h3 class="feature__title">扩展你的业务</h3>
-                                    <p class="feature__desc">提供一站式的收付款平台,解决流量变现的关键瓶颈.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-2 col-md-6">
-                            <div class="feature feature-style-2">
-                                <div class="feature__icon">
-                                    <span class="icon icon-box icon-outline">
-                                        <i class="ion-pie-graph"></i>
-                                    </span>
-                                </div>
-                                <div class="feature__info">
-                                    <h3 class="feature__title">扩展你的业务</h3>
-                                    <p class="feature__desc">提供一站式的收付款平台,解决流量变现的关键瓶颈.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-2 col-md-6">
-                            <div class="feature feature-style-2">
-                                <div class="feature__icon">
-                                    <span class="icon icon-box icon-outline">
-                                        <i class="ion-pie-graph"></i>
-                                    </span>
-                                </div>
-                                <div class="feature__info">
-                                    <h3 class="feature__title">扩展你的业务</h3>
-                                    <p class="feature__desc">提供一站式的收付款平台,解决流量变现的关键瓶颈.</p>
-                                </div>
-                            </div>
-                        </div>
+                        <?php } ?>
                     </div>
                 </div>
             </section>
@@ -563,150 +125,23 @@
                         <hr class="delimeter mb--22">
                     </div>
                     <div class="row">
-                        <div class="col-lg-2 col-md-6">
-                            <div class="feature feature-style-2">
-                                <div class="feature__icon">
-                                    <span class="icon icon-box icon-outline">
-                                        <i class="ion-ios-lightbulb-outline"></i>
-                                    </span>
-                                </div>
-                                <div class="feature__info">
-                                    <h3 class="feature__title">得到新点子</h3>
-                                    <p class="feature__desc">有想法就行动,因为我们天生就是行动派.机会不是等出来,是你我创造出来的</p>
-                                </div>
+                        <?php foreach ($tv as $v) {  ?>
+                            <div class="col-lg-2 col-md-6" style="margin-bottom: 15px;">
+                                <a href="<?php echo site_url('home/detail');?>?id=<?php echo $v['Id'];?>" class="mainmenu__link">
+                                    <img src="<?php
+                                    if(empty($v['Image_big'])) {
+                                        echo '/assets/images/no.jpg';
+                                    } else {
+                                        if(strpos($v['Image_big'], 'http://') !== false || strpos($v['Image_big'], 'https://') !== false)
+                                            echo $v['Image_big'];
+                                        else
+                                            echo $this->configs['img_url'] . $v['Image_big'];
+                                    }
+                                    ?>" alt="" class="">
+                                    <p class="feature__desc"><?php echo $v['Name']; ?></p>
+                                </a>
                             </div>
-                        </div>
-                        <div class="col-lg-2 col-md-6">
-                            <div class="feature feature-style-2">
-                                <div class="feature__icon">
-                                    <span class="icon icon-box icon-outline">
-                                        <i class="ion-magnet"></i>
-                                    </span>
-                                </div>
-                                <div class="feature__info">
-                                    <h3 class="feature__title">制定运营计划</h3>
-                                    <p class="feature__desc">够IN,够HIGH的站点内容,让用户沉迷其中不可自拨.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-2 col-md-6">
-                            <div class="feature feature-style-2">
-                                <div class="feature__icon">
-                                    <span class="icon icon-box icon-outline">
-                                        <i class="ion-pie-graph"></i>
-                                    </span>
-                                </div>
-                                <div class="feature__info">
-                                    <h3 class="feature__title">扩展你的业务</h3>
-                                    <p class="feature__desc">提供一站式的收付款平台,解决流量变现的关键瓶颈.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-2 col-md-6">
-                            <div class="feature feature-style-2">
-                                <div class="feature__icon">
-                                    <span class="icon icon-box icon-outline">
-                                        <i class="ion-pie-graph"></i>
-                                    </span>
-                                </div>
-                                <div class="feature__info">
-                                    <h3 class="feature__title">扩展你的业务</h3>
-                                    <p class="feature__desc">提供一站式的收付款平台,解决流量变现的关键瓶颈.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-2 col-md-6">
-                            <div class="feature feature-style-2">
-                                <div class="feature__icon">
-                                    <span class="icon icon-box icon-outline">
-                                        <i class="ion-pie-graph"></i>
-                                    </span>
-                                </div>
-                                <div class="feature__info">
-                                    <h3 class="feature__title">扩展你的业务</h3>
-                                    <p class="feature__desc">提供一站式的收付款平台,解决流量变现的关键瓶颈.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-2 col-md-6">
-                            <div class="feature feature-style-2">
-                                <div class="feature__icon">
-                                    <span class="icon icon-box icon-outline">
-                                        <i class="ion-pie-graph"></i>
-                                    </span>
-                                </div>
-                                <div class="feature__info">
-                                    <h3 class="feature__title">扩展你的业务</h3>
-                                    <p class="feature__desc">提供一站式的收付款平台,解决流量变现的关键瓶颈.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-2 col-md-6">
-                            <div class="feature feature-style-2">
-                                <div class="feature__icon">
-                                    <span class="icon icon-box icon-outline">
-                                        <i class="ion-ios-lightbulb-outline"></i>
-                                    </span>
-                                </div>
-                                <div class="feature__info">
-                                    <h3 class="feature__title">得到新点子</h3>
-                                    <p class="feature__desc">有想法就行动,因为我们天生就是行动派.机会不是等出来,是你我创造出来的</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-2 col-md-6">
-                            <div class="feature feature-style-2">
-                                <div class="feature__icon">
-                                    <span class="icon icon-box icon-outline">
-                                        <i class="ion-magnet"></i>
-                                    </span>
-                                </div>
-                                <div class="feature__info">
-                                    <h3 class="feature__title">制定运营计划</h3>
-                                    <p class="feature__desc">够IN,够HIGH的站点内容,让用户沉迷其中不可自拨.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-2 col-md-6">
-                            <div class="feature feature-style-2">
-                                <div class="feature__icon">
-                                    <span class="icon icon-box icon-outline">
-                                        <i class="ion-pie-graph"></i>
-                                    </span>
-                                </div>
-                                <div class="feature__info">
-                                    <h3 class="feature__title">扩展你的业务</h3>
-                                    <p class="feature__desc">提供一站式的收付款平台,解决流量变现的关键瓶颈.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-2 col-md-6">
-                            <div class="feature feature-style-2">
-                                <div class="feature__icon">
-                                    <span class="icon icon-box icon-outline">
-                                        <i class="ion-pie-graph"></i>
-                                    </span>
-                                </div>
-                                <div class="feature__info">
-                                    <h3 class="feature__title">扩展你的业务</h3>
-                                    <p class="feature__desc">提供一站式的收付款平台,解决流量变现的关键瓶颈.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-2 col-md-6">
-                            <div class="feature feature-style-2">
-                                <div class="feature__icon">
-                                    <span class="icon icon-box icon-outline">
-                                        <i class="ion-pie-graph"></i>
-                                    </span>
-                                </div>
-                                <div class="feature__info">
-                                    <h3 class="feature__title">扩展你的业务</h3>
-                                    <p class="feature__desc">提供一站式的收付款平台,解决流量变现的关键瓶颈.</p>
-                                </div>
-                            </div>
-                        </div>
+                        <?php } ?>
                     </div>
                 </div>
             </section>
@@ -720,32 +155,23 @@
                         <hr class="delimeter mb--22">
                     </div>
                     <div class="row">
-                        <div class="col-lg-2 col-md-6">
-                            <div class="feature feature-style-2">
-                                <div class="feature__icon">
-                                    <span class="icon icon-box icon-outline">
-                                        <i class="ion-ios-lightbulb-outline"></i>
-                                    </span>
-                                </div>
-                                <div class="feature__info">
-                                    <h3 class="feature__title">得到新点子</h3>
-                                    <p class="feature__desc">有想法就行动,因为我们天生就是行动派.机会不是等出来,是你我创造出来的</p>
-                                </div>
+                        <?php foreach ($variety as $v) {  ?>
+                            <div class="col-lg-2 col-md-6" style="margin-bottom: 15px;">
+                                <a href="<?php echo site_url('home/detail');?>?id=<?php echo $v['Id'];?>" class="mainmenu__link">
+                                    <img src="<?php
+                                    if(empty($v['Image_big'])) {
+                                        echo '/assets/images/no.jpg';
+                                    } else {
+                                        if(strpos($v['Image_big'], 'http://') !== false || strpos($v['Image_big'], 'https://') !== false)
+                                            echo $v['Image_big'];
+                                        else
+                                            echo $this->configs['img_url'] . $v['Image_big'];
+                                    }
+                                    ?>" alt="" class="">
+                                    <p class="feature__desc"><?php echo $v['Name']; ?></p>
+                                </a>
                             </div>
-                        </div>
-                        <div class="col-lg-2 col-md-6">
-                            <div class="feature feature-style-2">
-                                <div class="feature__icon">
-                                    <span class="icon icon-box icon-outline">
-                                        <i class="ion-magnet"></i>
-                                    </span>
-                                </div>
-                                <div class="feature__info">
-                                    <h3 class="feature__title">制定运营计划</h3>
-                                    <p class="feature__desc">够IN,够HIGH的站点内容,让用户沉迷其中不可自拨.</p>
-                                </div>
-                            </div>
-                        </div>
+                        <?php } ?>
                     </div>
                 </div>
             </section>
@@ -759,84 +185,23 @@
                         <hr class="delimeter mb--22">
                     </div>
                     <div class="row">
-                        <div class="col-lg-2 col-md-6">
-                            <div class="feature feature-style-2">
-                                <div class="feature__icon">
-                                    <span class="icon icon-box icon-outline">
-                                        <i class="ion-ios-lightbulb-outline"></i>
-                                    </span>
-                                </div>
-                                <div class="feature__info">
-                                    <h3 class="feature__title">得到新点子</h3>
-                                    <p class="feature__desc">有想法就行动,因为我们天生就是行动派.机会不是等出来,是你我创造出来的</p>
-                                </div>
+                        <?php foreach ($cartoon as $v) {  ?>
+                            <div class="col-lg-2 col-md-6" style="margin-bottom: 15px;">
+                                <a href="<?php echo site_url('home/detail');?>?id=<?php echo $v['Id'];?>" class="mainmenu__link">
+                                    <img src="<?php
+                                    if(empty($v['Image_big'])) {
+                                        echo '/assets/images/no.jpg';
+                                    } else {
+                                        if(strpos($v['Image_big'], 'http://') !== false || strpos($v['Image_big'], 'https://') !== false)
+                                            echo $v['Image_big'];
+                                        else
+                                            echo $this->configs['img_url'] . $v['Image_big'];
+                                    }
+                                    ?>" alt="" class="">
+                                    <p class="feature__desc"><?php echo $v['Name']; ?></p>
+                                </a>
                             </div>
-                        </div>
-                        <div class="col-lg-2 col-md-6">
-                            <div class="feature feature-style-2">
-                                <div class="feature__icon">
-                                    <span class="icon icon-box icon-outline">
-                                        <i class="ion-magnet"></i>
-                                    </span>
-                                </div>
-                                <div class="feature__info">
-                                    <h3 class="feature__title">制定运营计划</h3>
-                                    <p class="feature__desc">够IN,够HIGH的站点内容,让用户沉迷其中不可自拨.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-2 col-md-6">
-                            <div class="feature feature-style-2">
-                                <div class="feature__icon">
-                                    <span class="icon icon-box icon-outline">
-                                        <i class="ion-pie-graph"></i>
-                                    </span>
-                                </div>
-                                <div class="feature__info">
-                                    <h3 class="feature__title">扩展你的业务</h3>
-                                    <p class="feature__desc">提供一站式的收付款平台,解决流量变现的关键瓶颈.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-2 col-md-6">
-                            <div class="feature feature-style-2">
-                                <div class="feature__icon">
-                                    <span class="icon icon-box icon-outline">
-                                        <i class="ion-pie-graph"></i>
-                                    </span>
-                                </div>
-                                <div class="feature__info">
-                                    <h3 class="feature__title">扩展你的业务</h3>
-                                    <p class="feature__desc">提供一站式的收付款平台,解决流量变现的关键瓶颈.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-2 col-md-6">
-                            <div class="feature feature-style-2">
-                                <div class="feature__icon">
-                                    <span class="icon icon-box icon-outline">
-                                        <i class="ion-pie-graph"></i>
-                                    </span>
-                                </div>
-                                <div class="feature__info">
-                                    <h3 class="feature__title">扩展你的业务</h3>
-                                    <p class="feature__desc">提供一站式的收付款平台,解决流量变现的关键瓶颈.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-2 col-md-6">
-                            <div class="feature feature-style-2">
-                                <div class="feature__icon">
-                                    <span class="icon icon-box icon-outline">
-                                        <i class="ion-pie-graph"></i>
-                                    </span>
-                                </div>
-                                <div class="feature__info">
-                                    <h3 class="feature__title">扩展你的业务</h3>
-                                    <p class="feature__desc">提供一站式的收付款平台,解决流量变现的关键瓶颈.</p>
-                                </div>
-                            </div>
-                        </div>
+                        <?php } ?>
                     </div>
                 </div>
             </section>
@@ -1023,5 +388,10 @@
 
     <?php $this->load->view('common/js.php') ?>
 
+
+<!--    <script language="JavaScript">-->
+<!--        document.oncontextmenu=new Function("event.returnValue=false;");-->
+<!--        document.onselectstart=new Function("event.returnValue=false;");-->
+<!--    </script>-->
 
 

@@ -34,15 +34,15 @@
 	<div class="image-container set-full-height" style="background-image: url('/template/default/img/bg1.jpg')">
 	    <!--   Creative Tim Branding   -->
 	    <a href="#">
-	         <div class="logo-container">
-	            <div class="logo">
-	                <img src="<?php echo $data['logo']; ?>" id="img-logo">
-	            </div><br>
-	            <div class="brand">
-	                
-	            </div>
-	        </div>
-	    </a>
+            <div class="logo-container">
+                <div class="logo">
+                    <img src="<?php echo $data['logo']; ?>" id="img-logo" >
+                </div><br>
+                <div class="brand">
+
+                </div>
+            </div>
+        </a>
 
 		<!--  Made With Material Kit  -->
 		<a href="https://www.shoufuzhan.com/?source=" class="made-with-mk">
@@ -159,7 +159,7 @@
 	    </div> <!--  big container -->
 	    <div class="footer">
 	        <div class="container text-center">
-	             本支付平台属于  <span class="sitename"><?php echo $data['site_name']?></span> 所有管理. 平台服务商: <a href="<?php echo $this->options['site_url'];?>" title="<?php echo $this->options['site_name'];?>" target="_blank"><?php echo $this->options['site_name'];?></a>
+	             本支付平台属于  <span class="sitename"><?php echo $data['site_name']?></span> 所有管理. 平台服务商: <a href="<?php echo $this->configs['site_url'];?>" title="<?php echo $this->options['site_name'];?>" target="_blank"><?php echo $this->options['site_name'];?></a>
 	        </div>
 	    </div>
 	</div>

@@ -21,7 +21,7 @@ class Pay extends CI_Controller {
 
     public function index() {
         $this->load->model('model');
-        $subsite = $this->db->get_where('site',array('sub_domain'=>$_SERVER['HTTP_HOST']))->row_array();
+        $subsite = $this->db->get_where('user',array('sub_domain'=>$_SERVER['HTTP_HOST']))->row_array();
 
         $data = array(
             'rmoney' => $_GET['amount'],
