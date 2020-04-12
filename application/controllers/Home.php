@@ -55,6 +55,18 @@ class Home extends CI_Controller {
 
         $hot = $query->order_by('Score', 'DESC')->get()->result_array();  //获取热门影片
 
+        foreach ($hot as &$v) {
+            if (empty($v['Image_big'])) {
+                $v['Image_big_t'] = '/assets/images/no.jpg';
+            } else {
+                if (strpos($v['Image_big'], 'http://') !== false || strpos($v['Image_big'], 'https://') !== false) {
+                    $v['Image_big_t'] = $v['Image_big'];
+                } else {
+                    $v['Image_big_t'] = $this->cfgs['img_url'] . $v['Image_big'];
+                }
+            }
+        }
+
         $query = $this->db
             ->select('
                 media_movies.*, 
@@ -71,6 +83,18 @@ class Home extends CI_Controller {
             ->limit($limit, $offset);
 
         $movie = $query->order_by('Update_time', 'DESC')->get()->result_array();  //获取最新电影
+
+        foreach ($movie as &$v) {
+            if (empty($v['Image_big'])) {
+                $v['Image_big_t'] = '/assets/images/no.jpg';
+            } else {
+                if (strpos($v['Image_big'], 'http://') !== false || strpos($v['Image_big'], 'https://') !== false) {
+                    $v['Image_big_t'] = $v['Image_big'];
+                } else {
+                    $v['Image_big_t'] = $this->cfgs['img_url'] . $v['Image_big'];
+                }
+            }
+        }
 
         $query = $this->db
             ->select('
@@ -89,6 +113,18 @@ class Home extends CI_Controller {
 
         $tv = $query->order_by('Update_time', 'DESC')->get()->result_array();  //获取最新电视剧
 
+        foreach ($tv as &$v) {
+            if (empty($v['Image_big'])) {
+                $v['Image_big_t'] = '/assets/images/no.jpg';
+            } else {
+                if (strpos($v['Image_big'], 'http://') !== false || strpos($v['Image_big'], 'https://') !== false) {
+                    $v['Image_big_t'] = $v['Image_big'];
+                } else {
+                    $v['Image_big_t'] = $this->cfgs['img_url'] . $v['Image_big'];
+                }
+            }
+        }
+
         $query = $this->db
             ->select('
                 media_movies.*, 
@@ -106,6 +142,18 @@ class Home extends CI_Controller {
 
         $variety = $query->order_by('Update_time', 'DESC')->get()->result_array();  //获取最新综艺
 
+        foreach ($variety as &$v) {
+            if (empty($v['Image_big'])) {
+                $v['Image_big_t'] = '/assets/images/no.jpg';
+            } else {
+                if (strpos($v['Image_big'], 'http://') !== false || strpos($v['Image_big'], 'https://') !== false) {
+                    $v['Image_big_t'] = $v['Image_big'];
+                } else {
+                    $v['Image_big_t'] = $this->cfgs['img_url'] . $v['Image_big'];
+                }
+            }
+        }
+
         $query = $this->db
             ->select('
                 media_movies.*, 
@@ -122,6 +170,19 @@ class Home extends CI_Controller {
             ->limit($limit, $offset);
 
         $cartoon = $query->order_by('Update_time', 'DESC')->get()->result_array();  //获取最新动漫
+
+        foreach ($cartoon as &$v) {
+            if (empty($v['Image_big'])) {
+                $v['Image_big_t'] = '/assets/images/no.jpg';
+            } else {
+                if (strpos($v['Image_big'], 'http://') !== false || strpos($v['Image_big'], 'https://') !== false) {
+                    $v['Image_big_t'] = $v['Image_big'];
+                } else {
+                    $v['Image_big_t'] = $this->cfgs['img_url'] . $v['Image_big'];
+                }
+            }
+        }
+
 
         $data['hot'] = $hot;
         $data['movie'] = $movie;
@@ -141,7 +202,7 @@ class Home extends CI_Controller {
         $this->load->view('contact');
     }
 
-    public function movie()
+    public function getlist()
     {
         $cats = $this->db->get_where('media_cats', array('Pid' =>5))->result_array();
 
@@ -167,28 +228,39 @@ class Home extends CI_Controller {
 
 
         $data['cats'] = $cats;
-        $this->load->view('movie',$data);
+        $this->load->view('list',$data);
     }
 
-    public function detail()
+    public function player()
     {
         $limit = 6;
         $offset = mt_rand(0,10);
 
         $detail = $this->db
             ->select('
-                media_movies.*, 
+                media_movies.*,
                 media_type.Name as type_txt, 
                 media_cats.Name as cat_txt,
                 media_country.Name as country_txt,
                 ')
             ->from('media_movies')
-            ->where('media_movies.Id',$_GET['id'])
+            ->where('media_movies.Id',$_GET['mid'])
             ->join('media_type', 'media_type.Id = media_movies.Type', 'left')
             ->join('media_cats', 'media_cats.Id = media_movies.Cats', 'left')
             ->join('media_country', 'media_country.Code = media_movies.Country', 'left')
             ->get()
             ->row_array();
+
+        if(empty($detail['Image_big'])) {
+            $detail['Image_big_t'] = '/assets/images/no.jpg';
+        } else {
+            if(strpos($detail['Image_big'], 'http://') !== false || strpos($detail['Image_big'], 'https://') !== false) {
+                $detail['Image_big_t'] = $detail['Image_big'];
+            } else {
+                $detail['Image_big_t'] = $this->cfgs['img_url'] . $detail['Image_big'];
+            }
+        }
+
 
         $str = '';
         $Actors = explode(',', $detail['Actors']);
@@ -220,82 +292,12 @@ class Home extends CI_Controller {
         }
         $detail['tags_txt'] = $str;
 
-        $episodes = $this->db
-            ->select('
-                media_episodes.*, 
-                ')
-            ->from('media_episodes')
-            ->where('Issue', 1)
-            ->where('media_episodes.MId',$_GET['id'])
-            ->order_by('Season')
-            ->order_by('Episode')
-            ->get()
-            ->result_array();
-
-
-        $arr = [];
-        foreach($episodes as $v) {
-            if(!empty($v['Code'])) {
-                $arr[$v['Code']][] = $v;
-            }
-        }
-        ksort($arr);
-        $episodes = $arr;
-
-
-        $query = $this->db
-            ->select('
-                media_movies.*, 
-                media_type.Name as type_txt, 
-                media_cats.Name as cat_txt,
-                media_country.Name as country_txt,
-                ')
-            ->from('media_movies')
-            ->where('Issue', 1)
-            ->where('Status', '<>',4)
-            ->join('media_type', 'media_type.Id = media_movies.Type', 'left')
-            ->join('media_cats', 'media_cats.Id = media_movies.Cats', 'left')
-            ->join('media_country', 'media_country.Code = media_movies.Country', 'left')
-            ->limit($limit, $offset);
-
-        $rand = $query->order_by('Score', 'RANDOM')->get()->result_array();  //获取热门影片
-
-        $data['rand'] = $rand;
-        $data['detail'] = $detail;
-        $data['episodes'] = $episodes;
-
-        $this->load->view('detail', $data);
-    }
-
-    public function player()
-    {
-        $limit = 6;
-        $offset = mt_rand(0,10);
-
-        $detail = $this->db
-            ->select('
-                media_episodes.*, 
-                media_type.Name as type_txt, 
-                media_cats.Name as cat_txt,
-                media_country.Name as country_txt,
-                media_movies.Name as movies_name,
-                media_movies.Year,
-                media_movies.Episodes as total_episodes,
-                ')
-            ->from('media_episodes')
-            ->where('media_episodes.Id',$_GET['id'])
-            ->join('media_movies', 'media_movies.Id = media_episodes.MId', 'left')
-            ->join('media_type', 'media_type.Id = media_movies.Type', 'left')
-            ->join('media_cats', 'media_cats.Id = media_movies.Cats', 'left')
-            ->join('media_country', 'media_country.Code = media_movies.Country', 'left')
-            ->get()
-            ->row_array();
 
         $episodes = $this->db
             ->select('*')
             ->from('media_episodes')
             ->where('Issue', 1)
-            ->where('media_episodes.MId',$detail['MId'])
+            ->where('media_episodes.MId',$_GET['mid'])
             ->order_by('Season')
             ->order_by('Episode')
             ->get()

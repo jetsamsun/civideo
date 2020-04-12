@@ -444,10 +444,10 @@
                             </ul>
                             <h1 class="title" id="xuji"><a
                                         href="http://127.0.0.1/seacher-%E6%96%B0%E4%B8%96%E7%95%8C.html" title="新世界"
-                                        id="movie_name"><?php echo $detail['movies_name']; ?></a><span class="js jjpos">第1集</span></h1>
+                                        id="movie_name"><?php echo $detail['Name']; ?></a><span class="js jjpos">第1集</span></h1>
                             <span class="text-muted">地区：</span><?php echo $detail['country_txt']; ?><span class="split-line"></span>
                             <span class="text-muted">年份：</span><?php echo $detail['Year']; ?><span class="split-line"></span>
-                            <span class="text-muted">状态：</span>更新至<span><?php echo $detail['total_episodes']; ?></span>/共<?php echo $detail['total_episodes']; ?>集
+                            <span class="text-muted">状态：</span>更新至<span><?php echo $detail['Episodes']; ?></span>/共<?php echo $detail['Episodes']; ?>集
                         </div>
                     </div>
                     <!-- 播放器-->
@@ -469,7 +469,7 @@
                                 <ul class="stui-content__playlist column10 clearfix" id="playlist">
                                 </ul>
                             </div>
-                            <div Name="EpisodesList" Id="EpisodesList"
+                            <div style="display: none;" Name="EpisodesList" Id="EpisodesList"
                                  data-img="http://dik.img.kttpdq.com/pic/93/64994/5510b1712740f4f5.jpg">
                                 <?php foreach ($episodes as $v) { ?>
                                 <li><?php echo $v['Episode']; ?>,<?php echo $v['Code'].'p'; ?>,<?php if(strpos($v['Play_url'], 'http://') !== false || strpos($v['Play_url'], 'https://') !== false) { echo $v['Play_url']; } else { echo $this->cfgs['m3u8_url'] . $v['Play_url']; }?></li>
@@ -496,30 +496,30 @@
                         <div class="stui-pannel-box">
                             <div class="stui-content__thumb">
                                 <a class="stui-vodlist__thumb picture v-thumb"
-                                   href="http://127.0.0.1/vod/tv/PrJob07lSz8tOX.html#" title="新世界">
-                                    <img src="./play_files/dy_281d4e008d67c73dd774402d4704ae25.jpg"
-                                         data-original="https://p.ssl.qhimg.com/d/dy_281d4e008d67c73dd774402d4704ae25.jpg"
-                                         class="lazyload" alt="新世界" title="新世界" width="100%">
+                                   href="#" title="新世界">
+                                    <img src="<?php echo $detail['Image_big_t']; ?>"
+                                         data-original="<?php echo $detail['Image_big_t']; ?>"
+                                         class="lazyload" alt="<?php echo $detail['Name']; ?>" title="<?php echo $detail['Name']; ?>" width="100%">
                                     <span class="pic-text text-right"></span>
                                 </a>
                             </div>
                             <div class="stui-content__detail">
                                 <h1 class="title"><a href="http://1gh.cc/seacher-%E6%96%B0%E4%B8%96%E7%95%8C.html"
-                                                     title="新世界">新世界</a></h1>
-                                <p class="data">地区 ：大陆</p>
-                                <p class="data">年代 ：2020</p>
-                                <p class="data">状态 ：更新至<span>36</span>/共70集 </p>
-                                <p class="data">类型 ： 谍战
+                                                     title="<?php echo $detail['Name']; ?>"><?php echo $detail['Name']; ?></a></h1>
+                                <p class="data">地区 ：<?php echo $detail['country_txt']; ?></p>
+                                <p class="data">年代 ：<?php echo $detail['Year']; ?></p>
+                                <p class="data">状态 ：更新至<span><?php echo $detail['Episodes']; ?></span>/共<?php echo $detail['Episodes']; ?>集 </p>
+                                <p class="data">类型 ： <?php echo $detail['type_txt']; ?>
                                 </p>
-                                <p class="data">导演 ： 徐兵&nbsp;
+                                <p class="data">导演 ： <?php echo $detail['directors_txt']; ?>
                                 </p>
                                 <p class="data">
-                                    演员 ： 孙红雷&nbsp;/ 张鲁一&nbsp;/ 尹昉&nbsp;/ 万茜&nbsp;/ 李纯&nbsp;/ 胡静&nbsp;/ 秦汉&nbsp;/ 赵峥&nbsp;
+                                    演员 ： <?php echo $detail['actors_txt']; ?>
                                 </p>
                             </div>
                             <div class="stui-pannel_bd">
                                 <p class="col-pd detail">
-                                    <span class="detail-sketch">简介：新中国解放前夕，白纸坊警署小警察徐天在追查未婚妻贾小朵被害案件过程中，意外参与到中国共产党和平解放北平的事业当中。面对动荡的时局，金海、铁林和徐天三兄弟所处不同的位置，在亲情、爱情，国家利益、个人信仰发生激烈冲突的时候，情同手足的三兄弟做出了不同的选择，走上了截然不同的人生道路。徐天和共产党员田丹在绝境中相识，使命感让两个人走到了一起，徐天选择在动乱中协助中国共产党取得了北平的和平解放，迎来了新世界。</span>
+                                    <span class="detail-sketch">简介：<?php echo $detail['Content']; ?></span>
                                 </p>
                             </div>
                         </div>

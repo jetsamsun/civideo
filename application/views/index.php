@@ -67,17 +67,8 @@
                     <div class="row">
                         <?php foreach ($hot as $v) {  ?>
                         <div class="col-lg-2 col-md-6" style="margin-bottom: 15px;">
-                            <a href="<?php echo site_url('home/detail');?>?id=<?php echo $v['Id'];?>" class="mainmenu__link">
-                                <img src="<?php
-                                if(empty($v['Image_big'])) {
-                                    echo '/assets/images/no.jpg';
-                                } else {
-                                    if(strpos($v['Image_big'], 'http://') !== false || strpos($v['Image_big'], 'https://') !== false)
-                                        echo $v['Image_big'];
-                                    else
-                                        echo $this->configs['img_url'] . $v['Image_big'];
-                                }
-                                ?>" alt="" class="">
+                            <a href="<?php echo site_url('home/player');?>?mid=<?php echo $v['Id'];?>" class="mainmenu__link">
+                                <img src="<?php echo $v['Image_big_t']; ?>" alt="" class="">
                                 <p class="feature__desc"><?php echo $v['Name']; ?></p>
                             </a>
                         </div>
@@ -97,17 +88,8 @@
                     <div class="row">
                         <?php foreach ($movie as $v) {  ?>
                             <div class="col-lg-2 col-md-6" style="margin-bottom: 15px;">
-                                <a href="<?php echo site_url('home/detail');?>?id=<?php echo $v['Id'];?>" class="mainmenu__link">
-                                    <img src="<?php
-                                    if(empty($v['Image_big'])) {
-                                        echo '/assets/images/no.jpg';
-                                    } else {
-                                        if(strpos($v['Image_big'], 'http://') !== false || strpos($v['Image_big'], 'https://') !== false)
-                                            echo $v['Image_big'];
-                                        else
-                                            echo $this->configs['img_url'] . $v['Image_big'];
-                                    }
-                                    ?>" alt="" class="">
+                                <a href="<?php echo site_url('home/player');?>?mid=<?php echo $v['Id'];?>" class="mainmenu__link">
+                                    <img src="<?php echo $v['Image_big_t']; ?>" alt="" class="">
                                     <p class="feature__desc"><?php echo $v['Name']; ?></p>
                                 </a>
                             </div>
@@ -127,17 +109,8 @@
                     <div class="row">
                         <?php foreach ($tv as $v) {  ?>
                             <div class="col-lg-2 col-md-6" style="margin-bottom: 15px;">
-                                <a href="<?php echo site_url('home/detail');?>?id=<?php echo $v['Id'];?>" class="mainmenu__link">
-                                    <img src="<?php
-                                    if(empty($v['Image_big'])) {
-                                        echo '/assets/images/no.jpg';
-                                    } else {
-                                        if(strpos($v['Image_big'], 'http://') !== false || strpos($v['Image_big'], 'https://') !== false)
-                                            echo $v['Image_big'];
-                                        else
-                                            echo $this->configs['img_url'] . $v['Image_big'];
-                                    }
-                                    ?>" alt="" class="">
+                                <a href="<?php echo site_url('home/player');?>?mid=<?php echo $v['Id'];?>" class="mainmenu__link">
+                                    <img src="<?php echo $v['Image_big_t']; ?>" alt="" class="">
                                     <p class="feature__desc"><?php echo $v['Name']; ?></p>
                                 </a>
                             </div>
@@ -157,17 +130,8 @@
                     <div class="row">
                         <?php foreach ($variety as $v) {  ?>
                             <div class="col-lg-2 col-md-6" style="margin-bottom: 15px;">
-                                <a href="<?php echo site_url('home/detail');?>?id=<?php echo $v['Id'];?>" class="mainmenu__link">
-                                    <img src="<?php
-                                    if(empty($v['Image_big'])) {
-                                        echo '/assets/images/no.jpg';
-                                    } else {
-                                        if(strpos($v['Image_big'], 'http://') !== false || strpos($v['Image_big'], 'https://') !== false)
-                                            echo $v['Image_big'];
-                                        else
-                                            echo $this->configs['img_url'] . $v['Image_big'];
-                                    }
-                                    ?>" alt="" class="">
+                                <a href="<?php echo site_url('home/player');?>?mid=<?php echo $v['Id'];?>" class="mainmenu__link">
+                                    <img src="<?php echo $v['Image_big_t']; ?>" alt="" class="">
                                     <p class="feature__desc"><?php echo $v['Name']; ?></p>
                                 </a>
                             </div>
@@ -187,17 +151,8 @@
                     <div class="row">
                         <?php foreach ($cartoon as $v) {  ?>
                             <div class="col-lg-2 col-md-6" style="margin-bottom: 15px;">
-                                <a href="<?php echo site_url('home/detail');?>?id=<?php echo $v['Id'];?>" class="mainmenu__link">
-                                    <img src="<?php
-                                    if(empty($v['Image_big'])) {
-                                        echo '/assets/images/no.jpg';
-                                    } else {
-                                        if(strpos($v['Image_big'], 'http://') !== false || strpos($v['Image_big'], 'https://') !== false)
-                                            echo $v['Image_big'];
-                                        else
-                                            echo $this->configs['img_url'] . $v['Image_big'];
-                                    }
-                                    ?>" alt="" class="">
+                                <a href="<?php echo site_url('home/player');?>?mid=<?php echo $v['Id'];?>" class="mainmenu__link">
+                                    <img src="<?php echo $v['Image_big_t']; ?>" alt="" class="">
                                     <p class="feature__desc"><?php echo $v['Name']; ?></p>
                                 </a>
                             </div>
