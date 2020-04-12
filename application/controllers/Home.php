@@ -204,25 +204,35 @@ class Home extends CI_Controller {
 
     public function movielist()
     {
-//        $field = $_GET['search_field'];
-//        $keyword = '%'.$_GET['keyword'].'%';
-//        $sql = "select count(*) num from app_media_movies where domain='$sub_domain' and $field like '$keyword'";
-//
-//        $res = $this->db->query($sql)->row_array();
-//        $total = $res['num'];
-//        $pages = ceil($total / $limit);  //页数
-//        $url = site_url('admin/transaction');
-//
-//        $query = $this->db
-//            ->select('media_movies.*, payment.sprovider_text, payment.gateway_text')
-//            ->from('paylogs')
-//            ->where('domain', $_SESSION['userinfo']['sub_domain'])
-//            ->like($field, $_GET['keyword'], 'both')
-//            ->join('payment', 'payment.gateway = paylogs.pay_type')
-//            ->limit($limit, $offset)
-//            ->order_by('datetime', 'DESC')
-//            ->get()
-//            ->result_array();
+        $limit = 100;
+        $offset = 0;
+        $field = 'media_movies.Name';
+        $keyword = isset($_GET['keyword'])?$_GET['keyword']:'';
+        $movietyid = 5;
+
+        $movies = $this->db
+            ->select('media_movies.*')
+            ->from('media_movies')
+            ->like($field, $keyword, 'both')
+            ->join('media_cats', 'media_cats.Id = media_movies.Cats')
+            ->where('media_cats.Pid',$movietyid)   //电影
+            ->or_where('media_cats.Id',$movietyid)
+            ->limit($limit, $offset)
+            ->order_by('Update_time', 'DESC')
+            ->get()
+            ->result_array();
+
+        foreach ($movies as &$v) {
+            if (empty($v['Image_big'])) {
+                $v['Image_big_t'] = '/assets/images/no.jpg';
+            } else {
+                if (strpos($v['Image_big'], 'http://') !== false || strpos($v['Image_big'], 'https://') !== false) {
+                    $v['Image_big_t'] = $v['Image_big'];
+                } else {
+                    $v['Image_big_t'] = $this->cfgs['img_url'] . $v['Image_big'];
+                }
+            }
+        }
 
 
         $cats = $this->db->get_where('media_cats', array('Pid' =>5))->result_array();  //电影
@@ -243,6 +253,7 @@ class Home extends CI_Controller {
         $data['countrys'] = $countrys;
         $data['years'] = $years;
         $data['languages'] = $languages;
+        $data['movies'] = $movies;
         $this->load->view('movielist',$data);
     }
 
