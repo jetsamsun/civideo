@@ -409,7 +409,7 @@
                                 <!--仅当为剧集类型时显示end-->
                             </ul>
                             <h1 class="title" id="xuji"><a
-                                        href="http://127.0.0.1/seacher-%E6%96%B0%E4%B8%96%E7%95%8C.html" title="新世界"
+                                        href="javascript:void(0);" title="新世界"
                                         id="movie_name"><?php echo $detail['Name']; ?></a><span class="js jjpos">第1集</span></h1>
                             <span class="text-muted">地区：</span><?php echo $detail['country_txt']; ?><span class="split-line"></span>
                             <span class="text-muted">年份：</span><?php echo $detail['Year']; ?><span class="split-line"></span>
@@ -470,7 +470,7 @@
                                 </a>
                             </div>
                             <div class="stui-content__detail">
-                                <h1 class="title"><a href="http://1gh.cc/seacher-%E6%96%B0%E4%B8%96%E7%95%8C.html"
+                                <h1 class="title"><a href="javascript:void(0);"
                                                      title="<?php echo $detail['Name']; ?>"><?php echo $detail['Name']; ?></a></h1>
                                 <p class="data">地区 ：<?php echo $detail['country_txt']; ?></p>
                                 <p class="data">年代 ：<?php echo $detail['Year']; ?></p>
@@ -709,19 +709,19 @@
 <!--wap下的底部菜单start-->
 <div id="footer" class="border-t hidden-lg hidden-md">
     <ul class="flex-wrap" style="font-weight:bold">
-        <a class="flex-con paiban " href="http://127.0.0.1/index.html">
+        <a class="flex-con paiban " href="<?php echo site_url('home/index');?>">
             <li onclick="randomSwitchBtn(this);">首页</li>
         </a>
-        <a class="flex-con paiban " href="http://127.0.0.1/cx.html">
+        <a class="flex-con paiban " href="javascript:void(0);">
             <li onclick="randomSwitchBtn(this);">抢先</li>
         </a>
-        <a class="flex-con paiban " href="http://127.0.0.1/hall.html">
+        <a class="flex-con paiban " href="javascript:void(0);">
             <li onclick="randomSwitchBtn(this);">大厅</li>
         </a>
-        <a class="flex-con paiban " href="http://127.0.0.1/fuli.html">
+        <a class="flex-con paiban " href="javascript:void(0);">
             <li onclick="randomSwitchBtn(this);">福利</li>
         </a>
-        <a class="flex-con paiban " href="http://127.0.0.1/ucenter">
+        <a class="flex-con paiban " href="javascript:void(0);">
             <li onclick="randomSwitchBtn(this);">我的</li>
         </a>
     </ul>
