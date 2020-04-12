@@ -68,10 +68,10 @@
 
                     <div style="margin-top: -10px;">
                         <?php foreach ($episodes as $rate=>$episode) {  ?>
-                            <div class="" style="margin-bottom: 15px;">
-                            <p>在线播放【<?php echo $rate; ?>p】</p>
+                            <div class="" style="margin-bottom: 15px; <?php if($rate!=$this->cfgs['trans_default_size']) { ?> display: none; <?php } ?>">
+                            <p>播放列表</p>
                             <?php foreach ($episode as $k=>$v) {  ?>
-                            <a href="<?php echo site_url('home/player');?>?id=<?php echo $v['Id'];?>" class="btn btn-defalut" style="margin: 3px;" ><?php echo $v['Title']; ?></a>
+                            <a href="<?php echo site_url('home/player');?>?id=<?php echo $v['Id'];?>" class="btn btn-defalut" style="margin: 3px;" ><?php echo '第'.$v['Episode'].'集'; ?></a>
                             <?php } ?>
                             </div>
                         <?php } ?>

@@ -141,9 +141,33 @@ class Home extends CI_Controller {
         $this->load->view('contact');
     }
 
-    public function service()
+    public function movie()
     {
-        $this->load->view('service');
+        $cats = $this->db->get_where('media_cats', array('Pid' =>5))->result_array();
+
+        $field = $_GET['search_field'];
+        $keyword = '%'.$_GET['keyword'].'%';
+        $sql = "select count(*) num from app_media_movies where domain='$sub_domain' and $field like '$keyword'";
+
+        $res = $this->db->query($sql)->row_array();
+        $total = $res['num'];
+        $pages = ceil($total / $limit);  //页数
+        $url = site_url('admin/transaction');
+
+        $query = $this->db
+            ->select('media_movies.*, payment.sprovider_text, payment.gateway_text')
+            ->from('paylogs')
+            ->where('domain', $_SESSION['userinfo']['sub_domain'])
+            ->like($field, $_GET['keyword'], 'both')
+            ->join('payment', 'payment.gateway = paylogs.pay_type')
+            ->limit($limit, $offset)
+            ->order_by('datetime', 'DESC')
+            ->get()
+            ->result_array();
+
+
+        $data['cats'] = $cats;
+        $this->load->view('movie',$data);
     }
 
     public function detail()
@@ -255,6 +279,8 @@ class Home extends CI_Controller {
                 media_cats.Name as cat_txt,
                 media_country.Name as country_txt,
                 media_movies.Name as movies_name,
+                media_movies.Year,
+                media_movies.Episodes as total_episodes,
                 ')
             ->from('media_episodes')
             ->where('media_episodes.Id',$_GET['id'])
@@ -265,7 +291,6 @@ class Home extends CI_Controller {
             ->get()
             ->row_array();
 
-
         $episodes = $this->db
             ->select('*')
             ->from('media_episodes')
@@ -275,14 +300,6 @@ class Home extends CI_Controller {
             ->order_by('Episode')
             ->get()
             ->result_array();
-        $arr = [];
-        foreach($episodes as $v) {
-            if(!empty($v['Code'])) {
-                $arr[$v['Code']][] = $v;
-            }
-        }
-        ksort($arr);
-        $episodes = $arr;
 
 
         $rand = $this->db

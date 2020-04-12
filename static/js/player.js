@@ -127,7 +127,11 @@ function bofang(obj){
 	Moive_defaultQuality=0;
 	for(var i = 0; i < Codes.length; i++){
 		Movice_Code = Codes[i].split(",");
-		Moive_info = {'name':Movice_Code[0], 'url':Movice_Code[1],'type':'normal'}; 
+		if(Movice_Code[1].indexOf(".mp4") !== -1) {
+			Moive_info = {'name': Movice_Code[0], 'url': Movice_Code[1], 'type': 'normal'};   //normal (mp4) ,  hls (m3u8)
+		} else {
+			Moive_info = {'name': Movice_Code[0], 'url': Movice_Code[1], 'type': 'hls'};   //normal (mp4) ,  hls (m3u8)
+		}
 		Moives[i]= Moive_info;
 		if(Moive_DefaultCode==Movice_Code[0]){
 			Moive_defaultQuality = i;

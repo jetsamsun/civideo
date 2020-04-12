@@ -68,7 +68,7 @@
                     <li>
                         <a href="<?php echo site_url('home/index');?>">首页</a></li>
                     <li>
-                        <a href="<?php echo site_url('home/service');?>">电影</a></li>
+                        <a href="<?php echo site_url('home/movie');?>">电影</a></li>
                     <li>
                         <a href="#">电视剧</a></li>
                     <li>
@@ -103,28 +103,10 @@
                             <span class="text-muted">按类型</span></li>
                         <li class="active">
                             <a href="1.html">全部</a></li>
+                        <?php foreach ($cats as $v) { ?>
                         <li>
-                            <a href="https://www.meijui.com/show/6.html" class="text-muted">动作片</a></li>
-                        <li>
-                            <a href="https://www.meijui.com/show/7.html" class="text-muted">喜剧片</a></li>
-                        <li>
-                            <a href="https://www.meijui.com/show/8.html" class="text-muted">爱情片</a></li>
-                        <li>
-                            <a href="https://www.meijui.com/show/9.html" class="text-muted">科幻片</a></li>
-                        <li>
-                            <a href="https://www.meijui.com/show/10.html" class="text-muted">恐怖片</a></li>
-                        <li>
-                            <a href="https://www.meijui.com/show/11.html" class="text-muted">剧情片</a></li>
-                        <li>
-                            <a href="https://www.meijui.com/show/12.html" class="text-muted">战争片</a></li>
-                        <li>
-                            <a href="https://www.meijui.com/show/20.html" class="text-muted">悬疑片</a></li>
-                        <li>
-                            <a href="https://www.meijui.com/show/21.html" class="text-muted">惊悚片</a></li>
-                        <li>
-                            <a href="https://www.meijui.com/show/31.html" class="text-muted">纪录片</a></li>
-                        <li>
-                            <a href="https://www.meijui.com/show/22.html" class="text-muted">伦理片</a></li>
+                            <a href="<?php echo site_url('home/movie?cat=').$v['Id'];?>" class="text-muted"><?php echo $v['Name']; ?></a></li>
+                        <?php } ?>
                     </ul>
                     <ul class="stui-screen__list type-slide bottom-line-dot clearfix">
                         <li>
@@ -787,20 +769,20 @@
         </ul>
     </div>
 </div>
-<div class="container">
-    <div class="row">
-        <div class="stui-foot clearfix">
-            <div class="col-pd text-center hidden-xs">Copyright
-                <span class="fontArial"></span>2019-2020 www.meijui.com Inc. All Rights Reserved.
-                <a href="https://www.meijui.com/" target="_blank">美剧爱</a>
-                <br>本站不提供任何视听上传服务，所有内容均来自视频分享站点所提供的公开引用资源。
-                <p class="text-muted text-center visible-xs">Copyright © 2018 MEIJUI. 保留所有权利</p>联系邮箱：
-                <a href="mailto:{maccms:email}">meijui#126.com</a></div>
-            <p class="share bdsharebuttonbox text-center margin-0 hidden-sm hidden-xs"></p>
-            <p class="text-muted text-center visible-xs">本站不提供任何视听上传服务，所有内容来自分享站公开引用资源。</p>
-            <p class="text-muted text-center visible-xs">Copyright © 2018 MEIJUI. 保留所有权利</p></div>
-    </div>
-</div>
+<!--<div class="container">-->
+<!--    <div class="row">-->
+<!--        <div class="stui-foot clearfix">-->
+<!--            <div class="col-pd text-center hidden-xs">Copyright-->
+<!--                <span class="fontArial"></span>2019-2020 www.meijui.com Inc. All Rights Reserved.-->
+<!--                <a href="https://www.meijui.com/" target="_blank">美剧爱</a>-->
+<!--                <br>本站不提供任何视听上传服务，所有内容均来自视频分享站点所提供的公开引用资源。-->
+<!--                <p class="text-muted text-center visible-xs">Copyright © 2018 MEIJUI. 保留所有权利</p>联系邮箱：-->
+<!--                <a href="mailto:{maccms:email}">meijui#126.com</a></div>-->
+<!--            <p class="share bdsharebuttonbox text-center margin-0 hidden-sm hidden-xs"></p>-->
+<!--            <p class="text-muted text-center visible-xs">本站不提供任何视听上传服务，所有内容来自分享站公开引用资源。</p>-->
+<!--            <p class="text-muted text-center visible-xs">Copyright © 2018 MEIJUI. 保留所有权利</p></div>-->
+<!--    </div>-->
+<!--</div>-->
 <script>(function() {
         var bp = document.createElement('script');
         var curProtocol = window.location.protocol.split(':')[0];

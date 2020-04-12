@@ -5,16 +5,16 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="renderer" content="webkit|ie-comp|ie-stand">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-    <link rel="stylesheet" href="./static/css/stui_block.css" type="text/css">
-    <link rel="stylesheet" href="./static/css/stui_default.css" type="text/css">
-    <link rel="stylesheet" href="./static/css/iconfont.css" type="text/css">
-    <link rel="stylesheet" href="./static/css/aui.css" type="text/css">
-    <script type="text/javascript" src="./static/js/jquery.min.js"></script>
-    <script type="text/javascript" src="./static/js/stui_default.js"></script>
-    <script type="text/javascript" src="./static/js/stui_block.js"></script>
-    <script type="text/javascript" src="./static/js/submit_res.js"></script>
-    <script type="text/javascript" src="./static/js/font_1486157_6uw53bh8p6l.js"></script>
-    <script type="text/javascript" src="./static/js/pintuer.js"></script>
+    <link rel="stylesheet" href="/static/css/stui_block.css" type="text/css">
+    <link rel="stylesheet" href="/static/css/stui_default.css" type="text/css">
+    <link rel="stylesheet" href="/static/css/iconfont.css" type="text/css">
+    <link rel="stylesheet" href="/static/css/aui.css" type="text/css">
+    <script type="text/javascript" src="/static/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/js/stui_default.js"></script>
+    <script type="text/javascript" src="/static/js/stui_block.js"></script>
+    <script type="text/javascript" src="/static/js/submit_res.js"></script>
+    <script type="text/javascript" src="/static/js/font_1486157_6uw53bh8p6l.js"></script>
+    <script type="text/javascript" src="/static/js/pintuer.js"></script>
     <!--[if lt IE 9]>
     <script src="/style/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="/style/respond/1.4.2/respond.min.js"></script>
@@ -183,13 +183,13 @@
     <meta name="keywords" content="新世界,电影,视频大全,在线高清电影,付费电影,免费电影,剧集,电影,在线观看,VIP高清电影直播">
     <meta name="description"
           content="新世界,主要讲述新中国解放前夕，白纸坊警署小警察徐天在追查未婚妻贾小朵被害案件过程中，意外参与到中国共产党和平解放北平的事业当中。面对动荡的时局，金海、铁林和徐天三兄弟所处不同的位置，在...">
-    <script type="text/javascript" src="./static/js/mytheme-ui.js"></script>
-    <script src="./static/js/flv.min.js"></script>
-    <script src="./static/js/hls.min.js"></script>
-    <script src="./static/js/dash.all.min.js"></script>
-    <script src="./static/js/webtorrent.min.js"></script>
-    <script src="./static/js/pearplayer.js"></script>
-    <script src="./static/js/DPlayer.min.js"></script>
+    <script type="text/javascript" src="/static/js/mytheme-ui.js"></script>
+    <script src="/static/js/flv.min.js"></script>
+    <script src="/static/js/hls.min.js"></script>
+    <script src="/static/js/dash.all.min.js"></script>
+    <script src="/static/js/webtorrent.min.js"></script>
+    <script src="/static/js/pearplayer.js"></script>
+    <script src="/static/js/DPlayer.min.js"></script>
 
     <style type="text/css">
         #timer {
@@ -260,7 +260,7 @@
         .close {
             width: 49px;
             height: 20px;
-            background: url(./static/image/close.png) no-repeat;
+            background: url(/static/image/close.png) no-repeat;
             position: absolute;
             top: 0;
             right: 0;
@@ -281,14 +281,19 @@
                 <div class="row">
                     <div class="stui-header_bd clearfix">
                         <div class="stui-header__logo">
-                            <a class="logo" href="http://127.0.0.1/index.html"></a>
+                            <a href="<?php echo site_url('home/index');?>" class="logo--normal">
+                                <img src="<?php echo $this->configs['site_logo']; ?>" alt="Logo" width="140px;">
+                            </a>
                         </div>
                         <ul class="stui-header__menu">
-                            <li class=""><a href="http://127.0.0.1/index.html">首页</a></li>
-                            <li class=" hidden-xs"><a href="http://127.0.0.1/movie.html">电影</a></li>
+                            <li class=""><a href="<?php echo site_url('home/index');?>">首页</a></li>
+                            <li class=" hidden-xs"><a href="<?php echo site_url('home/movie');?>">电影</a></li>
                             <li><a href="javascript:;">更多 <i class="icon iconfont icon-moreunfold"></i></a>
                                 <ul class="dropdown">
-                                    <li class=""><a href="http://127.0.0.1/movie.html">电影</a></li>
+                                    <li class=""><a href="#">电视剧</a></li>
+                                    <li class=""><a href="#">综艺</a></li>
+                                    <li class=""><a href="#">动漫</a></li>
+                                    <li class=""><a href="#">求片留言</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -396,7 +401,7 @@
                                  style="position:relative;z-index:209910539;border-radius:5px;max-width:100%;max-height:80%;height: 100%;width: 100%;display: none;background-color:#000;">
                                 <div class="box">
                                     <div class="ad"><!--广告--><a href="#" target="_blank"><img
-                                                    src="./static/image/ad.jpg"/></a></div>
+                                                    src="/static/image/ad.jpg"/></a></div>
                                     <div class="ad_time">时间还剩<span id="t">10</span>秒</div>
                                     <div class="close"></div>
                                 </div>
@@ -407,7 +412,7 @@
                                  style="position: absolute; z-index: 209910539; border-radius: 5px; max-width: 100%; max-height: 80%; height: 200px; width: 300px; background-color: rgb(204, 204, 204); /*! display: none; */overflow: hidden;top: 50%;left: 50%;transform: translate(-50%,-50%);display:none;">
                                 <div class="box">
                                     <div class="ad"><!--广告--><a href="#" target="_blank"><img
-                                                    src="./static/image/ad.jpg"></a></div>
+                                                    src="/static/image/ad.jpg"></a></div>
                                     <div class="close" style="display: block;"></div>
                                 </div>
                                 <div></div>
@@ -439,10 +444,10 @@
                             </ul>
                             <h1 class="title" id="xuji"><a
                                         href="http://127.0.0.1/seacher-%E6%96%B0%E4%B8%96%E7%95%8C.html" title="新世界"
-                                        id="movie_name">新世界</a><span class="js jjpos">第1集</span></h1>
-                            <span class="text-muted">地区：</span>大陆<span class="split-line"></span>
-                            <span class="text-muted">年份：</span>2020 <span class="split-line"></span>
-                            <span class="text-muted">状态：</span>更新至<span>36</span>/共70集
+                                        id="movie_name"><?php echo $detail['movies_name']; ?></a><span class="js jjpos">第1集</span></h1>
+                            <span class="text-muted">地区：</span><?php echo $detail['country_txt']; ?><span class="split-line"></span>
+                            <span class="text-muted">年份：</span><?php echo $detail['Year']; ?><span class="split-line"></span>
+                            <span class="text-muted">状态：</span>更新至<span><?php echo $detail['total_episodes']; ?></span>/共<?php echo $detail['total_episodes']; ?>集
                         </div>
                     </div>
                     <!-- 播放器-->
@@ -456,7 +461,7 @@
                                         <svg class="iconm" aria-hidden="true">
                                             <use xlink:href="#icon-play"></use>
                                         </svg>
-                                        腾讯播放列表
+                                        播放列表
                                     </h3>
                                 </div>
                             </div>
@@ -466,13 +471,9 @@
                             </div>
                             <div Name="EpisodesList" Id="EpisodesList"
                                  data-img="http://dik.img.kttpdq.com/pic/93/64994/5510b1712740f4f5.jpg">
-                                <li>1,360p,http://static.smartisanos.cn/common/video/t1-ui.mp4</li>
-                                <li>1,1080p,http://static.smartisanos.cn/common/video/t1-ui.mp4</li>
-                                <li>2,480p,http://static.smartisanos.cn/common/video/t1-ui.mp4</li>
-                                <li>2,1080p,http://static.smartisanos.cn/common/video/t1-ui.mp4</li>
-                                <li>3,720p,http://static.smartisanos.cn/common/video/t1-ui.mp4</li>
-                                <li>3,1080p,http://static.smartisanos.cn/common/video/t1-ui.mp4</li>
-                                <li>4,360p,http://player.xyz/src/UYc9WrWu/360/mmm.m3u8</li>
+                                <?php foreach ($episodes as $v) { ?>
+                                <li><?php echo $v['Episode']; ?>,<?php echo $v['Code'].'p'; ?>,<?php if(strpos($v['Play_url'], 'http://') !== false || strpos($v['Play_url'], 'https://') !== false) { echo $v['Play_url']; } else { echo $this->cfgs['m3u8_url'] . $v['Play_url']; }?></li>
+                                <?php } ?>
                             </div>
 
                         </div>
@@ -714,7 +715,7 @@
 
         });
     </script>
-    <script type="text/javascript" src="./static/js/history.js"></script>
+    <script type="text/javascript" src="/static/js/history.js"></script>
     <script type="text/javascript">
         var vod_name = '新世界',
             vod_url = window.location.href,
@@ -770,8 +771,8 @@
     </li>
     <li><a href="http://127.0.0.1/book.html"><i class="icon iconfont icon-comments"></i></a></li>
 </ul>
-<!--<script src="./static/js/stats.js"></script>-->
-<script src="./static/js/player.js"></script>
+<!--<script src="/static/js/stats.js"></script>-->
+<script src="/static/js/player.js"></script>
 </body>
 
 </html>

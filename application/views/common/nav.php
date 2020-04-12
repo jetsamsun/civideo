@@ -22,7 +22,7 @@
                                                 </a>
                                             </li>
                                             <li class="mainmenu__item menu-item-has-children">
-                                                <a href="<?php echo site_url('home/service');?>" class="mainmenu__link">
+                                                <a href="<?php echo site_url('home/movie');?>" class="mainmenu__link">
                                                     <span data-hover="电影" class="mm-text">电影</span>
                                                 </a>
 <!--                                                <ul class="sub-menu">-->

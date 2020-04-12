@@ -37,7 +37,7 @@
                         <div class="footer-widget">
                             <ul class="footer-menu">
                                 <li><a href="<?php echo site_url('home/index');?>">首页</a></li>
-                                <li><a href="<?php echo site_url('home/service');?>">电影</a></li>
+                                <li><a href="<?php echo site_url('home/movie');?>">电影</a></li>
                                 <li><a href="#">电视剧</a></li>
                                 <li><a href="#">综艺</a></li>
                                 <li><a href="#">动漫</a></li>
@@ -113,7 +113,7 @@
                     <!--</ul>-->
                 </li>
                 <li>
-                    <a href="<?php echo site_url('home/service');?>">
+                    <a href="<?php echo site_url('home/m');?>">
                         <span class="mm-text">收付服务</span>
                     </a>
                 </li>
