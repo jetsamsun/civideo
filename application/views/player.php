@@ -287,7 +287,7 @@
                         </div>
                         <ul class="stui-header__menu">
                             <li class=""><a href="<?php echo site_url('home/index');?>">首页</a></li>
-                            <li class=" hidden-xs"><a href="<?php echo site_url('home/movie');?>">电影</a></li>
+                            <li class=" hidden-xs"><a href="<?php echo site_url('home/movielist');?>">电影</a></li>
                             <li><a href="javascript:;">更多 <i class="icon iconfont icon-moreunfold"></i></a>
                                 <ul class="dropdown">
                                     <li class=""><a href="#">电视剧</a></li>

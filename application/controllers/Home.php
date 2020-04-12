@@ -202,33 +202,48 @@ class Home extends CI_Controller {
         $this->load->view('contact');
     }
 
-    public function getlist()
+    public function movielist()
     {
-        $cats = $this->db->get_where('media_cats', array('Pid' =>5))->result_array();
+//        $field = $_GET['search_field'];
+//        $keyword = '%'.$_GET['keyword'].'%';
+//        $sql = "select count(*) num from app_media_movies where domain='$sub_domain' and $field like '$keyword'";
+//
+//        $res = $this->db->query($sql)->row_array();
+//        $total = $res['num'];
+//        $pages = ceil($total / $limit);  //页数
+//        $url = site_url('admin/transaction');
+//
+//        $query = $this->db
+//            ->select('media_movies.*, payment.sprovider_text, payment.gateway_text')
+//            ->from('paylogs')
+//            ->where('domain', $_SESSION['userinfo']['sub_domain'])
+//            ->like($field, $_GET['keyword'], 'both')
+//            ->join('payment', 'payment.gateway = paylogs.pay_type')
+//            ->limit($limit, $offset)
+//            ->order_by('datetime', 'DESC')
+//            ->get()
+//            ->result_array();
 
-        $field = $_GET['search_field'];
-        $keyword = '%'.$_GET['keyword'].'%';
-        $sql = "select count(*) num from app_media_movies where domain='$sub_domain' and $field like '$keyword'";
 
-        $res = $this->db->query($sql)->row_array();
-        $total = $res['num'];
-        $pages = ceil($total / $limit);  //页数
-        $url = site_url('admin/transaction');
+        $cats = $this->db->get_where('media_cats', array('Pid' =>5))->result_array();  //电影
+        $tags = $this->db->get_where('media_tags')->result_array();  //标签
+        $countrys = $this->db->get_where('media_country')->result_array();  //标签
 
-        $query = $this->db
-            ->select('media_movies.*, payment.sprovider_text, payment.gateway_text')
-            ->from('paylogs')
-            ->where('domain', $_SESSION['userinfo']['sub_domain'])
-            ->like($field, $_GET['keyword'], 'both')
-            ->join('payment', 'payment.gateway = paylogs.pay_type')
-            ->limit($limit, $offset)
-            ->order_by('datetime', 'DESC')
-            ->get()
-            ->result_array();
+        $from = 1998;
+        $to = date('Y');
+        $years = [];
+        for ($i = $to; $i>= $from; $i--) {
+            $years[] = $i;
+        }
 
+        $languages = array('国语','英语','韩语','日语','法语','德语','其它');
 
         $data['cats'] = $cats;
-        $this->load->view('list',$data);
+        $data['tags'] = $tags;
+        $data['countrys'] = $countrys;
+        $data['years'] = $years;
+        $data['languages'] = $languages;
+        $this->load->view('movielist',$data);
     }
 
     public function player()

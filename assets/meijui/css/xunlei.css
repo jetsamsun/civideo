@@ -1,0 +1,35 @@
+/* downpage */
+#xiazai_box{ width:500px;margin:50px auto;font-size:24px;text-align:center;}
+#xiazai_box h1{ font-size:24px;color:#3577ce;}
+#xiazai_box p{ font-size:18px;line-height:80px;}
+#xiazai_box a{display:inline-block;width:200px;line-height:50px;color:#fff;font-size:24px;margin:0 10px;border-radius:5px;}
+#xiazai_box .lande{background:#249ff1;}
+#xiazai_box .huangde{background:#ff6c00}
+.down-title {line-height:40px;height:40px;text-align: center; margin-bottom:20px; border-bottom:1px #ddd solid;background-color:#fcfcfc}
+.down-title h2 {float: left;padding-left:20px;}
+.down-title span{float:right;padding-right:10px; font-size:12px;}
+.down-title span i{ color:#ff6c00; font-style:normal;}
+.down-title .zk{background-color:#178228;}
+.down-title .ss{background-color:#333;}
+.down_list{ padding:0 20px;}
+.down_list ul {overflow:hidden; }
+.down_list ul li {height:40px;*height:60px; padding:10px 0; border-bottom:1px dashed #ccc; overflow:hidden; vertical-align:middle;}
+.down_list ul li:hover { background:#fff}
+.down_url {float:left; display:inline; margin:8px 8px 0 0; margin:8px 8px 0 0\9; height:14px; width:14px;}
+.down_list ul {}
+.down_list li p {float:left; display:inline; overflow:hidden; line-height:30px; *width:660px;*height:60px;}
+.down_part_name {font-size:14px;color: #090; padding-right:10px; float:left; display:inline;}
+.thunder_url {border:solid 1px #e4e4e4; background-color:#f9f9f9; color:#aaa; width:560px; height:28px; line-height:28px; padding:0 6px; overflow:hidden; text-overflow:ellipsis;}
+.down_list ul li span {float:right; display:inline; overflow:hidden;}
+.down_list ul li span label {float:left; display:inline; margin-left:10px; height:30px; line-height:30px; padding:0 9px; color:#fff;cursor:pointer;}
+.down_list ul li .filename{float:left; }
+.down_list ul li .filesize {float:right; color:#999; padding-left:10px; font-weight:normal;}
+.thunder_down {background-color:#11a5e8;}
+.qqdl {background-color:#ff6c00;}
+.xiaomi {background-color:#ff9900;}
+.kk {background-color:#ff9900;}
+.downtools {padding:0px 0; overflow:hidden; height:30px; line-height:30px;position: relative;}
+.downtools input {margin:1px 0 0;margin:1px 0 0\9; padding:0; float:left; display:inline;height:30px; width:14px;}
+.downtools em {padding-left:7px; float:left; font-style:normal;}
+.downtools a {display:inline-block; margin-left:20px;  height:30px; line-height:30px;text-align:center;}
+.downtools .xuanfu{position: absolute; color:#ff0000; right:0; font-size:16px;}

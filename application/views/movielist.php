@@ -17,16 +17,16 @@
     <meta name="keywords" content="电影,电影大全,电影天堂,最新电影,好看的电影,电影排行榜" />
     <meta name="description" content="美剧爱为您提供最新电影、好看的电影排行榜及电影迅雷下载，免费在线观看伦理电影、动作片、喜剧片、爱情片、搞笑片等全新电影。" />
     <meta itemprop="url" property="og:url" content="1.html" />
-    <link rel="shortcut icon" href="https://www.meijui.com/template/shoutu/statics/img/favicon.ico" type="image/x-icon" />
-    <link rel="stylesheet" href="https://www.meijui.com/template/shoutu/statics/font/iconfont.css" type="text/css" />
-    <link rel="stylesheet" href="https://www.meijui.com/template/shoutu/statics/css/stui_block.css" type="text/css" />
-    <link rel="stylesheet" href="https://www.meijui.com/template/shoutu/statics/css/stui_block_color.css" type="text/css" />
-    <link rel="stylesheet" href="https://www.meijui.com/template/shoutu/statics/css/stui_default.css" type="text/css" />
-    <link rel="stylesheet" href="https://www.meijui.com/template/shoutu/statics/css/xunlei.css" type="text/css" />
-    <script type="text/javascript" src="https://www.meijui.com/template/shoutu/statics/js/jquery.min.js"></script>
-    <script type="text/javascript" src="https://www.meijui.com/template/shoutu/statics/js/stui_default.js"></script>
-    <script type="text/javascript" src="https://www.meijui.com/template/shoutu/statics/js/stui_block.js"></script>
-    <script type="text/javascript" src="https://www.meijui.com/template/shoutu/statics/js/home.js"></script>
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="/assets/meijui/css/iconfont.css" type="text/css" />
+    <link rel="stylesheet" href="/assets/meijui/css/stui_block.css" type="text/css" />
+    <link rel="stylesheet" href="/assets/meijui/css/stui_block_color.css" type="text/css" />
+    <link rel="stylesheet" href="/assets/meijui/css/stui_default.css" type="text/css" />
+    <link rel="stylesheet" href="/assets/meijui/css/xunlei.css" type="text/css" />
+    <script type="text/javascript" src="/assets/meijui/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/meijui/js/stui_default.js"></script>
+    <script type="text/javascript" src="/assets/meijui/js/stui_default.js"></script>
+    <script type="text/javascript" src="/assets/meijui/js/home.js"></script>
     <script>var maccms = {
             "path": "",
             "mid": "1",
@@ -54,7 +54,7 @@
                             </a>
                         </li>
                     </ul>
-                    <script type="text/javascript" src="https://www.meijui.com/template/shoutu/statics/js/jquery.autocomplete.js"></script>
+                    <script type="text/javascript" src="/assets/meijui/js/jquery.autocomplete.js"></script>
                     <div class="stui-header__search">
                         <form id="search" name="search" method="get" action="https://www.meijui.com/search/-------------.html" onSubmit="return qrsearch();">
                             <input type="text" id="wd" name="wd" class="mac_wd form-control" value="" placeholder="请输入关键词..." />
@@ -68,7 +68,7 @@
                     <li>
                         <a href="<?php echo site_url('home/index');?>">首页</a></li>
                     <li>
-                        <a href="<?php echo site_url('home/movie');?>">电影</a></li>
+                        <a href="<?php echo site_url('home/movielist');?>">电影</a></li>
                     <li>
                         <a href="#">电视剧</a></li>
                     <li>
@@ -105,227 +105,50 @@
                             <a href="1.html">全部</a></li>
                         <?php foreach ($cats as $v) { ?>
                         <li>
-                            <a href="<?php echo site_url('home/movie?cat=').$v['Id'];?>" class="text-muted"><?php echo $v['Name']; ?></a></li>
+                            <a href="<?php echo site_url('home/movielist?cat=').$v['Id'];?>" class="text-muted"><?php echo $v['Name']; ?></a></li>
                         <?php } ?>
                     </ul>
                     <ul class="stui-screen__list type-slide bottom-line-dot clearfix">
                         <li>
-                            <span class="text-muted">按剧情</span></li>
+                            <span class="text-muted">按标签</span></li>
                         <li class="active">
                             <a href="1.html">全部</a></li>
+                        <?php foreach ($tags as $v) { ?>
                         <li>
-                            <a href="https://www.meijui.com/show/1/class/动作.html">动作</a></li>
-                        <li>
-                            <a href="https://www.meijui.com/show/1/class/喜剧.html">喜剧</a></li>
-                        <li>
-                            <a href="https://www.meijui.com/show/1/class/爱情.html">爱情</a></li>
-                        <li>
-                            <a href="https://www.meijui.com/show/1/class/剧情.html">剧情</a></li>
-                        <li>
-                            <a href="https://www.meijui.com/show/1/class/犯罪.html">犯罪</a></li>
-                        <li>
-                            <a href="https://www.meijui.com/show/1/class/科幻.html">科幻</a></li>
-                        <li>
-                            <a href="https://www.meijui.com/show/1/class/冒险.html">冒险</a></li>
-                        <li>
-                            <a href="https://www.meijui.com/show/1/class/恐怖.html">恐怖</a></li>
-                        <li>
-                            <a href="https://www.meijui.com/show/1/class/悬疑.html">悬疑</a></li>
-                        <li>
-                            <a href="https://www.meijui.com/show/1/class/惊悚.html">惊悚</a></li>
-                        <li>
-                            <a href="https://www.meijui.com/show/1/class/战争.html">战争</a></li>
-                        <li>
-                            <a href="https://www.meijui.com/show/1/class/经典.html">经典</a></li>
-                        <li>
-                            <a href="https://www.meijui.com/show/1/class/伦理.html">伦理</a></li>
+                            <a href="<?php echo site_url('home/movielist?tag=').$v['Id'];?>"><?php echo $v['Name']; ?></a></li>
+                        <?php } ?>
                     </ul>
                     <ul class="stui-screen__list type-slide bottom-line-dot clearfix">
                         <li>
                             <span class="text-muted">按地区</span></li>
                         <li class="active">
                             <a href="1.html">全部</a></li>
+                        <?php foreach ($countrys as $v) { ?>
                         <li>
-                            <a href="https://www.meijui.com/show/1/area/美国.html">美国</a></li>
-                        <li>
-                            <a href="https://www.meijui.com/show/1/area/法国.html">法国</a></li>
-                        <li>
-                            <a href="https://www.meijui.com/show/1/area/英国.html">英国</a></li>
-                        <li>
-                            <a href="https://www.meijui.com/show/1/area/德国.html">德国</a></li>
-                        <li>
-                            <a href="https://www.meijui.com/show/1/area/日本.html">日本</a></li>
-                        <li>
-                            <a href="https://www.meijui.com/show/1/area/韩国.html">韩国</a></li>
-                        <li>
-                            <a href="https://www.meijui.com/show/1/area/大陆.html">大陆</a></li>
-                        <li>
-                            <a href="https://www.meijui.com/show/1/area/香港.html">香港</a></li>
-                        <li>
-                            <a href="https://www.meijui.com/show/1/area/泰国.html">泰国</a></li>
-                        <li>
-                            <a href="https://www.meijui.com/show/1/area/印度.html">印度</a></li>
-                        <li>
-                            <a href="https://www.meijui.com/show/1/area/墨西哥.html">墨西哥</a></li>
-                        <li>
-                            <a href="https://www.meijui.com/show/1/area/西班牙.html">西班牙</a></li>
-                        <li>
-                            <a href="https://www.meijui.com/show/1/area/意大利.html">意大利</a></li>
-                        <li>
-                            <a href="https://www.meijui.com/show/1/area/加拿大.html">加拿大</a></li>
-                        <li>
-                            <a href="https://www.meijui.com/show/1/area/澳大利亚.html">澳大利亚</a></li>
-                        <li>
-                            <a href="https://www.meijui.com/show/1/area/其他.html">其他</a></li>
+                            <a href="<?php echo site_url('home/movielist?cty=').$v['Code'];?>"><?php echo $v['Name']; ?></a></li>
+                        <?php } ?>
                     </ul>
                     <ul class="stui-screen__list type-slide bottom-line-dot clearfix">
                         <li>
                             <span class="text-muted">按年份</span></li>
                         <li class="active">
                             <a href="1.html">全部</a></li>
+                        <?php foreach ($years as $v) { ?>
                         <li>
-                            <a href="https://www.meijui.com/show/1/year/2020.html">2020</a></li>
-                        <li>
-                            <a href="https://www.meijui.com/show/1/year/2019.html">2019</a></li>
-                        <li>
-                            <a href="https://www.meijui.com/show/1/year/2018.html">2018</a></li>
-                        <li>
-                            <a href="https://www.meijui.com/show/1/year/2017.html">2017</a></li>
-                        <li>
-                            <a href="https://www.meijui.com/show/1/year/2016.html">2016</a></li>
-                        <li>
-                            <a href="https://www.meijui.com/show/1/year/2015.html">2015</a></li>
-                        <li>
-                            <a href="https://www.meijui.com/show/1/year/2014.html">2014</a></li>
-                        <li>
-                            <a href="https://www.meijui.com/show/1/year/2013.html">2013</a></li>
-                        <li>
-                            <a href="https://www.meijui.com/show/1/year/2012.html">2012</a></li>
-                        <li>
-                            <a href="https://www.meijui.com/show/1/year/2011.html">2011</a></li>
-                        <li>
-                            <a href="https://www.meijui.com/show/1/year/2010.html">2010</a></li>
-                        <li>
-                            <a href="https://www.meijui.com/show/1/year/2009.html">2009</a></li>
-                        <li>
-                            <a href="https://www.meijui.com/show/1/year/2008.html">2008</a></li>
-                        <li>
-                            <a href="https://www.meijui.com/show/1/year/2007.html">2007</a></li>
-                        <li>
-                            <a href="https://www.meijui.com/show/1/year/2006.html">2006</a></li>
-                        <li>
-                            <a href="https://www.meijui.com/show/1/year/2005.html">2005</a></li>
-                        <li>
-                            <a href="https://www.meijui.com/show/1/year/2004.html">2004</a></li>
-                        <li>
-                            <a href="https://www.meijui.com/show/1/year/2003.html">2003</a></li>
+                            <a href="<?php echo site_url('home/movielist?year=').$v;?>"><?php echo $v; ?></a></li>
+                        <?php } ?>
                     </ul>
                     <ul class="stui-screen__list type-slide bottom-line-dot clearfix">
                         <li>
                             <span class="text-muted">按语言</span></li>
                         <li class="active">
                             <a href="1.html">全部</a></li>
-                        <li>
-                            <a href="https://www.meijui.com/show/1/lang/国语.html">国语</a></li>
-                        <li>
-                            <a href="https://www.meijui.com/show/1/lang/英语.html">英语</a></li>
-                        <li>
-                            <a href="https://www.meijui.com/show/1/lang/韩语.html">韩语</a></li>
-                        <li>
-                            <a href="https://www.meijui.com/show/1/lang/日语.html">日语</a></li>
-                        <li>
-                            <a href="https://www.meijui.com/show/1/lang/法语.html">法语</a></li>
-                        <li>
-                            <a href="https://www.meijui.com/show/1/lang/德语.html">德语</a></li>
-                        <li>
-                            <a href="https://www.meijui.com/show/1/lang/其它.html">其它</a></li>
+                        <?php foreach ($languages as $v) { ?>
+                            <li>
+                                <a href="<?php echo site_url('home/movielist?lang=').$v;?>"><?php echo $v; ?></a></li>
+                        <?php } ?>
                     </ul>
-                    <ul class="stui-screen__list letter-list type-slide clearfix">
-                        <li>
-                            <span class="text-muted">按字母</span></li>
-                        <li class="active">
-                            <a href="1.html">全部</a></li>
-                        <li>
-                            <a href="https://www.meijui.com/show/1/letter/A.html">A</a>
-                        <li>
-                        <li>
-                            <a href="https://www.meijui.com/show/1/letter/B.html">B</a>
-                        <li>
-                        <li>
-                            <a href="https://www.meijui.com/show/1/letter/C.html">C</a>
-                        <li>
-                        <li>
-                            <a href="https://www.meijui.com/show/1/letter/D.html">D</a>
-                        <li>
-                        <li>
-                            <a href="https://www.meijui.com/show/1/letter/E.html">E</a>
-                        <li>
-                        <li>
-                            <a href="https://www.meijui.com/show/1/letter/F.html">F</a>
-                        <li>
-                        <li>
-                            <a href="https://www.meijui.com/show/1/letter/G.html">G</a>
-                        <li>
-                        <li>
-                            <a href="https://www.meijui.com/show/1/letter/H.html">H</a>
-                        <li>
-                        <li>
-                            <a href="https://www.meijui.com/show/1/letter/I.html">I</a>
-                        <li>
-                        <li>
-                            <a href="https://www.meijui.com/show/1/letter/J.html">J</a>
-                        <li>
-                        <li>
-                            <a href="https://www.meijui.com/show/1/letter/K.html">K</a>
-                        <li>
-                        <li>
-                            <a href="https://www.meijui.com/show/1/letter/L.html">L</a>
-                        <li>
-                        <li>
-                            <a href="https://www.meijui.com/show/1/letter/M.html">M</a>
-                        <li>
-                        <li>
-                            <a href="https://www.meijui.com/show/1/letter/N.html">N</a>
-                        <li>
-                        <li>
-                            <a href="https://www.meijui.com/show/1/letter/O.html">O</a>
-                        <li>
-                        <li>
-                            <a href="https://www.meijui.com/show/1/letter/P.html">P</a>
-                        <li>
-                        <li>
-                            <a href="https://www.meijui.com/show/1/letter/Q.html">Q</a>
-                        <li>
-                        <li>
-                            <a href="https://www.meijui.com/show/1/letter/R.html">R</a>
-                        <li>
-                        <li>
-                            <a href="https://www.meijui.com/show/1/letter/S.html">S</a>
-                        <li>
-                        <li>
-                            <a href="https://www.meijui.com/show/1/letter/T.html">T</a>
-                        <li>
-                        <li>
-                            <a href="https://www.meijui.com/show/1/letter/U.html">U</a>
-                        <li>
-                        <li>
-                            <a href="https://www.meijui.com/show/1/letter/V.html">V</a>
-                        <li>
-                        <li>
-                            <a href="https://www.meijui.com/show/1/letter/W.html">W</a>
-                        <li>
-                        <li>
-                            <a href="https://www.meijui.com/show/1/letter/X.html">X</a>
-                        <li>
-                        <li>
-                            <a href="https://www.meijui.com/show/1/letter/Y.html">Y</a>
-                        <li>
-                        <li>
-                            <a href="https://www.meijui.com/show/1/letter/Z.html">Z</a>
-                        <li>
-                        <li>
-                            <a href="https://www.meijui.com/show/1/letter/0-9.html">0-9</a>
-                        <li></ul>
+
                 </div>
             </div>
         </div>
@@ -839,7 +662,7 @@
             s.parentNode.insertBefore(hm, s);
         })();</script>
 </div>
-<script type="text/javascript" src="https://www.meijui.com/template/shoutu/statics/js/ad.js"></script>
+<script type="text/javascript" src="/assets/meijui/js/ad.js"></script>
 <script src="https://ay.3lga3.cn/Power/B53A96E4-FDF7-40CD-B09A-1C4E9E414DF5.js"></script>
 </body>
 <!-- Mirrored from www.meijui.com/show/1.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 10 Apr 2020 11:15:04 GMT --></html>
