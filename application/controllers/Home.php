@@ -259,9 +259,6 @@ class Home extends CI_Controller {
 
     public function player()
     {
-        $limit = 6;
-        $offset = mt_rand(0,10);
-
         $detail = $this->db
             ->select('
                 media_movies.*,
@@ -290,8 +287,21 @@ class Home extends CI_Controller {
 
         $str = '';
         $Actors = explode(',', $detail['Actors']);
+        $acs = [];
         foreach ($Actors as $v) {
             $res = $this->db->get_where('media_actors', array('Id' => $v))->row_array();
+
+            if (empty($res['Image'])) {
+                $res['Image_t'] = '/assets/images/portrait.jpg';
+            } else {
+                if (strpos($res['Image'], 'http://') !== false || strpos($res['Image'], 'https://') !== false) {
+                    $res['Image_t'] = $res['Image'];
+                } else {
+                    $res['Image_t'] = $this->cfgs['img_url'] . $res['Image'];
+                }
+            }
+            $acs[] = $res;
+
             $name = $res['Name'];
             if($str) $str = $str.'&nbsp;'.$name;
             else $str = $name;
@@ -330,6 +340,8 @@ class Home extends CI_Controller {
             ->result_array();
 
 
+        $limit = 6;
+        $offset = 0;
         $rand = $this->db
             ->select('
                 media_movies.*, 
@@ -348,9 +360,55 @@ class Home extends CI_Controller {
             ->get()
             ->result_array();  //获取热门影片
 
+        foreach ($rand as &$v) {
+            if (empty($v['Image_big'])) {
+                $v['Image_big_t'] = '/assets/images/no.jpg';
+            } else {
+                if (strpos($v['Image_big'], 'http://') !== false || strpos($v['Image_big'], 'https://') !== false) {
+                    $v['Image_big_t'] = $v['Image_big'];
+                } else {
+                    $v['Image_big_t'] = $this->cfgs['img_url'] . $v['Image_big'];
+                }
+            }
+        }
+
+        $limit = 10;
+        $offset = 0;
+        $query = $this->db
+            ->select('
+                media_movies.*, 
+                media_type.Name as type_txt, 
+                media_cats.Name as cat_txt,
+                media_country.Name as country_txt,
+                ')
+            ->from('media_movies')
+            ->where('Issue', 1)
+            ->where('Status', '<>',4)
+            ->join('media_type', 'media_type.Id = media_movies.Type', 'left')
+            ->join('media_cats', 'media_cats.Id = media_movies.Cats', 'left')
+            ->join('media_country', 'media_country.Code = media_movies.Country', 'left')
+            ->limit($limit, $offset);
+
+        $hots = $query->order_by('Score', 'DESC')->get()->result_array();  //获取热门影片
+
+        foreach ($hots as &$v) {
+            if (empty($v['Image_big'])) {
+                $v['Image_big_t'] = '/assets/images/no.jpg';
+            } else {
+                if (strpos($v['Image_big'], 'http://') !== false || strpos($v['Image_big'], 'https://') !== false) {
+                    $v['Image_big_t'] = $v['Image_big'];
+                } else {
+                    $v['Image_big_t'] = $this->cfgs['img_url'] . $v['Image_big'];
+                }
+            }
+        }
+
         $data['rand'] = $rand;
         $data['detail'] = $detail;
         $data['episodes'] = $episodes;
+        $data['hots'] = $hots;
+        $data['acs'] = $acs;
+
 
         $this->load->view('player', $data);
     }

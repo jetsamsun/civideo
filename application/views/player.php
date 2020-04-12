@@ -293,11 +293,10 @@
                                     <li class=""><a href="#">电视剧</a></li>
                                     <li class=""><a href="#">综艺</a></li>
                                     <li class=""><a href="#">动漫</a></li>
-                                    <li class=""><a href="#">求片留言</a></li>
                                 </ul>
                             </li>
                         </ul>
-                        <script type="text/javascript" src="./play_files/jquery.autocomplete.js.下载"></script>
+                        <script type="text/javascript" src="/static/js/jquery.autocomplete.js"></script>
                         <div class="stui-header__search">
                             <input type="text" id="wd" name="wd" class="mac_wd form-control" value=""
                                    placeholder="输入明星、影片关键词" onkeydown="if(event.keyCode==13){submi.click()}">
@@ -306,37 +305,7 @@
                             <a class="search-close visible-xs" href="javascript:;"><i
                                         class="icon iconfont icon-close"></i></a>
                         </div>
-                        <ul class="stui-header__user">
-                            <li>
-                                <a href="http://127.0.0.1/ucenter/login.php" title="账户"><i
-                                            class="icon iconfont icon-account"></i></a>
-                            </li>
-                            <li>
-                                <a href="javascript:;"><i class="icon iconfont icon-clock"></i></a>
-                                <div class="dropdown">
-                                    <h5 class="margin-0 text-muted">
-                                        <a class="historyclean text-muted pull-right"
-                                           href="http://127.0.0.1/vod/tv/PrJob07lSz8tOX.html">清空</a>播放记录
-                                    </h5>
-                                    <ul class="history clearfix" id="stui_history">
-                                        <li class="top-line"><a href="http://127.0.0.1/vod/tv/Q4ptaH7lSz8nN3.html"
-                                                                title="锦衣之下"><span class="pull-right text-red">1</span>锦衣之下</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li class="hidden-xs">
-                                <a href="http://127.0.0.1/book.html" title="留言板"><i
-                                            class="icon iconfont icon-comments"></i></a>
-                            </li>
-                            <li class="hidden-xs">
-                                <a href="http://127.0.0.1/app.html" title="APP下载"><i
-                                            class="icon iconfont icon-icondownload"></i></a>
-                            </li>
-                            <li class="visible-xs">
-                                <a class="open-search" href="javascript:;"><i class="icon iconfont icon-search"></i></a>
-                            </li>
-                        </ul>
+
                     </div>
                 </div>
             </div>
@@ -344,12 +313,12 @@
 
         <div class="focusbanner">
             <div class="container">
-                <div class="js_login">
-
-                    <a href="User_Login.asp" class="signin-loader" title="登录"><p class="btn btn-login">登录</p></a>&nbsp;
-                    <div class="btn btn-user"><a href="UserReg.asp" class="signup-loader" title="注册">注册</a></div>&nbsp;
-
-                </div>
+<!--                <div class="js_login">-->
+<!---->
+<!--                    <a href="User_Login.asp" class="signin-loader" title="登录"><p class="btn btn-login">登录</p></a>&nbsp;-->
+<!--                    <div class="btn btn-user"><a href="UserReg.asp" class="signup-loader" title="注册">注册</a></div>&nbsp;-->
+<!---->
+<!--                </div>-->
                 <div class="banner">
                     <div class="carousel">
                         <div class="item"><a href="infodisp.asp?id=1916" title="唐人街探案3"><img
@@ -364,9 +333,6 @@
                         <div class="item"><a href="infodisp.asp?id=1899" title="中国机长"><img
                                         src="http://www.babaihao.com/uploadfile/ba30.jpg" class="img-responsive"
                                         alt="中国机长"/></a></div>
-                        <div class="item"><a href="infodisp.asp?id=1914" title="勇敢者游戏2：再战巅峰"><img
-                                        src="http://www.babaihao.com/uploadfile/ba29.jpg" class="img-responsive"
-                                        alt="勇敢者游戏2：再战巅峰"/></a></div>
                     </div>
                 </div>
             </div>
@@ -525,7 +491,7 @@
                         </div>
                     </div>
                     <!-- 剧情简介end-->
-                    <br><br><br><br><br><br><br><br>
+                    <br>
                     <!-- 猜你喜欢-->
                     <div class="stui-pannel stui-pannel-bg clearfix">
                         <div class="stui-pannel-box">
@@ -541,24 +507,25 @@
                             </div>
                             <div class="stui-pannel_bd">
                                 <ul class="stui-vodlist__bd clearfix">
+                                    <?php foreach ($rand as $v) { ?>
                                     <li class="col-md-6 col-sm-4 col-xs-3">
                                         <div class="stui-vodlist__box">
-                                            <a title="不可饶恕" class="stui-vodlist__thumb lazyload"
-                                               href="http://127.0.0.1/vod/tv/R4ZsaKaoSzbrMH.html"
-                                               data-original="https://p.ssl.qhimg.com/dmfd/180_246_/d/dy_f96bdd07e33770bed8780f143f00f8e7."
+                                            <a title="<?php echo $v['Name']; ?>" class="stui-vodlist__thumb lazyload"
+                                               href="<?php echo site_url('home/player');?>?mid=<?php echo $v['Id'];?>"
+                                               data-original="<?php echo $v['Image_big_t']; ?>"
                                                style="background-image: url(&quot;https://p.ssl.qhimg.com/dmfd/180_246_/d/dy_f96bdd07e33770bed8780f143f00f8e7.&quot;);">
                                                 <span class="play hidden-xs"></span>
                                                 <span class="pic-text text-right"></span>
                                             </a>
                                             <div class="stui-vodlist__detail padding-0">
                                                 <h4 class="title text-overflow">
-                                                    <a title="不可饶恕" href="http://127.0.0.1/vod/tv/R4ZsaKaoSzbrMH.html">不可饶恕</a>
+                                                    <a title="<?php echo $v['Name']; ?>" href="<?php echo site_url('home/player');?>?mid=<?php echo $v['Id'];?>"><?php echo $v['Name']; ?></a>
                                                 </h4>
-                                                <p class="text text-overflow text-muted hidden-xs"></p>
+                                                <p class="text text-overflow text-muted hidden-xs"><?php echo $v['Content']; ?></p>
                                             </div>
                                         </div>
                                     </li>
-
+                                    <?php } ?>
                                 </ul>
                             </div>
                         </div>
@@ -632,6 +599,7 @@
                                     <!--可循环4个,定义不同的data-index-->
                                     <ul class="hot-cate-title">
                                         <li data-index="dy" class="activee">电影</li>
+                                        <li data-index="dy" class="">电视剧</li>
                                     </ul>
                                     <!--可循环4个,定义不同的data-index-->
                                 </div>
@@ -640,12 +608,14 @@
                                 <!--注意data-pid与上方的data-index对应-->
                                 <ul class="hot-cate-list stui-vodlist__text active col-pd clearfix activee"
                                     data-pid="dy">
+                                    <?php foreach ($hots as $k=>$v) { ?>
                                     <li class="col-xs-1 padding-0"><a class="text-overflow"
-                                                                      href="http://127.0.0.1/vod/m/fqLqaRH4S0r1TR.html"
-                                                                      title="唐人街探案3"><span
-                                                    class="am-badge am-round pull-left">1</span><span
-                                                    class="text-muted pull-right">17.2万</span><em class="text-red"></em>&nbsp;唐人街探案3</a>
+                                                                      href="<?php echo site_url('home/player');?>?mid=<?php echo $v['Id'];?>"
+                                                                      title="<?php echo $v['Name']; ?>"><span
+                                                    class="am-badge am-round pull-left"><?php echo ++$k; ?></span><span
+                                                    class="text-muted pull-right"><?php echo $v['Score']; ?>万</span><em class="text-red"></em>&nbsp;<?php echo $v['Name']; ?></a>
                                     </li>
+                                    <?php } ?>
                                 </ul>
                             </div>
                         </div>
@@ -666,21 +636,23 @@
                             </div>
                             <div class="stui-pannel_bd">
                                 <ul class="stui-vodlist__bd clearfix">
+                                    <?php foreach ($acs as $v) { ?>
                                     <li class="col-md-4" style="text-align: center" ;="">
                                         <div class="stui-vodlist__box">
-                                            <a title="孙红雷" class="stui-vodlist__thumb lazyload"
-                                               href="http://127.0.0.1/mxstar_%E5%AD%99%E7%BA%A2%E9%9B%B7_dy_1.html"
-                                               data-original="https://p.ssl.qhimg.com/dmfd/150_150_/t01384224b1e796520c.jpg"
+                                            <a title="<?php echo $v['Name']; ?>" class="stui-vodlist__thumb lazyload"
+                                               href="javascript:void(0);"
+                                               data-original="<?php echo $v['Image_t']; ?>"
                                                style="padding-top: 100%; border-radius: 50%; background-image: url(&quot;https://p.ssl.qhimg.com/dmfd/150_150_/t01384224b1e796520c.jpg&quot;);">
                                             </a>
                                             <div class="stui-vodlist__detail padding-0">
                                                 <h4 class="title text-overflow">
-                                                    <a title="孙红雷"
-                                                       href="http://127.0.0.1/mxstar_%E5%AD%99%E7%BA%A2%E9%9B%B7_dy_1.html">孙红雷</a>
+                                                    <a title="<?php echo $v['Name']; ?>"
+                                                       href="javascript:void(0);"><?php echo $v['Name']; ?></a>
                                                 </h4>
                                             </div>
                                         </div>
                                     </li>
+                                    <?php } ?>
                                 </ul>
                             </div>
                         </div>
@@ -725,7 +697,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-pd text-center masked">
-                    <p>本网站内容收集于互联网，极速影视不承担任何由于内容的合法性及健康性所引起的争议和法律责任<br> Copyright ©&nbsp; 极速影视 版权所有</p>
+                    <p>本网站内容收集于互联网，青瓜影视不承担任何由于内容的合法性及健康性所引起的争议和法律责任<br> Copyright ©&nbsp; 青瓜影视 版权所有</p>
                     <p class="text-center"></p>
                 </div>
             </div>
@@ -767,9 +739,9 @@
             </div>
         </div>
     </li>
-    <li title="会员中心"><a class="open-share" href="http://127.0.0.1/ucenter"><i class="icon iconfont icon-smile"></i></a>
+    <li title="会员中心"><a class="open-share" href="#"><i class="icon iconfont icon-smile"></i></a>
     </li>
-    <li><a href="http://127.0.0.1/book.html"><i class="icon iconfont icon-comments"></i></a></li>
+    <li><a href="#"><i class="icon iconfont icon-comments"></i></a></li>
 </ul>
 <!--<script src="/static/js/stats.js"></script>-->
 <script src="/static/js/player.js"></script>

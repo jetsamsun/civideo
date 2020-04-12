@@ -47,16 +47,16 @@
                     </a>
                 </div>
                 <div class="stui-header__side">
-                    <ul class="stui-header__user">
-                        <li>
-                            <a class="mac_user" href="javascript:;">
-                                <i class="icon iconfont icon-account"></i>
-                            </a>
-                        </li>
-                    </ul>
+<!--                    <ul class="stui-header__user">-->
+<!--                        <li>-->
+<!--                            <a class="mac_user" href="javascript:;">-->
+<!--                                <i class="icon iconfont icon-account"></i>-->
+<!--                            </a>-->
+<!--                        </li>-->
+<!--                    </ul>-->
                     <script type="text/javascript" src="/assets/meijui/js/jquery.autocomplete.js"></script>
                     <div class="stui-header__search">
-                        <form id="search" name="search" method="get" action="https://www.meijui.com/search/-------------.html" onSubmit="return qrsearch();">
+                        <form id="search" name="search" method="get" action="#" onSubmit="return qrsearch();">
                             <input type="text" id="wd" name="wd" class="mac_wd form-control" value="" placeholder="请输入关键词..." />
                             <button class="submit" id="searchbutton" type="submit" name="submit">
                                 <i class="icon iconfont icon-search"></i>
@@ -75,8 +75,6 @@
                         <a href="#">动漫</a></li>
                     <li>
                         <a href="#">综艺</a></li>
-                    <li>
-                        <a href="#">求片留言</a></li>
                 </ul>
             </div>
         </div>

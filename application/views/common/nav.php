@@ -53,11 +53,6 @@
                                                     <span data-hover="动漫" class="mm-text">动漫</span>
                                                 </a>
                                             </li>
-                                            <li class="mainmenu__item">
-                                                <a href="#" class="mainmenu__link">
-                                                    <span data-hover="求片留言" class="mm-text">求片留言</span>
-                                                </a>
-                                            </li>
                                         </ul>
                                     </nav>
                                 </div>
