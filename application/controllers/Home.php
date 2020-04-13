@@ -286,45 +286,53 @@ class Home extends CI_Controller {
 
 
         $str = '';
-        $Actors = explode(',', $detail['Actors']);
         $acs = [];
-        foreach ($Actors as $v) {
-            $res = $this->db->get_where('media_actors', array('Id' => $v))->row_array();
+        if($detail['Actors']) {
+            $Actors = explode(',', $detail['Actors']);
+            foreach ($Actors as $v) {
+                $res = $this->db->get_where('media_actors', array('Id' => $v))->row_array();
 
-            if (empty($res['Image'])) {
-                $res['Image_t'] = '/assets/images/portrait.jpg';
-            } else {
-                if (strpos($res['Image'], 'http://') !== false || strpos($res['Image'], 'https://') !== false) {
-                    $res['Image_t'] = $res['Image'];
+                if (empty($res['Image'])) {
+                    $res['Image_t'] = '/assets/images/portrait.jpg';
                 } else {
-                    $res['Image_t'] = $this->cfgs['img_url'] . $res['Image'];
+                    if (strpos($res['Image'], 'http://') !== false || strpos($res['Image'], 'https://') !== false) {
+                        $res['Image_t'] = $res['Image'];
+                    } else {
+                        $res['Image_t'] = $this->cfgs['img_url'] . $res['Image'];
+                    }
                 }
-            }
-            $acs[] = $res;
+                $acs[] = $res;
 
-            $name = $res['Name'];
-            if($str) $str = $str.'&nbsp;'.$name;
-            else $str = $name;
+                $name = $res['Name'];
+                if ($str) $str = $str . '&nbsp;' . $name;
+                else $str = $name;
+            }
         }
         $detail['actors_txt'] = $str;
 
+
         $str = '';
-        $Directors = explode(',', $detail['Directors']);
-        foreach ($Directors as $v) {
-            $res = $this->db->get_where('media_actors', array('Id' => $v))->row_array();
-            $name = $res['Name'];
-            if($str) $str = $str.'&nbsp;'.$name;
-            else $str = $name;
+        if($detail['Directors']) {
+            $Directors = explode(',', $detail['Directors']);
+            foreach ($Directors as $v) {
+                $res = $this->db->get_where('media_actors', array('Id' => $v))->row_array();
+                $name = $res['Name'];
+                if ($str) $str = $str . '&nbsp;' . $name;
+                else $str = $name;
+            }
         }
         $detail['directors_txt'] = $str;
 
+
         $str = '';
-        $Tags = explode(',', $detail['Tags']);
-        foreach ($Tags as $v) {
-            $res = $this->db->get_where('media_tags', array('Id' => $v))->row_array();
-            $name = $res['Name'];
-            if($str) $str = $str.'&nbsp;'.$name;
-            else $str = $name;
+        if($detail['Tags']) {
+            $Tags = explode(',', $detail['Tags']);
+            foreach ($Tags as $v) {
+                $res = $this->db->get_where('media_tags', array('Id' => $v))->row_array();
+                $name = $res['Name'];
+                if ($str) $str = $str . '&nbsp;' . $name;
+                else $str = $name;
+            }
         }
         $detail['tags_txt'] = $str;
 
