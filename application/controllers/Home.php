@@ -204,36 +204,9 @@ class Home extends CI_Controller {
 
     public function movielist()
     {
-        $limit = 100;
+        $limit = 2;
         $offset = 0;
-        $field = 'media_movies.Name';
-        $keyword = isset($_GET['keyword'])?$_GET['keyword']:'';
         $movietyid = 5;
-
-        $movies = $this->db
-            ->select('media_movies.*')
-            ->from('media_movies')
-            ->like($field, $keyword, 'both')
-            ->join('media_cats', 'media_cats.Id = media_movies.Cats')
-            ->where('media_cats.Pid',$movietyid)   //电影
-            ->or_where('media_cats.Id',$movietyid)
-            ->limit($limit, $offset)
-            ->order_by('Update_time', 'DESC')
-            ->get()
-            ->result_array();
-
-        foreach ($movies as &$v) {
-            if (empty($v['Image_big'])) {
-                $v['Image_big_t'] = '/assets/images/no.jpg';
-            } else {
-                if (strpos($v['Image_big'], 'http://') !== false || strpos($v['Image_big'], 'https://') !== false) {
-                    $v['Image_big_t'] = $v['Image_big'];
-                } else {
-                    $v['Image_big_t'] = $this->cfgs['img_url'] . $v['Image_big'];
-                }
-            }
-        }
-
 
         $cats = $this->db->get_where('media_cats', array('Pid' =>5))->result_array();  //电影
         $tags = $this->db->get_where('media_tags')->result_array();  //标签
@@ -253,8 +226,101 @@ class Home extends CI_Controller {
         $data['countrys'] = $countrys;
         $data['years'] = $years;
         $data['languages'] = $languages;
+
+
+        // 按条件查询
+        $arg = isset($_GET['arg'])?$_GET['arg']:'';   //点击位置
+        $keyword = isset($_GET['key'])?$_GET['key']:'';   // 按关键字
+        $cat = isset($_GET['cat'])?$_GET['cat']:'';  // 按类型
+        $tag = isset($_GET['tag'])?$_GET['tag']:'';  // 按标签
+        $cty = isset($_GET['cty'])?$_GET['cty']:'';   // 按地区
+        $year = isset($_GET['year'])?$_GET['year']:'';   // 按年份
+        $lang = isset($_GET['lang'])?$_GET['lang']:'';    // 按语言
+        $sort = isset($_GET['sort'])?$_GET['sort']:'time';    // 按排序
+        $page = isset($_GET['page'])?$_GET['page']:1;   // 按页码
+
+        $data['arg'] = $arg;
+        $data['keyword'] = $keyword;
+        $data['cat'] = $cat;
+        $data['tag'] = $tag;
+        $data['cty'] = $cty;
+        $data['year'] = $year;
+        $data['lang'] = $lang;
+        $data['sort'] = $sort;
+
+
+        $query = $this->db->select('media_movies.*');
+        $query->from('media_movies');
+
+        if($arg == 'search' && !empty($keyword)) {
+            $query->like('media_movies.Name', $keyword, 'both');
+        }
+        if (!empty($tag)) {
+            $query->like('media_movies.Tags', $tag, 'both');
+        }
+        if (!empty($cat)) {
+            $query->where('media_movies.Cats', $cat);
+        }
+        if (!empty($cty)) {
+            $query->where('media_movies.Country', $cty);
+        }
+        if (!empty($year)) {
+            $query->where('media_movies.Year', $year);
+        }
+        if (!empty($lang)) {
+            //$query->like('media_movies.Langs', $lang, 'both');
+        }
+
+        $query->join('media_cats', 'media_cats.Id = media_movies.Cats');
+        $query->where('media_cats.Pid', $movietyid);   // 电影
+
+        if ($sort == 'time') {
+            $query->order_by('media_movies.Update_time', 'DESC');
+        } else if($sort == 'hot') {
+            $query->order_by('media_movies.Score', 'DESC');
+        } else if($sort == 'sore') {
+            $query->order_by('media_movies.Score', 'DESC');
+        }
+
+        $query_count = clone($query);
+        $total = $query_count->count_all_results();
+        $pages = ceil($total / $limit);  //页数
+        if($page > $pages) $page = 1;
+        $offset = $limit * ($page-1);
+
+        $show_num = 5;
+        $last = $page < $show_num ? $show_num : ($page + 1 > $pages ? $pages : $page + 1);
+        $pages_show = [];
+        while ($show_num--) {
+            $pages_show[] = $last--;
+        }
+        $pages_show = array_reverse($pages_show);
+
+
+        $data['total'] = $total;  //总条数
+        $data['page'] = $page;   //当前页
+        $data['pages'] = $pages;   //页数
+        $data['pages_show'] = $pages_show;   //显示哪些页
+
+
+        $query->limit($limit, $offset);
+
+        $movies = $query->get()->result_array();
+
+        foreach ($movies as &$v) {
+            if (empty($v['Image_big'])) {
+                $v['Image_big_t'] = '/assets/images/no.jpg';
+            } else {
+                if (strpos($v['Image_big'], 'http://') !== false || strpos($v['Image_big'], 'https://') !== false) {
+                    $v['Image_big_t'] = $v['Image_big'];
+                } else {
+                    $v['Image_big_t'] = $this->cfgs['img_url'] . $v['Image_big'];
+                }
+            }
+        }
+
         $data['movies'] = $movies;
-        $this->load->view('movielist',$data);
+        $this->load->view('movielist', $data);
     }
 
     public function player()
