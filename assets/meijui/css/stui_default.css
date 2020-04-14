@@ -7,7 +7,7 @@
 body{padding-top:80px}
 
 /* header */
-.stui-header__top{position:fixed;top:0;z-index:999;width:100%;height:60px; background-color: #444; box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);}
+.stui-header__top{position:fixed;top:0;z-index:999;width:100%;height:60px; background-color: #292838; box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);}
 .top-fixed-down{margin-top:-60px}
 .stui-header__side{float:right}
 

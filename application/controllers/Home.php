@@ -38,6 +38,9 @@ class Home extends CI_Controller {
         $limit = 18;
         $offset = 0;
 
+
+        // 热门影视
+
         $query = $this->db
             ->select('
                 media_movies.*, 
@@ -51,9 +54,9 @@ class Home extends CI_Controller {
             ->join('media_type', 'media_type.Id = media_movies.Type', 'left')
             ->join('media_cats', 'media_cats.Id = media_movies.Cats', 'left')
             ->join('media_country', 'media_country.Code = media_movies.Country', 'left')
-            ->limit($limit, $offset);
+            ->limit(10, 0);
 
-        $hot = $query->order_by('Score', 'DESC')->get()->result_array();  //获取热门影片
+        $hot = $query->order_by('media_movies.Score', 'DESC')->get()->result_array();  //获取热门影片
 
         foreach ($hot as &$v) {
             if (empty($v['Image_big'])) {
@@ -65,8 +68,36 @@ class Home extends CI_Controller {
                     $v['Image_big_t'] = $this->cfgs['img_url'] . $v['Image_big'];
                 }
             }
+
+            $str = '';
+            $acs = [];
+            if($v['Actors']) {
+                $Actors = explode(',', $v['Actors']);
+                foreach ($Actors as $act) {
+                    $res = $this->db->get_where('media_actors', array('Id' => $act))->row_array();
+
+                    if (empty($res['Image'])) {
+                        $res['Image_t'] = '/assets/images/portrait.jpg';
+                    } else {
+                        if (strpos($res['Image'], 'http://') !== false || strpos($res['Image'], 'https://') !== false) {
+                            $res['Image_t'] = $res['Image'];
+                        } else {
+                            $res['Image_t'] = $this->cfgs['img_url'] . $res['Image'];
+                        }
+                    }
+                    $acs[] = $res;
+
+                    $name = $res['Name'];
+                    if ($str) $str = $str . ' / ' . $name;
+                    else $str = $name;
+                }
+            }
+            $v['actors_txt'] = $str;
         }
 
+
+        // 最新电影
+        $movieid = 5;
         $query = $this->db
             ->select('
                 media_movies.*, 
@@ -79,10 +110,11 @@ class Home extends CI_Controller {
             ->where('Status', '<>',4)
             ->join('media_type', 'media_type.Id = media_movies.Type', 'left')
             ->join('media_cats', 'media_cats.Id = media_movies.Cats', 'left')
+            ->where('media_cats.Pid', $movieid)
             ->join('media_country', 'media_country.Code = media_movies.Country', 'left')
-            ->limit($limit, $offset);
+            ->limit(21, 0);
 
-        $movie = $query->order_by('Update_time', 'DESC')->get()->result_array();  //获取最新电影
+        $movie = $query->order_by('media_movies.Update_time', 'DESC')->get()->result_array();  //获取最新电影
 
         foreach ($movie as &$v) {
             if (empty($v['Image_big'])) {
@@ -94,8 +126,36 @@ class Home extends CI_Controller {
                     $v['Image_big_t'] = $this->cfgs['img_url'] . $v['Image_big'];
                 }
             }
+
+            $str = '';
+            $acs = [];
+            if($v['Actors']) {
+                $Actors = explode(',', $v['Actors']);
+                foreach ($Actors as $act) {
+                    $res = $this->db->get_where('media_actors', array('Id' => $act))->row_array();
+
+                    if (empty($res['Image'])) {
+                        $res['Image_t'] = '/assets/images/portrait.jpg';
+                    } else {
+                        if (strpos($res['Image'], 'http://') !== false || strpos($res['Image'], 'https://') !== false) {
+                            $res['Image_t'] = $res['Image'];
+                        } else {
+                            $res['Image_t'] = $this->cfgs['img_url'] . $res['Image'];
+                        }
+                    }
+                    $acs[] = $res;
+
+                    $name = $res['Name'];
+                    if ($str) $str = $str . ' / ' . $name;
+                    else $str = $name;
+                }
+            }
+            $v['actors_txt'] = $str;
         }
 
+
+        // 热播电视剧
+        $tvid = 7;
         $query = $this->db
             ->select('
                 media_movies.*, 
@@ -108,10 +168,11 @@ class Home extends CI_Controller {
             ->where('Status', '<>',4)
             ->join('media_type', 'media_type.Id = media_movies.Type', 'left')
             ->join('media_cats', 'media_cats.Id = media_movies.Cats', 'left')
+            ->where('media_cats.Pid', $tvid)
             ->join('media_country', 'media_country.Code = media_movies.Country', 'left')
             ->limit($limit, $offset);
 
-        $tv = $query->order_by('Update_time', 'DESC')->get()->result_array();  //获取最新电视剧
+        $tv = $query->order_by('media_movies.Score', 'DESC')->get()->result_array();  //获取最新电视剧
 
         foreach ($tv as &$v) {
             if (empty($v['Image_big'])) {
@@ -123,8 +184,57 @@ class Home extends CI_Controller {
                     $v['Image_big_t'] = $this->cfgs['img_url'] . $v['Image_big'];
                 }
             }
+
+            $str = '';
+            $acs = [];
+            if($v['Actors']) {
+                $Actors = explode(',', $v['Actors']);
+                foreach ($Actors as $act) {
+                    $res = $this->db->get_where('media_actors', array('Id' => $act))->row_array();
+
+                    if (empty($res['Image'])) {
+                        $res['Image_t'] = '/assets/images/portrait.jpg';
+                    } else {
+                        if (strpos($res['Image'], 'http://') !== false || strpos($res['Image'], 'https://') !== false) {
+                            $res['Image_t'] = $res['Image'];
+                        } else {
+                            $res['Image_t'] = $this->cfgs['img_url'] . $res['Image'];
+                        }
+                    }
+                    $acs[] = $res;
+
+                    $name = $res['Name'];
+                    if ($str) $str = $str . ' / ' . $name;
+                    else $str = $name;
+                }
+            }
+            $v['actors_txt'] = $str;
         }
 
+        $ranking = $this->db
+            ->select('
+                media_movies.*, 
+                media_type.Name as type_txt, 
+                media_cats.Name as cat_txt,
+                media_country.Name as country_txt,
+                ')
+            ->from('media_movies')
+            ->where('Issue', 1)
+            ->where('Status', '<>',4)
+            ->join('media_type', 'media_type.Id = media_movies.Type', 'left')
+            ->join('media_cats', 'media_cats.Id = media_movies.Cats', 'left')
+            ->where('media_cats.Pid', $tvid)
+            ->join('media_country', 'media_country.Code = media_movies.Country', 'left')
+            ->limit(10, 0)
+            ->order_by('Score', 'RANDOM')
+            ->get()
+            ->result_array();  //获取热门影片
+
+        $data['ranking'] = $ranking;
+
+
+        // 综艺频道
+        $varietyid = 19;
         $query = $this->db
             ->select('
                 media_movies.*, 
@@ -137,10 +247,11 @@ class Home extends CI_Controller {
             ->where('Status', '<>',4)
             ->join('media_type', 'media_type.Id = media_movies.Type', 'left')
             ->join('media_cats', 'media_cats.Id = media_movies.Cats', 'left')
+            ->where('media_cats.Pid', $varietyid)
             ->join('media_country', 'media_country.Code = media_movies.Country', 'left')
-            ->limit($limit, $offset);
+            ->limit(12, 0);
 
-        $variety = $query->order_by('Update_time', 'DESC')->get()->result_array();  //获取最新综艺
+        $variety = $query->order_by('media_movies.Update_time', 'DESC')->get()->result_array();  //获取最新综艺
 
         foreach ($variety as &$v) {
             if (empty($v['Image_big'])) {
@@ -152,8 +263,21 @@ class Home extends CI_Controller {
                     $v['Image_big_t'] = $this->cfgs['img_url'] . $v['Image_big'];
                 }
             }
+
+            if (empty($v['Image'])) {
+                $v['Image_t'] = '/assets/images/no.jpg';
+            } else {
+                if (strpos($v['Image'], 'http://') !== false || strpos($v['Image'], 'https://') !== false) {
+                    $v['Image_t'] = $v['Image'];
+                } else {
+                    $v['Image_t'] = $this->cfgs['img_url'] . $v['Image'];
+                }
+            }
         }
 
+
+        // 精彩动漫
+        $cartoonid = 8;
         $query = $this->db
             ->select('
                 media_movies.*, 
@@ -166,10 +290,11 @@ class Home extends CI_Controller {
             ->where('Status', '<>',4)
             ->join('media_type', 'media_type.Id = media_movies.Type', 'left')
             ->join('media_cats', 'media_cats.Id = media_movies.Cats', 'left')
+            ->where('media_cats.Pid', $cartoonid)
             ->join('media_country', 'media_country.Code = media_movies.Country', 'left')
-            ->limit($limit, $offset);
+            ->limit(7, 0);
 
-        $cartoon = $query->order_by('Update_time', 'DESC')->get()->result_array();  //获取最新动漫
+        $cartoon = $query->order_by('media_movies.Update_time', 'DESC')->get()->result_array();  //获取最新动漫
 
         foreach ($cartoon as &$v) {
             if (empty($v['Image_big'])) {
@@ -202,13 +327,25 @@ class Home extends CI_Controller {
         $this->load->view('contact');
     }
 
-    public function movielist()
+    public function videolist()
     {
         $limit = 36;
         $offset = 0;
-        $movietyid = 5;
 
-        $cats = $this->db->get_where('media_cats', array('Pid' =>5))->result_array();  //电影
+        if($_GET['channel'] == 'movie') {
+            $channelid = 5;
+        } else if($_GET['channel'] == 'tv') {
+            $channelid = 7;
+        } else if($_GET['channel'] == 'variety') {
+            $channelid = 19;
+        } else if($_GET['channel'] == 'cartoon') {
+            $channelid = 8;
+        } else {
+            exit('Channel Undefined');
+        }
+
+
+        $cats = $this->db->get_where('media_cats', array('Pid' =>$channelid))->result_array();
         $tags = $this->db->get_where('media_tags')->result_array();  //标签
         $countrys = $this->db->get_where('media_country')->result_array();  //标签
 
@@ -272,7 +409,7 @@ class Home extends CI_Controller {
         }
 
         $query->join('media_cats', 'media_cats.Id = media_movies.Cats');
-        $query->where('media_cats.Pid', $movietyid);   // 电影
+        $query->where('media_cats.Pid', $channelid);   // 电影
 
         if ($sort == 'time') {
             $query->order_by('media_movies.Update_time', 'DESC');
@@ -304,6 +441,7 @@ class Home extends CI_Controller {
         $data['page'] = $page;   //当前页
         $data['pages'] = $pages;   //页数
         $data['pages_show'] = $pages_show;   //显示哪些页
+        $data['channel'] = $_GET['channel'];
 
 
         $query->limit($limit, $offset);
@@ -323,7 +461,7 @@ class Home extends CI_Controller {
         }
 
         $data['movies'] = $movies;
-        $this->load->view('movielist', $data);
+        $this->load->view('videolist', $data);
     }
 
     public function player()

@@ -45,7 +45,7 @@
             <div class="stui-header_bd clearfix">
                 <div class="stui-header__logo">
                     <a href="<?php echo site_url('home/index');?>" class="logo--normal">
-                        <img src="<?php echo $this->configs['site_logo']; ?>" alt="Logo" width="140px;">
+                        <img src="<?php echo $this->configs['site_logo']; ?>" alt="Logo" width="110em">
                     </a>
                 </div>
                 <div class="stui-header__side">
@@ -63,13 +63,13 @@
                     <li>
                         <a href="<?php echo site_url('home/index');?>">首页</a></li>
                     <li>
-                        <a href="<?php echo site_url('home/movielist');?>">电影</a></li>
+                        <a href="<?php echo site_url('home/videolist');?>?channel=movie">电影</a></li>
                     <li>
-                        <a href="#">电视剧</a></li>
+                        <a href="<?php echo site_url('home/videolist');?>?channel=tv">电视剧</a></li>
                     <li>
-                        <a href="#">动漫</a></li>
+                        <a href="<?php echo site_url('home/videolist');?>?channel=variety">综艺</a></li>
                     <li>
-                        <a href="#">综艺</a></li>
+                        <a href="<?php echo site_url('home/videolist');?>?channel=cartoon">动漫</a></li>
                 </ul>
             </div>
         </div>
@@ -279,7 +279,7 @@
             $(th).parent().addClass('active');
         }
 
-        let url = "<?php echo site_url('home/movielist');?>";
+        let url = "<?php echo site_url('home/videolist');?>";
 
 
         // 获取搜索关键字
@@ -299,6 +299,8 @@
         // 获取页码
         let page = $('.pages').find('.active').find('a').eq(0).data('val');
 
-        window.location.href = url+'?arg='+arg+'&key='+key+'&cat='+cat+'&tag='+tag+'&cty='+cty+'&year='+year+'&lang='+lang+'&sort='+sort+'&page='+page;
+        let channel = "<?php echo $channel; ?>";
+
+        window.location.href = url+'?channel='+channel+'&arg='+arg+'&key='+key+'&cat='+cat+'&tag='+tag+'&cty='+cty+'&year='+year+'&lang='+lang+'&sort='+sort+'&page='+page;
     }
 </script>

@@ -179,10 +179,9 @@
 
 
     </style>
-    <title>新世界-极速影视 - 在线免费高清电影！</title>
+    <title>在线免费高清电影</title>
     <meta name="keywords" content="新世界,电影,视频大全,在线高清电影,付费电影,免费电影,剧集,电影,在线观看,VIP高清电影直播">
-    <meta name="description"
-          content="新世界,主要讲述新中国解放前夕，白纸坊警署小警察徐天在追查未婚妻贾小朵被害案件过程中，意外参与到中国共产党和平解放北平的事业当中。面对动荡的时局，金海、铁林和徐天三兄弟所处不同的位置，在...">
+    <meta name="description" content="">
     <script type="text/javascript" src="/static/js/mytheme-ui.js"></script>
     <script src="/static/js/flv.min.js"></script>
     <script src="/static/js/hls.min.js"></script>
@@ -282,24 +281,24 @@
                     <div class="stui-header_bd clearfix">
                         <div class="stui-header__logo">
                             <a href="<?php echo site_url('home/index');?>" class="logo--normal">
-                                <img src="<?php echo $this->configs['site_logo']; ?>" alt="Logo" width="140px;">
+                                <img src="<?php echo $this->configs['site_logo']; ?>" alt="Logo" width="110em">
                             </a>
                         </div>
                         <ul class="stui-header__menu">
                             <li class=""><a href="<?php echo site_url('home/index');?>">首页</a></li>
-                            <li class=" hidden-xs"><a href="<?php echo site_url('home/movielist');?>">电影</a></li>
+                            <li class=" hidden-xs"><a href="<?php echo site_url('home/videolist');?>?channel=movie">电影</a></li>
                             <li><a href="javascript:;">更多 <i class="icon iconfont icon-moreunfold"></i></a>
                                 <ul class="dropdown">
-                                    <li class=""><a href="#">电视剧</a></li>
-                                    <li class=""><a href="#">综艺</a></li>
-                                    <li class=""><a href="#">动漫</a></li>
+                                    <li class=""><a href="<?php echo site_url('home/videolist');?>?channel=tv">电视剧</a></li>
+                                    <li class=""><a href="<?php echo site_url('home/videolist');?>?channel=variety">综艺</a></li>
+                                    <li class=""><a href="<?php echo site_url('home/videolist');?>?channel=cartoon">动漫</a></li>
                                 </ul>
                             </li>
                         </ul>
                         <script type="text/javascript" src="/static/js/jquery.autocomplete.js"></script>
                         <div class="stui-header__search">
                             <input type="text" id="wd" name="wd" class="mac_wd form-control" value=""
-                                   placeholder="输入明星、影片关键词" onkeydown="if(event.keyCode==13){submi.click()}">
+                                   placeholder="请输入关键词..." onkeydown="if(event.keyCode==13){submi.click()}">
                             <button class="submit" id="submi" type="submit" onclick="submit()"><i
                                         class="icon iconfont icon-search"></i></button>
                             <a class="search-close visible-xs" href="javascript:;"><i
@@ -310,34 +309,6 @@
                 </div>
             </div>
         </header>
-
-        <div class="focusbanner">
-            <div class="container">
-<!--                <div class="js_login">-->
-<!---->
-<!--                    <a href="User_Login.asp" class="signin-loader" title="登录"><p class="btn btn-login">登录</p></a>&nbsp;-->
-<!--                    <div class="btn btn-user"><a href="UserReg.asp" class="signup-loader" title="注册">注册</a></div>&nbsp;-->
-<!---->
-<!--                </div>-->
-                <div class="banner">
-                    <div class="carousel">
-                        <div class="item"><a href="infodisp.asp?id=1916" title="唐人街探案3"><img
-                                        src="http://www.babaihao.com/uploadfile/ba33.jpg" class="img-responsive" alt="唐人街探案3"/></a>
-                        </div>
-                        <div class="item"><a href="infodisp.asp?id=1904" title="终结者6：黑暗命运"><img
-                                        src="http://www.babaihao.com/uploadfile/ba32.jpg" class="img-responsive"
-                                        alt="终结者6：黑暗命运"/></a></div>
-                        <div class="item"><a href="infodisp.asp?id=1915" title="叶问4"><img
-                                        src="http://www.babaihao.com/uploadfile/ba31.jpg" class="img-responsive" alt="叶问4"/></a>
-                        </div>
-                        <div class="item"><a href="infodisp.asp?id=1899" title="中国机长"><img
-                                        src="http://www.babaihao.com/uploadfile/ba30.jpg" class="img-responsive"
-                                        alt="中国机长"/></a></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
 
         <script type="text/javascript">
             $(".stui-header__user li,.stui-header__menu li").click(function () {

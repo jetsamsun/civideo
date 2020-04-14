@@ -22,7 +22,7 @@
                                                 </a>
                                             </li>
                                             <li class="mainmenu__item menu-item-has-children">
-                                                <a href="<?php echo site_url('home/movielist');?>" class="mainmenu__link">
+                                                <a href="<?php echo site_url('home/videolist');?>?channel=movie" class="mainmenu__link">
                                                     <span data-hover="电影" class="mm-text">电影</span>
                                                 </a>
 <!--                                                <ul class="sub-menu">-->
@@ -39,17 +39,17 @@
 <!--                                                </ul>-->
                                             </li>
                                             <li class="mainmenu__item">
-                                                <a href="#" class="mainmenu__link">
+                                                <a href="<?php echo site_url('home/videolist');?>?channel=tv" class="mainmenu__link">
                                                     <span data-hover="电视剧" class="mm-text">电视剧</span>
                                                 </a>
                                             </li>
                                             <li class="mainmenu__item">
-                                                <a href="#" class="mainmenu__link">
+                                                <a href="<?php echo site_url('home/videolist');?>?channel=variety" class="mainmenu__link">
                                                     <span data-hover="综艺" class="mm-text">综艺</span>
                                                 </a>
                                             </li>
                                             <li class="mainmenu__item">
-                                                <a href="#" class="mainmenu__link">
+                                                <a href="<?php echo site_url('home/videolist');?>?channel=cartoon" class="mainmenu__link">
                                                     <span data-hover="动漫" class="mm-text">动漫</span>
                                                 </a>
                                             </li>
