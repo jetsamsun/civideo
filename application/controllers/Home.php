@@ -282,8 +282,8 @@ class Home extends CI_Controller {
             ->select('
                 media_movies.*, 
                 media_type.Name as type_txt, 
-                media_cats.Name as cat_txt,
-                media_country.Name as country_txt,
+                media_cats.Name as cat_txt, 
+                media_country.Name as country_txt, 
                 ')
             ->from('media_movies')
             ->where('Issue', 1)
@@ -325,6 +325,95 @@ class Home extends CI_Controller {
     public function contact()
     {
         $this->load->view('contact');
+    }
+
+    public function search() {
+        $keyword = isset($_GET['wd'])?$_GET['wd']:'';
+
+
+        $query = $this->db->select('
+                media_movies.*,
+                media_type.Name as type_txt, 
+                media_cats.Name as cat_txt,
+                media_country.Name as country_txt,
+                ');
+        $query->from('media_movies');
+        if(!empty($keyword)) {
+            $query->like('media_movies.Name', $keyword, 'both');
+        }
+
+        $query->join('media_type', 'media_type.Id = media_movies.Type', 'left');
+        $query->join('media_cats', 'media_cats.Id = media_movies.Cats', 'left');
+        $query->join('media_country', 'media_country.Code = media_movies.Country', 'left');
+        $query->limit(10, 0);
+
+        $movies = $query->get()->result_array();
+        foreach ($movies as &$v) {
+            if (empty($v['Image_big'])) {
+                $v['Image_big_t'] = '/assets/images/no.jpg';
+            } else {
+                if (strpos($v['Image_big'], 'http://') !== false || strpos($v['Image_big'], 'https://') !== false) {
+                    $v['Image_big_t'] = $v['Image_big'];
+                } else {
+                    $v['Image_big_t'] = $this->cfgs['img_url'] . $v['Image_big'];
+                }
+            }
+
+            $str = '';
+            $acs = [];
+            if($v['Actors']) {
+                $Actors = explode(',', $v['Actors']);
+                foreach ($Actors as $act) {
+                    $res = $this->db->get_where('media_actors', array('Id' => $act))->row_array();
+
+                    if (empty($res['Image'])) {
+                        $res['Image_t'] = '/assets/images/portrait.jpg';
+                    } else {
+                        if (strpos($res['Image'], 'http://') !== false || strpos($res['Image'], 'https://') !== false) {
+                            $res['Image_t'] = $res['Image'];
+                        } else {
+                            $res['Image_t'] = $this->cfgs['img_url'] . $res['Image'];
+                        }
+                    }
+                    $acs[] = $res;
+
+                    $name = $res['Name'];
+                    if ($str) $str = $str . ' / ' . $name;
+                    else $str = $name;
+                }
+            }
+            $v['actors_txt'] = $str;
+
+            $str = '';
+            if($v['Directors']) {
+                $Directors = explode(',', $v['Directors']);
+                foreach ($Directors as $dtr) {
+                    $res = $this->db->get_where('media_actors', array('Id' => $dtr))->row_array();
+                    $name = $res['Name'];
+                    if ($str) $str = $str . '&nbsp;' . $name;
+                    else $str = $name;
+                }
+            }
+            $v['directors_txt'] = $str;
+
+
+            $str = '';
+            if($v['Tags']) {
+                $Tags = explode(',', $v['Tags']);
+                foreach ($Tags as $tg) {
+                    $res = $this->db->get_where('media_tags', array('Id' => $tg))->row_array();
+                    $name = $res['Name'];
+                    if ($str) $str = $str . '&nbsp;' . $name;
+                    else $str = $name;
+                }
+            }
+            $v['tags_txt'] = $str;
+        }
+
+        $data['movies'] = $movies;
+        $data['keyword'] = $keyword;
+
+        $this->load->view('search',$data);
     }
 
     public function videolist()

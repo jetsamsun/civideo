@@ -297,12 +297,14 @@
                         </ul>
                         <script type="text/javascript" src="/static/js/jquery.autocomplete.js"></script>
                         <div class="stui-header__search">
-                            <input type="text" id="wd" name="wd" class="mac_wd form-control" value=""
-                                   placeholder="请输入关键词..." onkeydown="if(event.keyCode==13){submi.click()}">
-                            <button class="submit" id="submi" type="submit" onclick="submit()"><i
-                                        class="icon iconfont icon-search"></i></button>
-                            <a class="search-close visible-xs" href="javascript:;"><i
-                                        class="icon iconfont icon-close"></i></a>
+                            <form action="<?php echo site_url('home/search');?>" class="">
+                                <input type="text" id="wd" name="wd" class="mac_wd form-control" value="<?php if(isset($keyword)) echo $keyword;?>"
+                                       placeholder="请输入关键词..." >
+                                <button class="submit" id="submi" type="submit" onclick="submit()"><i
+                                            class="icon iconfont icon-search"></i></button>
+                                <a class="search-close visible-xs" href="javascript:;"><i
+                                            class="icon iconfont icon-close"></i></a>
+                            </form>
                         </div>
 
                     </div>
@@ -380,7 +382,7 @@
                                 <!--仅当为剧集类型时显示end-->
                             </ul>
                             <h1 class="title" id="xuji"><a
-                                        href="javascript:void(0);" title="新世界"
+                                        href="javascript:void(0);" title="<?php echo $detail['Name']; ?>"
                                         id="movie_name"><?php echo $detail['Name']; ?></a><span class="js jjpos">第1集</span></h1>
                             <span class="text-muted">地区：</span><?php echo $detail['country_txt']; ?><span class="split-line"></span>
                             <span class="text-muted">年份：</span><?php echo $detail['Year']; ?><span class="split-line"></span>
@@ -433,7 +435,7 @@
                         <div class="stui-pannel-box">
                             <div class="stui-content__thumb">
                                 <a class="stui-vodlist__thumb picture v-thumb"
-                                   href="#" title="新世界">
+                                   href="#" title="<?php echo $detail['Name']; ?>">
                                     <img src="<?php echo $detail['Image_big_t']; ?>"
                                          data-original="<?php echo $detail['Image_big_t']; ?>"
                                          class="lazyload" alt="<?php echo $detail['Name']; ?>" title="<?php echo $detail['Name']; ?>" width="100%">

@@ -297,12 +297,14 @@
                         </ul>
                         <script type="text/javascript" src="/static/js/jquery.autocomplete.js"></script>
                         <div class="stui-header__search">
-                            <input type="text" id="wd" name="wd" class="mac_wd form-control" value=""
-                                   placeholder="请输入关键词..." onkeydown="if(event.keyCode==13){submi.click()}">
+                            <form action="<?php echo site_url('home/search');?>" class="">
+                            <input type="text" id="wd" name="wd" class="mac_wd form-control" value="<?php if(isset($keyword)) echo $keyword;?>"
+                                   placeholder="请输入关键词..." >
                             <button class="submit" id="submi" type="submit" onclick="submit()"><i
                                         class="icon iconfont icon-search"></i></button>
                             <a class="search-close visible-xs" href="javascript:;"><i
                                         class="icon iconfont icon-close"></i></a>
+                            </form>
                         </div>
 
                     </div>
