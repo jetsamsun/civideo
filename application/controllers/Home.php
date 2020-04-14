@@ -204,7 +204,7 @@ class Home extends CI_Controller {
 
     public function movielist()
     {
-        $limit = 2;
+        $limit = 36;
         $offset = 0;
         $movietyid = 5;
 
@@ -285,14 +285,17 @@ class Home extends CI_Controller {
         $query_count = clone($query);
         $total = $query_count->count_all_results();
         $pages = ceil($total / $limit);  //页数
+        if($pages == 0) $pages = 1;
         if($page > $pages) $page = 1;
         $offset = $limit * ($page-1);
 
-        $show_num = 5;
-        $last = $page < $show_num ? $show_num : ($page + 1 > $pages ? $pages : $page + 1);
+
+        $show_page_num = 5;
+        $last = $page < $show_page_num ? ($pages < $show_page_num ? $pages : $show_page_num) : ($page + 1 > $pages ? $pages : $page + 1);  //最后一位页码
         $pages_show = [];
-        while ($show_num--) {
+        while ($last && $show_page_num) {
             $pages_show[] = $last--;
+            $show_page_num--;
         }
         $pages_show = array_reverse($pages_show);
 
