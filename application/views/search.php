@@ -199,6 +199,13 @@
         </div>
     </div>
     <?php } ?>
+    <?php if(empty($movies)) { ?>
+        <div class="stui-pannel-box">
+            <div class="stui-content__detail">
+                <h1 class="title">没有相关影片！</h1>
+            </div>
+        </div>
+    <?php } ?>
     <!--循环显示结果结束-->
 
     <br><br>
